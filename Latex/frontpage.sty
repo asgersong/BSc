@@ -1,0 +1,125 @@
+%%
+
+%%
+% The following code is borrowed from: http://tex.stackexchange.com/a/86310/10898
+%-------------------------------------------------------------------------------
+%                Required Packages
+%-------------------------------------------------------------------------------
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{epigraph}
+
+
+%-------------------------------------------------------------------------------
+% Header funktion
+%-------------------------------------------------------------------------------
+
+\newenvironment{frontheader}
+{
+	% Title font
+	\DeclareFixedFont{\titlefont}{T1}{ppl}{b}{it}{0.5in}
+	% Make the line go the width of the page
+	\renewcommand\epigraphflush{flushright}
+	\renewcommand\epigraphsize{\normalsize}
+	\setlength\epigraphwidth{1\textwidth}
+	% Functions for the text
+	\newcommand{\headtitle}[1] {\def\headtitle_name{##1}}
+	\newcommand{\subtitle}[1] {\def\subtitle_name{##1}}
+	\newcommand{\type}[1] {\def\type_name{##1}}
+	\newcommand{\location}[1] {\def\location_name{##1}}
+	\newcommand{\group}[1] {\def\group_name{##1}}
+	\newcommand{\supervisor}[1] {\def\supervisor_name{##1}}
+	\renewcommand{\date}[1] {\def\date_name{##1}}
+}
+{
+	\noindent\ignorespaces
+	\titlefont \headtitle_name\\[0.7\baselineskip]%
+	\titlefont \subtitle_name\par%
+	\epigraph{
+		\textbf{\type_name}\newline
+		\textit{\location_name}\newline
+		\group_name\newline
+	}
+	{
+		\textit{\supervisor_name}\\
+		\textit{\date_name}
+	}
+	
+	% Pushing content down
+	\null\vfill
+	\par\noindent%
+	\ignorespacesafterend%
+}
+
+
+%-------------------------------------------------------------------------------
+% Student table
+%-------------------------------------------------------------------------------
+\newenvironment{studenttable}[1]
+{
+	\newcommand{\student}[3]
+	{
+		##1 &- ##2 &- ##3 \\
+	}
+	\begin{minipage}{#1\linewidth}
+		\begin{flushleft}
+			\normalsize
+			\begin{tabular}{l l l@{\hskip 0.5in}|}
+				& & \\
+}
+{
+				& & 
+			\end{tabular}
+		\end{flushleft}
+	\end{minipage}
+}
+
+
+%-------------------------------------------------------------------------------
+% Blue graphic on the frontpage
+%-------------------------------------------------------------------------------
+\newcommand\titlepagedecoration{
+% Make the graphic reach the border of the paper
+\vspace*{1cm}
+\begin{tikzpicture}[remember picture,overlay,shorten >= -10pt]
+
+\definecolor{titlepagecolor}{cmyk}{1,.60,0,.40}
+
+\coordinate (aux1) at ([yshift=-15pt]current page.north east);
+\coordinate (aux2) at ([yshift=-410pt]current page.north east);
+\coordinate (aux3) at ([xshift=-4.5cm]current page.north east);
+\coordinate (aux4) at ([yshift=-150pt]current page.north east);
+
+\begin{scope}[titlepagecolor!40,line width=12pt,rounded corners=12pt]
+\draw
+  (aux1) -- coordinate (a)
+  ++(225:5) --
+  ++(-45:5.1) coordinate (b);
+\draw[shorten <= -10pt]
+  (aux3) --
+  (a) --
+  (aux1);
+\draw[opacity=0.6,titlepagecolor,shorten <= -10pt]
+  (b) --
+  ++(225:2.2) --
+  ++(-45:2.2);
+\end{scope}
+\draw[titlepagecolor,line width=8pt,rounded corners=8pt,shorten <= -10pt]
+  (aux4) --
+  ++(225:0.8) --
+  ++(-45:0.8);
+\begin{scope}[titlepagecolor!70,line width=6pt,rounded corners=8pt]
+\draw[shorten <= -10pt]
+  (aux2) --
+  ++(225:3) coordinate[pos=0.45] (c) --
+  ++(-45:3.1);
+\draw
+  (aux2) --
+  (c) --
+  ++(135:2.5) --
+  ++(45:2.5) --
+  ++(-45:2.5) coordinate[pos=0.3] (d);   
+\draw 
+  (d) -- +(45:1);
+\end{scope}
+\end{tikzpicture} }

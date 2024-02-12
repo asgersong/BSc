@@ -1,0 +1,26 @@
+\documentclass[a4paper,twoside, 12pt]{memoir} %A4papir, to side, størrelse 12, type memoir 	
+% For dansk opsætning med æ, ø og å, samt pænere orddeling.
+\usepackage[utf8]{inputenc}	
+
+\input{preamble}
+\begin{document}
+\include{frontpage}
+\chapter*{Preface}
+
+\chapter*{Abstract}
+
+\chapter*{Acknowledgements}
+\tableofcontents*
+
+%% Here is where you can include your chapters
+\include{Introduction}
+\include{LiteratureReview}
+\include{TheoreticalFoundations}
+\include{Methodology}
+\include{Implementation}
+\include{EvaluationAndResults}
+\include{Discussion}
+\include{Conclusion}
+%%
+
+\end{document}
