@@ -1,3 +1,39 @@
+% \chapter{Methodology}
+
+% \section{Educational Synergy Development}
+
+% \section{Software Engineering Application}
+
+
+% \section{Evaluation Method}
+%     This section delves into the methodology employed by ... to compress the Flan-T5-Base model using low rank decomposition, a technique pivotal for reducing model size while striving to maintain its computational and task-specific performance. This process is not only emblematic of the practical application of linear algebra in LLMs but also serves as a case study for the broader implications of mathematical principles in software engineering. Through a detailed evaluation of this compression technique, the aim is to shed light on its effectiveness, thereby contributing to the ongoing dialogue on the synergy between linear algebra, LLMs, and software engineering practices.
+
+%     \subsection{Compression of LLM (Flan-T5-Base) Using Low Rank Decomposition}
+%         This study aims to replicate and extend the findings of Siddharth Sharma's research on reducing the parameter size of the Flan-T5-Base model using low rank decomposition of attention weight matrices. Low rank decomposition approximates dense matrices within neural networks' attention mechanisms by two lower-dimensional matrices, significantly reducing the model's parameter count while aiming to maintain its original performance. The following methodology outlines the steps taken to achieve this compression.
+
+%         \textbf{Decomposition Technique:} Following Sharma's methodology, we employ Singular Value Decomposition (SVD) to factorize the dense matrices (Key, Query, Value, and Output) of the Flan-T5-Base model's attention mechanism. This factorization results in two matrices: a tall and skinny matrix \(U\) and a second matrix \(V\), with their product approximating the original matrix.
+
+%         \textbf{Selection of Rank \(r\):} The rank \(r\)—significantly smaller than the original dimensions of the attention matrices—is chosen based on the observed spectrum decay pattern of singular values. This decay indicates the intrinsic dimensionality and informs the selection of \(r\) to balance compression and performance retention.
+
+%         \textbf{Implementation:} A custom \texttt{LowRankLayer} class replaces the original attention layers. This class uses the decomposed matrices to perform the attention mechanism's calculations at a reduced computational cost.
+
+%         \textbf{Compression Configuration:} We utilize a \texttt{LowRankConfig} data structure to specify the target matrices for compression and the selected rank \(r\), as shown in the referenced study.
+
+%     \subsection{Metrics for Evaluation}
+%         The effectiveness of the low rank decomposition approach is evaluated through a series of performance and efficiency metrics. These metrics aim to quantify the impact of compression on both the model's operational characteristics and its task-specific performance.
+
+%         \textbf{Model Size Reduction:} The primary metric is the percentage reduction in the total number of parameters, reflecting the efficiency of the compression technique.
+
+%         \textbf{Inference Latency:} The time taken for the model to produce outputs is measured to assess the impact of compression on operational speed.
+
+%         \textbf{Task-Specific Performance:} Following the original study, we evaluate the compressed model's performance on a summarization task using the Samsum dataset. Metrics include ROUGE-1, ROUGE-2, and ROUGE-L scores, comparing the baseline Flan-T5-Base model with its compressed counterpart.
+
+%         \textbf{Frobenius Norm Difference:} We also measure the Frobenius norm of the difference between the original and approximated weight matrices, providing insight into the loss of information due to compression.
+
+%         \textbf{Cosine Similarity:} The similarity between outputs from the original and compressed models when processing the same input is evaluated using cosine similarity, offering a direct measure of performance retention.
+
+%         This comprehensive evaluation method allows for a nuanced understanding of the trade-offs involved in model compression, balancing the benefits of reduced size and increased efficiency with the imperative of maintaining high levels of task-specific performance.
+
 \chapter{Methodology}
 
 \section{Educational Synergy Development}
@@ -5,7 +41,41 @@
 \section{Software Engineering Application}
 
 \section{Evaluation Method}
-    \subsection{Compression of LLM (Flan-T5-Base) Using Low Rank Decomposition}
+    Optimizing Large Language Models (LLMs) for efficiency and performance without compromising their effectiveness is a critical area of research in the field of artificial intelligence. Various techniques have been developed to address this challenge, each employing unique strategies to reduce computational resources, decrease model size, and maintain, if not improve, the model's performance. This section explores the general methodologies applied in the optimization of LLMs, focusing particularly on model compression techniques. Among these, Low-Rank Adaptation (LoRA) stands out as a significant innovation, offering a balance between model efficiency and task performance.
+
+    \subsection{General Optimizations for LLMs}
+        Optimization techniques for LLMs can be broadly categorized into two: model pruning and parameter sharing. Model pruning involves systematically removing parameters or connections within the model that contribute the least to its output, thereby reducing its size and complexity. Parameter sharing, on the other hand, reuses the model's parameters across different parts of the model or across different tasks, efficiently leveraging the model's capacity.
+
+    \subsection{Low-Rank Adaptation (LoRA)}
+        Low-Rank Adaptation (LoRA) introduces an efficient technique for adapting large pre-trained models like GPT-3 to specific tasks without the need for extensive retraining of all model parameters. This approach leverages the observation that despite the high parameter count in large neural models, their effective operational space often exhibits a significantly lower intrinsic dimensionality.
+
+        \paragraph{Theoretical Foundation}
+        At the core of LoRA is the adaptation of weight matrices \(W \in \mathbb{R}^{d \times d}\) through the introduction of low-rank matrices \(A \in \mathbb{R}^{d \times r}\) and \(B \in \mathbb{R}^{r \times d}\), where \(r \ll d\). This results in the adapted weight matrix \(W'\) being represented as:
+        \begin{equation}
+            W' = W + BA
+        \end{equation}
+        Here, \(r\) denotes the rank and serves as a crucial parameter that balances the efficiency and expressiveness of the adaptation. This formulation ensures that the pre-trained weights (\(W\)) remain unchanged, preserving the foundational knowledge acquired during pre-training, while \(A\) and \(B\) encapsulate the task-specific adjustments.
+
+        \paragraph{Advantages}
+        LoRA's methodology brings forth several advantages:
+        \begin{itemize}
+            \item \textbf{Parameter Efficiency:} By optimizing the low-rank matrices \(A\) and \(B\), LoRA significantly reduces the number of trainable parameters, leading to efficient storage and faster adaptation processes.
+            \item \textbf{Preservation of Pre-trained Knowledge:} The approach ensures that the valuable knowledge captured in the pre-trained model is retained, making it particularly beneficial for adapting computationally expensive models like GPT-3.
+            \item \textbf{Flexibility and Scalability:} LoRA's adaptive process is highly scalable and flexible, making it possible to adapt large models to various tasks with minimal computational overhead.
+        \end{itemize}
+
+        \paragraph{Practical Implementation}
+        Implementing LoRA involves selecting the transformer layers most relevant to the target task and applying the low-rank adaptations. The process requires initializing \(A\) and \(B\), choosing an appropriate rank \(r\), and training these matrices while keeping the rest of the model parameters fixed. This strategy allows for the efficient adaptation of large-scale models to specific tasks, significantly reducing the need for computational resources compared to traditional full model retraining.
 
     \subsection{Metrics for Evaluation}
+        Evaluating the effectiveness of optimization techniques like LoRA involves several key metrics:
+        
+        \textbf{Model Size Reduction:} A primary metric is the reduction in the total number of parameters, indicating the efficiency of the compression technique.
+        
+        \textbf{Inference Speed:} The impact on the model's inference latency is critical, especially for applications requiring real-time responses.
+        
+        \textbf{Performance Retention:} The maintenance of task-specific performance, measured through metrics such as accuracy, F1 score, or ROUGE scores for language tasks, is essential to ensure the utility of the compressed model.
+        
+        \textbf{Computational Efficiency:} The reduction in computational resources required for training and inference reflects the practical benefits of the optimization technique.
 
+        These metrics provide a comprehensive framework for assessing the trade-offs involved in LLM optimization, guiding the development and application of techniques like LoRA in enhancing the practical utility of state-of-the-art language models.
