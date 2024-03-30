@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  26 FEB 2024 14:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  30 MAR 2024 20:43
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1350,7 +1350,7 @@ Package biblatex Info: Reference segment=0 on input line 6.
 \openout2 = `frontpage.aux'.
 
  (./frontpage.tex
-<./figs/alt-logo-t-003d85-en.pdf, id=143, 519.42053pt x 48.37021pt>
+<./figs/alt-logo-t-003d85-en.pdf, id=189, 519.42053pt x 48.37021pt>
 File: ./figs/alt-logo-t-003d85-en.pdf Graphic file (type pdf)
 <use ./figs/alt-logo-t-003d85-en.pdf>
 Package pdftex.def Info: ./figs/alt-logo-t-003d85-en.pdf  used on input line 2.
@@ -1443,70 +1443,85 @@ l.16 \chapter
 
 
 
-]) [11]
+] [11] [12]
+<figs/transform_model.png, id=328, 323.2075pt x 459.7175pt>
+File: figs/transform_model.png Graphic file (type png)
+<use figs/transform_model.png>
+Package pdftex.def Info: figs/transform_model.png  used on input line 68.
+(pdftex.def)             Requested size: 213.0pt x 302.96555pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[13] [14 <./figs/transform_model.png>]
+Overfull \hbox (3.23524pt too wide) in paragraph at lines 96--97
+[]\T1/lmr/m/n/12 The Trans-former model has sev-eral ad-van-tages over tra-di-tional RNNs and LSTMs,
+ []
+
+[15]) [16]
 \openout2 = `Methodology.aux'.
 
- (./Methodology.tex [12
+ (./Methodology.tex [17
 
 
 
 
-] [13]) [14] [15]
+]) [18] [19]
 \openout2 = `Implementation.aux'.
 
- (./Implementation.tex [16
-
-
-
-
-]) [17]
-\openout2 = `EvaluationAndResults.aux'.
-
- (./EvaluationAndResults.tex [18
-
-
-
-
-]) [19]
-\openout2 = `Discussion.aux'.
-
- (./Discussion.tex [20
+ (./Implementation.tex [20
 
 
 
 
 ]) [21]
-\openout2 = `Conclusion.aux'.
+\openout2 = `EvaluationAndResults.aux'.
 
- (./Conclusion.tex [22
+ (./EvaluationAndResults.tex [22
 
 
 
 
 ]) [23]
+\openout2 = `Discussion.aux'.
+
+ (./Discussion.tex [24
+
+
+
+
+]) [25]
+\openout2 = `Conclusion.aux'.
+
+ (./Conclusion.tex [26
+
+
+
+
+]) [27]
 \tf@toc=\write7
 \openout7 = `bachelorproject.toc'.
 
  (./bachelorproject.aux (./frontpage.aux) (./Introduction.aux) (./LiteratureReview.aux) (./TheoreticalFoundations.aux) (./Methodology.aux) (./Implementation.aux) (./EvaluationAndResults.aux) (./Discussion.aux) (./Conclusion.aux))
 Package rerunfilecheck Info: File `bachelorproject.out' has not changed.
-(rerunfilecheck)             Checksum: C43488C1EC6215D60C79820EFF4F4B76;6357.
+(rerunfilecheck)             Checksum: C2A75CD5506AEB01F8039892980E9802;8305.
 Package logreq Info: Writing requests to 'bachelorproject.run.xml'.
 \openout1 = `bachelorproject.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37419 strings out of 478268
- 686966 string characters out of 5846348
- 1413965 words of memory out of 5000000
- 54912 multiletter control sequences out of 15000+600000
- 524090 words of font info for 65 fonts, out of 8000000 for 9000
+ 37490 strings out of 478268
+ 688051 string characters out of 5846348
+ 1414390 words of memory out of 5000000
+ 54952 multiletter control sequences out of 15000+600000
+ 538898 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,12n,108p,1917b,2177s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on bachelorproject.pdf (25 pages, 206321 bytes).
+ 108i,12n,108p,1917b,2208s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on bachelorproject.pdf (29 pages, 425379 bytes).
 PDF statistics:
- 379 PDF objects out of 1000 (max. 8388607)
- 323 compressed objects within 4 object streams
- 63 named destinations out of 1000 (max. 500000)
- 290 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 498 PDF objects out of 1000 (max. 8388607)
+ 425 compressed objects within 5 object streams
+ 86 named destinations out of 1000 (max. 500000)
+ 391 words of extra memory for PDF output out of 10000 (max. 10000000)
 
