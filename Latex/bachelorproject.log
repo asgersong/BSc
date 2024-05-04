@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  30 MAR 2024 20:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  5 MAY 2024 01:30
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -868,7 +868,7 @@ Package biblatex Info: ... file 'blx-dm.def' found.
 File: blx-dm.def 2022/02/02 v3.17 biblatex localization (PK/MW)
 )
 Package biblatex Info: Trying to load biblatex style data model...
-Package biblatex Info: ... file 'ieee.dbx' not found.
+Package biblatex Info: ... file 'authoryear.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
 \c@afterword=\count409
@@ -992,52 +992,28 @@ Package biblatex Info: ... file 'blx-natbib.def' found.
 File: blx-natbib.def 2022/02/02 v3.17 biblatex compatibility (PK/MW)
 Package biblatex Info: Delimiter 'nameyeardelim' in context '' already defined, overwriting.
 )
-Package biblatex Info: Trying to load bibliography style 'ieee'...
-Package biblatex Info: ... file 'ieee.bbx' found.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex-ieee/ieee.bbx
-File: ieee.bbx 2021/12/06 v1.3f biblatex bibliography style
-Package biblatex Info: Trying to load bibliography style 'numeric-comp'...
-Package biblatex Info: ... file 'numeric-comp.bbx' found.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/bbx/numeric-comp.bbx
-File: numeric-comp.bbx 2022/02/02 v3.17 biblatex bibliography style (PK/MW)
-Package biblatex Info: Trying to load bibliography style 'numeric'...
-Package biblatex Info: ... file 'numeric.bbx' found.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
-File: numeric.bbx 2022/02/02 v3.17 biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'authoryear'...
+Package biblatex Info: ... file 'authoryear.bbx' found.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/bbx/authoryear.bbx
+File: authoryear.bbx 2022/02/02 v3.17 biblatex bibliography style (PK/MW)
 Package biblatex Info: Trying to load bibliography style 'standard'...
 Package biblatex Info: ... file 'standard.bbx' found.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2022/02/02 v3.17 biblatex bibliography style (PK/MW)
 \c@bbx:relatedcount=\count486
 \c@bbx:relatedtotal=\count487
-))))
-Package biblatex Info: Trying to load citation style 'ieee'...
-Package biblatex Info: ... file 'ieee.cbx' found.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex-ieee/ieee.cbx
-File: ieee.cbx 2021/12/06 v1.3f biblatex citation style
-Package biblatex Info: Trying to load citation style 'numeric-comp'...
-Package biblatex Info: ... file 'numeric-comp.cbx' found.
- (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/cbx/numeric-comp.cbx
-File: numeric-comp.cbx 2022/02/02 v3.17 biblatex citation style (PK/MW)
-\c@cbx@tempcnta=\count488
-\c@cbx@tempcntb=\count489
-\c@cbx@tempcntc=\count490
-\c@cbx@tempcntd=\count491
+))
+Package biblatex Info: Trying to load citation style 'authoryear'...
+Package biblatex Info: ... file 'authoryear.cbx' found.
+ (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/cbx/authoryear.cbx
+File: authoryear.cbx 2022/02/02 v3.17 biblatex citation style (PK/MW)
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
 Package biblatex Info: Redefining '\footcitetext'.
 Package biblatex Info: Redefining '\smartcite'.
-Package biblatex Info: Redefining '\supercite'.
 Package biblatex Info: Redefining '\textcite'.
 Package biblatex Info: Redefining '\textcites'.
-Package biblatex Info: Redefining '\cites'.
-Package biblatex Info: Redefining '\parencites'.
-Package biblatex Info: Redefining '\smartcites'.
-)
-Package biblatex Info: Redefining '\cite'.
-Package biblatex Info: Redefining '\supercite'.
-Package biblatex Info: Redefining '\cites'.
 )
 Package biblatex Info: Trying to load configuration file...
 Package biblatex Info: ... file 'biblatex.cfg' found.
@@ -1050,7 +1026,7 @@ Package biblatex Info: Document encoding is UTF8 ....
 Package: expl3 2022-02-24 L3 programming layer (loader) 
  (/usr/local/texlive/2022/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-02-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count492
+\l__color_backend_stack_int=\count488
 \l__pdf_internal_box=\box65
 ))
 Package biblatex Info: ... and expl3
@@ -1091,14 +1067,14 @@ Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@yd=\dimen293
 \w@pgf@writea=\write5
 \r@pgf@reada=\read6
-\c@pgf@counta=\count493
-\c@pgf@countb=\count494
-\c@pgf@countc=\count495
-\c@pgf@countd=\count496
+\c@pgf@counta=\count489
+\c@pgf@countb=\count490
+\c@pgf@countc=\count491
+\c@pgf@countd=\count492
 \t@pgf@toka=\toks52
 \t@pgf@tokb=\toks53
 \t@pgf@tokc=\toks54
-\pgf@sys@id@count=\count497
+\pgf@sys@id@count=\count493
  (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
 )
@@ -1109,21 +1085,21 @@ File: pgfsys-pdftex.def 2021/05/15 v3.1.9a (3.1.9a)
 File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
 ))) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfsyssoftpath@smallbuffer@items=\count498
-\pgfsyssoftpath@bigbuffer@items=\count499
+\pgfsyssoftpath@smallbuffer@items=\count494
+\pgfsyssoftpath@bigbuffer@items=\count495
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
  (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen294
-\pgfmath@count=\count500
+\pgfmath@count=\count496
 \pgfmath@box=\box67
 \pgfmath@toks=\toks55
 \pgfmath@stack@operand=\toks56
 \pgfmath@stack@operation=\toks57
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex))) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count501
+\c@pgfmathroundto@lastzeros=\count497
 )) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@picminx=\dimen295
@@ -1153,7 +1129,7 @@ File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfpic=\box68
 \pgf@hbox=\box69
 \pgf@layerbox@main=\box70
-\pgf@picture@serial@count=\count502
+\pgf@picture@serial@count=\count498
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgflinewidth=\dimen313
@@ -1174,8 +1150,8 @@ File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgf@max=\dimen318
-\pgf@sys@shading@range@num=\count503
-\pgf@shadingcount=\count504
+\pgf@sys@shading@range@num=\count499
+\pgf@shadingcount=\count500
 ) (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
  (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
@@ -1211,7 +1187,7 @@ Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
 Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
  (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgf@plot@mark@count=\count505
+\pgf@plot@mark@count=\count501
 \pgfplotmarksize=\dimen323
 )
 \tikz@lastx=\dimen324
@@ -1226,36 +1202,36 @@ File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \tikz@figbox@bg=\box74
 \tikz@tempbox=\box75
 \tikz@tempbox@bg=\box76
-\tikztreelevel=\count506
-\tikznumberofchildren=\count507
-\tikznumberofcurrentchild=\count508
-\tikz@fig@count=\count509
+\tikztreelevel=\count502
+\tikznumberofchildren=\count503
+\tikznumberofcurrentchild=\count504
+\tikz@fig@count=\count505
  (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-\pgfmatrixcurrentrow=\count510
-\pgfmatrixcurrentcolumn=\count511
-\pgf@matrix@numberofcolumns=\count512
+\pgfmatrixcurrentrow=\count506
+\pgfmatrixcurrentcolumn=\count507
+\pgf@matrix@numberofcolumns=\count508
 )
-\tikz@expandcount=\count513
+\tikz@expandcount=\count509
  (/usr/local/texlive/2022/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )))) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.sty
-\lst@mode=\count514
+\lst@mode=\count510
 \lst@gtempboxa=\box77
 \lst@token=\toks60
-\lst@length=\count515
+\lst@length=\count511
 \lst@currlwidth=\dimen332
-\lst@column=\count516
-\lst@pos=\count517
+\lst@column=\count512
+\lst@pos=\count513
 \lst@lostspace=\dimen333
 \lst@width=\dimen334
-\lst@newlines=\count518
-\lst@lineno=\count519
+\lst@newlines=\count514
+\lst@lineno=\count515
 \lst@maxwidth=\dimen335
  (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count520
-\lst@skipnumbers=\count521
+\c@lstnumber=\count516
+\lst@skipnumbers=\count517
 \lst@framebox=\box78
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
@@ -1266,42 +1242,46 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'english'.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 6.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 5.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (./bachelorproject.aux (./frontpage.aux) (./Introduction.aux) (./LiteratureReview.aux) (./TheoreticalFoundations.aux) (./Methodology.aux) (./Implementation.aux) (./EvaluationAndResults.aux) (./Discussion.aux) (./Conclusion.aux))
+) (./bachelorproject.aux (./frontpage.aux) (./Introduction.aux) (./LiteratureReview.aux) (./TheoreticalFoundations.aux
+
+LaTeX Warning: Label `eq:matrix_multiplication' multiply defined.
+
+) (./Methodology.aux) (./Implementation.aux) (./EvaluationAndResults.aux) (./Discussion.aux) (./Conclusion.aux))
 \openout1 = `bachelorproject.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
  (/usr/local/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count522
+\scratchcounter=\count518
 \scratchdimen=\dimen336
 \scratchbox=\box79
-\nofMPsegments=\count523
-\nofMParguments=\count524
+\nofMPsegments=\count519
+\nofMParguments=\count520
 \everyMPshowfont=\toks61
-\MPscratchCnt=\count525
+\MPscratchCnt=\count521
 \MPscratchDim=\dimen337
-\MPnumerator=\count526
-\makeMPintoPDFobject=\count527
+\MPnumerator=\count522
+\makeMPintoPDFobject=\count523
 \everyMPtoPDFconversion=\toks62
 ) (/usr/local/texlive/2022/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -1309,25 +1289,25 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2022/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 6.
-LaTeX Info: Redefining \ref on input line 6.
-LaTeX Info: Redefining \pageref on input line 6.
-LaTeX Info: Redefining \nameref on input line 6.
+Package hyperref Info: Link coloring OFF on input line 5.
+LaTeX Info: Redefining \ref on input line 5.
+LaTeX Info: Redefining \pageref on input line 5.
+LaTeX Info: Redefining \nameref on input line 5.
  (./bachelorproject.out) (./bachelorproject.out)
 \@outlinefile=\write6
 \openout6 = `bachelorproject.out'.
 
-LaTeX Info: Redefining \Ref on input line 6.
+LaTeX Info: Redefining \Ref on input line 5.
 \symgns@font=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `gns@font' in version `bold'
-(Font)                  TS1/lmr/m/n --> TS1/lmr/b/n on input line 6.
-Package gensymb Info: Math companion symbols declared on input line 6.
-LaTeX Info: Redefining \degree on input line 6.
-LaTeX Info: Redefining \celsius on input line 6.
-Package gensymb Info: Using text companion symbols for \degree, \celsius and \perthousand on input line 6.
-LaTeX Info: Redefining \ohm on input line 6.
-Package gensymb Info: Using \textohm for \ohm on input line 6.
-Package gensymb Info: Using \textmu for \micro on input line 6.
+(Font)                  TS1/lmr/m/n --> TS1/lmr/b/n on input line 5.
+Package gensymb Info: Math companion symbols declared on input line 5.
+LaTeX Info: Redefining \degree on input line 5.
+LaTeX Info: Redefining \celsius on input line 5.
+Package gensymb Info: Using text companion symbols for \degree, \celsius and \perthousand on input line 5.
+LaTeX Info: Redefining \ohm on input line 5.
+Package gensymb Info: Using \textohm for \ohm on input line 5.
+Package gensymb Info: Using \textmu for \micro on input line 5.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/biblatex/lbx/english.lbx
@@ -1343,14 +1323,20 @@ Package biblatex Info: Data encoding 'ascii' specified.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'bachelorproject.bbl' found.
- (./bachelorproject.bbl)
-Package biblatex Info: Reference section=0 on input line 6.
-Package biblatex Info: Reference segment=0 on input line 6.
-\c@lstlisting=\count528
+ (./bachelorproject.bbl
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'McCarthy60':
+(biblatex)                - Invalid format of field 'month'.
+
+)
+Package biblatex Info: Reference section=0 on input line 5.
+Package biblatex Info: Reference segment=0 on input line 5.
+\c@lstlisting=\count524
 \openout2 = `frontpage.aux'.
 
  (./frontpage.tex
-<./figs/alt-logo-t-003d85-en.pdf, id=189, 519.42053pt x 48.37021pt>
+<./figs/alt-logo-t-003d85-en.pdf, id=240, 519.42053pt x 48.37021pt>
 File: ./figs/alt-logo-t-003d85-en.pdf Graphic file (type pdf)
 <use ./figs/alt-logo-t-003d85-en.pdf>
 Package pdftex.def Info: ./figs/alt-logo-t-003d85-en.pdf  used on input line 2.
@@ -1366,48 +1352,48 @@ Overfull \hbox (15.0pt too wide) in paragraph at lines 2--4
 {/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./figs/alt-logo-t-003d85-en.pdf>] [2
 
 ])
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 10.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 9.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 10.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 9.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 10.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 9.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 10.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 9.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 10.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 9.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 10.
+(Font)              <12> on input line 9.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 10.
+(Font)              <8> on input line 9.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 10.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 10.
+(Font)              <6> on input line 9.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 9.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 10.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 9.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 10.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 9.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.16 \chapter
+l.15 \chapter
              *{Abstract} [1
 
 
@@ -1416,7 +1402,7 @@ l.16 \chapter
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.16 \chapter
+l.15 \chapter
              *{Abstract} [2
 
 ] [3] [4
@@ -1435,93 +1421,124 @@ l.16 \chapter
 
 
 
-]) [9]
+] [9] [10] [11]) [12]
 \openout2 = `TheoreticalFoundations.aux'.
 
- (./TheoreticalFoundations.tex [10
+ (./TheoreticalFoundations.tex [13
 
 
 
 
-] [11] [12]
-<figs/transform_model.png, id=328, 323.2075pt x 459.7175pt>
+]
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 38.
+
+[14]
+<figs/transform_model.png, id=403, 323.2075pt x 459.7175pt>
 File: figs/transform_model.png Graphic file (type png)
 <use figs/transform_model.png>
-Package pdftex.def Info: figs/transform_model.png  used on input line 68.
+Package pdftex.def Info: figs/transform_model.png  used on input line 69.
 (pdftex.def)             Requested size: 213.0pt x 302.96555pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[13] [14 <./figs/transform_model.png>]
-Overfull \hbox (3.23524pt too wide) in paragraph at lines 96--97
+[15] [16 <./figs/transform_model.png>]
+Overfull \hbox (3.23524pt too wide) in paragraph at lines 97--98
 []\T1/lmr/m/n/12 The Trans-former model has sev-eral ad-van-tages over tra-di-tional RNNs and LSTMs,
  []
 
-[15]) [16]
+[17]) [18]
 \openout2 = `Methodology.aux'.
 
- (./Methodology.tex [17
+ (./Methodology.tex
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 13.
+
+[19
 
 
 
 
-]) [18] [19]
+] [20]
+<figs/insert.png, id=440, 485.815pt x 244.915pt>
+File: figs/insert.png Graphic file (type png)
+<use figs/insert.png>
+Package pdftex.def Info: figs/insert.png  used on input line 52.
+(pdftex.def)             Requested size: 170.3974pt x 85.90091pt.
+) [21 <./figs/insert.png>]
 \openout2 = `Implementation.aux'.
 
- (./Implementation.tex [20
-
-
-
-
-]) [21]
-\openout2 = `EvaluationAndResults.aux'.
-
- (./EvaluationAndResults.tex [22
+ (./Implementation.tex [22
 
 
 
 
 ]) [23]
-\openout2 = `Discussion.aux'.
+\openout2 = `EvaluationAndResults.aux'.
 
- (./Discussion.tex [24
+ (./EvaluationAndResults.tex [24
 
 
 
 
 ]) [25]
-\openout2 = `Conclusion.aux'.
+\openout2 = `Discussion.aux'.
 
- (./Conclusion.tex [26
+ (./Discussion.tex [26
 
 
 
 
 ]) [27]
+\openout2 = `Conclusion.aux'.
+
+ (./Conclusion.tex [28
+
+
+
+
+]) [29] [30
+
+
+
+] [31]
 \tf@toc=\write7
 \openout7 = `bachelorproject.toc'.
 
  (./bachelorproject.aux (./frontpage.aux) (./Introduction.aux) (./LiteratureReview.aux) (./TheoreticalFoundations.aux) (./Methodology.aux) (./Implementation.aux) (./EvaluationAndResults.aux) (./Discussion.aux) (./Conclusion.aux))
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package rerunfilecheck Info: File `bachelorproject.out' has not changed.
-(rerunfilecheck)             Checksum: C2A75CD5506AEB01F8039892980E9802;8305.
+(rerunfilecheck)             Checksum: BA23429B5AA330254D5EBE9BA53D8BBD;10678.
+
+Package biblatex Warning: Please (re)run BibTeX on the file(s):
+(biblatex)                bachelorproject
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'bachelorproject.run.xml'.
 \openout1 = `bachelorproject.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 37490 strings out of 478268
- 688051 string characters out of 5846348
- 1414390 words of memory out of 5000000
- 54952 multiletter control sequences out of 15000+600000
- 538898 words of font info for 70 fonts, out of 8000000 for 9000
+ 37681 strings out of 478268
+ 692180 string characters out of 5846348
+ 1413935 words of memory out of 5000000
+ 55128 multiletter control sequences out of 15000+600000
+ 544884 words of font info for 72 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,12n,108p,1917b,2208s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,12n,108p,1917b,2192s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on bachelorproject.pdf (29 pages, 425379 bytes).
+Output written on bachelorproject.pdf (33 pages, 459819 bytes).
 PDF statistics:
- 498 PDF objects out of 1000 (max. 8388607)
- 425 compressed objects within 5 object streams
- 86 named destinations out of 1000 (max. 500000)
- 391 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 611 PDF objects out of 1000 (max. 8388607)
+ 531 compressed objects within 6 object streams
+ 108 named destinations out of 1000 (max. 500000)
+ 500 words of extra memory for PDF output out of 10000 (max. 10000000)
 

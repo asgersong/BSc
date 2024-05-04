@@ -13,45 +13,46 @@ A typical case, representing a basic neural network operation, can be expressed 
 \end{equation}
 where $A$ is the weight matrix, $\mathbf{x}$ is the input vector, $\mathbf{b}$ is the bias vector, and $\mathbf{y}$ is the output vector of the transformation.
 
-\subsection{Eigenvalues and Eigenvectors}
-Eigenvalues and eigenvectors play a critical role in understanding the behavior of linear transformations characteristic of deep learning models. For matrix $A$, if there exists a vector $\mathbf{v} \neq 0$ such that:
-\begin{equation}
-    A\mathbf{v} = \lambda\mathbf{v}
-    \label{eq:eigen}
-\end{equation}
-then $\lambda$ is called an eigenvalue of $A$, and $\mathbf{v}$ is the corresponding eigenvector. This concept is pivotal in techniques like Principal Component Analysis (PCA), which reduces dimensionality for data visualization and preprocessing.
+\subsection{Matrix Operations}
+    Matrix operations such as addition, multiplication, and transposition are essential in neural network computations. Matrix multiplication, in particular, plays a crucial role in transforming data between layers, capturing the relationships between input and output features. The dot product of two matrices $A \in \mathbb{R}^{m \times n}$ and $B \in \mathbb{R}^{n \times p}$ is defined as:
+    \begin{equation}
+        C = AB = \sum_{i=1}^{n} A_{ij}B_{jk}
+        \label{eq:matrix_multiplication}
+    \end{equation}
+    where $C \in \mathbb{R}^{m \times p}$ is the resulting matrix. Matrix multiplication is a key operation in neural networks, enabling the transformation of input data through multiple layers of weights and biases.
+    
+    \subsubsection{Flops}
+    Floating-point operations (FLOPs) are a measure of the computational complexity of matrix operations. The number of FLOPs required for matrix multiplication is proportional to the product of the dimensions of the matrices involved. For example, the number of FLOPs for multiplying two matrices $A \in \mathbb{R}^{m \times n}$ and $B \in \mathbb{R}^{n \times p}$ is $2mnp$.
 
 \subsection{Singular Value Decomposition}
-Singular Value Decomposition (SVD) is a powerful technique for decomposing a matrix into singular vectors and singular values, providing insight into the structure of the data. For any matrix $A \in \mathbb{R}^{m \times n}$, SVD is given by:
-\begin{equation}
-    A = U\Sigma V^T
-    \label{eq:svd}
-\end{equation}
-where $U$ and $V$ are orthogonal matrices containing the left and right singular vectors, respectively, and $\Sigma$ is a diagonal matrix with singular values. SVD is essential in many machine learning tasks, including noise reduction, data compression, and the analysis of neural network layers.
+    Singular Value Decomposition (SVD) is a powerful technique for decomposing a matrix into singular vectors and singular values, providing insight into the structure of the data. For any matrix $A \in \mathbb{R}^{m \times n}$, SVD is given by:
+    \begin{equation}
+        A = U\Sigma V^T
+        \label{eq:svd}
+    \end{equation}
+    where $U$ and $V$ are orthogonal matrices containing the left and right singular vectors, respectively, and $\Sigma$ is a diagonal matrix with singular values. SVD is essential in many machine learning tasks, including noise reduction, data compression, and the analysis of neural network layers.
 
-\subsection{Principal Component Analysis (PCA)}
-Principal Component Analysis (PCA) is a statistical procedure that uses an orthogonal transformation to convert a set of observations of possibly correlated variables into a set of values of linearly uncorrelated variables called principal components. This transformation is defined in such a way that the first principal component has the largest possible variance (that is, accounts for as much of the variability in the data as possible), and each succeeding component, in turn, has the highest variance possible under the constraint that it is orthogonal to the preceding components. The resulting vectors (principal components) are an uncorrelated orthogonal basis set. PCA is sensitive to the relative scaling of the original variables.
+\subsection{Neural Networks in Deep Learning}
+   a Neural network consist of interconnected nodes or "neurons" arranged in layers, with each layer designed to perform specific transformations on its inputs to capture and transmit increasingly abstract features to subsequent layers.
+    
+    \subsubsection{Architecture of Neural Networks}
+    The architecture of a neural network is defined by layers, each comprising a set of neurons connected by weights. These weights are adjusted during the training process to minimize the difference between the actual output of the network and the desired output. A typical feedforward neural network can be mathematically represented as:
+    \begin{equation}
+        \mathbf{h}^{(l)} = f(W^{(l)}\mathbf{h}^{(l-1)} + \mathbf{b}^{(l)})
+    \end{equation}
+    where $W^{(l)}$ and $\mathbf{b}^{(l)}$ are the weight matrix and bias vector for the $l$-th layer, $\mathbf{h}^{(l-1)}$ is the output from the previous layer, and $f$ is a non-linear activation function such as ReLU or sigmoid.
+    
+    \subsubsection{Learning Process}
+    The learning process in neural networks involves adjusting weights and biases to reduce a loss function, commonly through backpropagation. This method efficiently computes gradients using chain rule calculus:
+    \begin{equation}
+        W^{(l)} \leftarrow W^{(l)} - \eta \frac{\partial \mathcal{L}}{\partial W^{(l)}}
+    \end{equation}
+    where $\eta$ is the learning rate and $\mathcal{L}$ is the loss function.
+    
+    \subsubsection{Optimization and Regularization}
+    Optimization algorithms like Stochastic Gradient Descent (SGD), Adam, and RMSprop are crucial for weight updates. Regularization techniques such as dropout and weight decay help prevent overfitting, ensuring the network generalizes well to new data.
+    
 
-Given a data matrix $X \in \mathbb{R}^{n \times m}$, where $n$ is the number of observations and $m$ is the number of variables, PCA seeks to identify the matrix $W$ that maps $X$ to a new set of variables $Y$, the principal components, such that the variance of $Y$ is maximized. Mathematically, PCA solves for the eigenvalue decomposition of the covariance matrix $X^TX$ or the singular value decomposition (SVD) of $X$ itself.
-
-The covariance matrix $C$ of $X$ is given by:
-\begin{equation}
-    C = \frac{1}{n-1}X^TX
-    \label{eq:covariance_matrix}
-\end{equation}
-where $X^T$ is the transpose of $X$. The eigenvalue decomposition of $C$ is then performed to find the principal components:
-\begin{equation}
-    C = W\Lambda W^T
-    \label{eq:eigen_decomposition}
-\end{equation}
-where $W$ is the matrix of eigenvectors (principal components) and $\Lambda$ is the diagonal matrix of eigenvalues (variance explained by each principal component). The columns of $W$ are sorted by decreasing eigenvalues to ensure the principal components are ordered by the amount of variance they explain.
-
-The principal components $Y$ can be obtained by projecting the original data $X$ onto the space defined by the principal components:
-\begin{equation}
-    Y = XW
-    \label{eq:principal_components}
-\end{equation}
-PCA is widely used in data analysis and for making predictive models. It is commonly used as a tool in exploratory data analysis and for making predictive models. It is also employed to visualize genetic distance and relatedness between populations.
 
 \section{Understanding LLMs}
     Large Language Models (LLMs) such as GPT (Generative Pre-trained Transformer) and BERT (Bidirectional Encoder Representations from Transformers) have revolutionized the field of natural language processing (NLP) by leveraging deep neural networks to understand and generate human-like text unlocking a whole host of new applications.
@@ -62,7 +63,7 @@ PCA is widely used in data analysis and for making predictive models. It is comm
        
        
         \subsection{Architecture of LLMs}
-        The architecture of most LLMs is based on the Transformer model, introduced by Vaswani et al., which relies on self-attention mechanisms to weigh the significance of different words in a sentence. The Transformer architecture is composed of two main components: an encoder and a decoder. The encoder takes the input text and produces a sequence of hidden states, which represent the meaning of the text. The decoder then takes the encoder's hidden states and generates the output text, on word at a time.
+        The architecture of most LLMs is based on the Transformer model, introduced by Vaswani et al.\cite{vaswani2023attention}, which relies on self-attention mechanisms to weigh the significance of different words in a sentence. The Transformer architecture is composed of two main components: an encoder and a decoder. The encoder takes the input text and produces a sequence of hidden states, which represent the meaning of the text. The decoder then takes the encoder's hidden states and generates the output text, on word at a time.
             \begin{figure}[h!]
                 \centering
                 \includegraphics[width=0.5\textwidth]{figs/transform_model.png}
@@ -88,15 +89,15 @@ PCA is widely used in data analysis and for making predictive models. It is comm
                 Multi-head attention is an extension of the attention mechanism that allows the model to focus on different parts of the input sequence simultaneously. It achieves this by, instead of performing a singel attention function with \(d_{\text{model}}\)-dimensional keys, values and queries, linearly projecting the query, key, and value matrices \(h\) times into multiple subspaces with dimensionality \(d_k\), \(d_k\), and \(d_v\), respectively, before applying the attention function. The output of each of these \(h\) attention heads is then concatenated and linearly projected to produce the final output. This mechanism allows the model to capture different aspects of the input sequence in parallel, enhancing its ability to learn complex patterns in the data.
                 \begin{align}
                     \text{MultiHead}(Q, K, V) &= \text{Concat}(\text{head}_1, \ldots, \text{head}_h)W^O \\
-                    \text{where head}_i &= \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)
+                    \textbf{where } \text{head}_i &= \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)
                 \end{align}
                 Where \(W_i^Q \in \mathbb{R}^{d_{\text{model}} \times d_k}\), \(W_i^K \in \mathbb{R}^{d_{\text{model}} \times d_k}\), \(W_i^V \in \mathbb{R}^{d_{\text{model}} \times d_v}\), and \(W^O \in \mathbb{R}^{hd_v \times d_{\text{model}}}\) are learned linear projections, and \(d_{\text{model}}\) is the dimension of the model.
 
             \subsubsection{Why Transformers?}
                 The Transformer model has several advantages over traditional RNNs and LSTMs, including the ability to capture long-range dependencies, parallelize computation, and scale to larger datasets. The self-attention mechanism allows the model to focus on relevant parts of the input sequence, enabling it to learn complex patterns in the data. The multi-head attention mechanism further enhances the model's ability to capture different aspects of the input sequence in parallel, improving its performance on a wide range of NLP tasks such as translation, summarization, and image captioning. This is why Transformers have become the architecture of choice for many state-of-the-art NLP models, including GPT and BERT.
 
-        \subsection{Training and Fine-Tuning}
-            The training of LLMs involves two main phases: pre-training and fine-tuning. During pre-training, the model is exposed to a large corpus of text and learns to predict missing words or sentences, acquiring a broad understanding of language. The fine-tuning phase adjusts the pre-trained model to specific tasks by training on smaller, task-specific datasets. This two-phase approach allows LLMs to achieve remarkable performance across a wide range of NLP tasks with minimal task-specific model modifications.
+        % \subsection{Training and Fine-Tuning}
+        %     The training of LLMs involves two main phases: pre-training and fine-tuning. During pre-training, the model is exposed to a large corpus of text and learns to predict missing words or sentences, acquiring a broad understanding of language. The fine-tuning phase adjusts the pre-trained model to specific tasks by training on smaller, task-specific datasets. This two-phase approach allows LLMs to achieve remarkable performance across a wide range of NLP tasks with minimal task-specific model modifications.
 
             \subsection{Training and Fine-Tuning}
             The foundation of an LLM's understanding and generation of human language lies in its pre-training phase. During this stage, the model is exposed to a large corpus of text data, often encompassing a wide range of topics, genres, and styles. The primary objective of pre-training is to enable the model to learn a generalized representation of language.
@@ -122,4 +123,3 @@ PCA is widely used in data analysis and for making predictive models. It is comm
             \vspace*{0.2cm}
 
             Fine-tuning LLMs presents challenges such as catastrophic forgetting and overfitting, particularly when the task-specific dataset is small. Various strategies, including careful learning rate selection, regularization techniques, and the use of adapters, are employed to mitigate these issues.
-            

@@ -16,5 +16,444 @@
   {}
 \endgroup
 
-\datalist[entry]{none/global//global/global}\enddatalist
+\datalist[entry]{none/global//global/global}
+  \entry{McCarthy60}{article}{}
+    \name{author}{1}{}{%
+      {{hash=MJ}{%
+         family={McCarthy},
+         familyi={M\bibinitperiod},
+         given={John},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MJ1}
+    \strng{fullhash}{MJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{1960}
+    \field{labeldatesource}{}
+    \field{title}{Recursive Functions of Symbolic Expressions and Their
+  Computation by Machine, Part I}
+    \field{journaltitle}{Communications of the ACM}
+    \field{year}{1960}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{hu2021lora}{misc}{}
+    \name{author}{8}{}{%
+      {{hash=HEJ}{%
+         family={Hu},
+         familyi={H\bibinitperiod},
+         given={Edward\bibnamedelima J.},
+         giveni={E\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=SY}{%
+         family={Shen},
+         familyi={S\bibinitperiod},
+         given={Yelong},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=WP}{%
+         family={Wallis},
+         familyi={W\bibinitperiod},
+         given={Phillip},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=AZZ}{%
+         family={Allen-Zhu},
+         familyi={A\bibinithyphendelim Z\bibinitperiod},
+         given={Zeyuan},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=LY}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Yuanzhi},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=WS}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Shean},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=WL}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Lu},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=CW}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Weizhu},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HEJ+1}
+    \strng{fullhash}{HEJSYWPAZZLYWSWLCW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2021}
+    \field{labeldatesource}{}
+    \verb{eprint}
+    \verb 2106.09685
+    \endverb
+    \field{title}{LoRA: Low-Rank Adaptation of Large Language Models}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2021}
+  \endentry
+
+  \entry{vaswani2023attention}{misc}{}
+    \name{author}{8}{}{%
+      {{hash=VA}{%
+         family={Vaswani},
+         familyi={V\bibinitperiod},
+         given={Ashish},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SN}{%
+         family={Shazeer},
+         familyi={S\bibinitperiod},
+         given={Noam},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=PN}{%
+         family={Parmar},
+         familyi={P\bibinitperiod},
+         given={Niki},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=UJ}{%
+         family={Uszkoreit},
+         familyi={U\bibinitperiod},
+         given={Jakob},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=JL}{%
+         family={Jones},
+         familyi={J\bibinitperiod},
+         given={Llion},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=GAN}{%
+         family={Gomez},
+         familyi={G\bibinitperiod},
+         given={Aidan\bibnamedelima N.},
+         giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+      {{hash=KL}{%
+         family={Kaiser},
+         familyi={K\bibinitperiod},
+         given={Lukasz},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=PI}{%
+         family={Polosukhin},
+         familyi={P\bibinitperiod},
+         given={Illia},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{VA+1}
+    \strng{fullhash}{VASNPNUJJLGANKLPI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2017}
+    \field{labeldatesource}{}
+    \verb{eprint}
+    \verb 1706.03762
+    \endverb
+    \field{title}{Attention Is All You Need}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2017}
+  \endentry
+
+  \entry{lv2023parameter}{misc}{}
+    \name{author}{6}{}{%
+      {{hash=LK}{%
+         family={Lv},
+         familyi={L\bibinitperiod},
+         given={Kai},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=YY}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Yuqing},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=LT}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Tengxiao},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=GQ}{%
+         family={Gao},
+         familyi={G\bibinitperiod},
+         given={Qinghui},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=GQ}{%
+         family={Guo},
+         familyi={G\bibinitperiod},
+         given={Qipeng},
+         giveni={Q\bibinitperiod},
+      }}%
+      {{hash=QX}{%
+         family={Qiu},
+         familyi={Q\bibinitperiod},
+         given={Xipeng},
+         giveni={X\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LK+1}
+    \strng{fullhash}{LKYYLTGQGQQX1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
+    \verb{eprint}
+    \verb 2306.09782
+    \endverb
+    \field{title}{Full Parameter Fine-tuning for Large Language Models with
+  Limited Resources}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2023}
+  \endentry
+
+  \entry{yang2023large}{misc}{}
+    \name{author}{7}{}{%
+      {{hash=YC}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={Chengrun},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=WX}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Xuezhi},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=LY}{%
+         family={Lu},
+         familyi={L\bibinitperiod},
+         given={Yifeng},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=LH}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Hanxiao},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=LQV}{%
+         family={Le},
+         familyi={L\bibinitperiod},
+         given={Quoc\bibnamedelima V.},
+         giveni={Q\bibinitperiod\bibinitdelim V\bibinitperiod},
+      }}%
+      {{hash=ZD}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={Denny},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=CX}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={Xinyun},
+         giveni={X\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{YC+1}
+    \strng{fullhash}{YCWXLYLHLQVZDCX1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
+    \verb{eprint}
+    \verb 2309.03409
+    \endverb
+    \field{title}{Large Language Models as Optimizers}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.LG}
+    \field{year}{2023}
+  \endentry
+
+  \entry{zhu2023survey}{misc}{}
+    \name{author}{5}{}{%
+      {{hash=ZX}{%
+         family={Zhu},
+         familyi={Z\bibinitperiod},
+         given={Xunyu},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=LJ}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Jian},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=LY}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Yong},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={Ma},
+         familyi={M\bibinitperiod},
+         given={Can},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=WW}{%
+         family={Wang},
+         familyi={W\bibinitperiod},
+         given={Weiping},
+         giveni={W\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZX+1}
+    \strng{fullhash}{ZXLJLYMCWW1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
+    \verb{eprint}
+    \verb 2308.07633
+    \endverb
+    \field{title}{A Survey on Model Compression for Large Language Models}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2023}
+  \endentry
+
+  \entry{gliwa-etal-2019-samsum}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=GB}{%
+         family={Gliwa},
+         familyi={G\bibinitperiod},
+         given={Bogdan},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=MI}{%
+         family={Mochol},
+         familyi={M\bibinitperiod},
+         given={Iwona},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=BM}{%
+         family={Biesek},
+         familyi={B\bibinitperiod},
+         given={Maciej},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=WA}{%
+         family={Wawer},
+         familyi={W\bibinitperiod},
+         given={Aleksander},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{GB+1}
+    \strng{fullhash}{GBMIBMWA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{}
+    \field{booktitle}{Proceedings of the 2nd Workshop on New Frontiers in
+  Summarization}
+    \verb{doi}
+    \verb 10.18653/v1/D19-5409
+    \endverb
+    \field{pages}{70\bibrangedash 79}
+    \field{title}{{SAMS}um Corpus: A Human-annotated Dialogue Dataset for
+  Abstractive Summarization}
+    \verb{url}
+    \verb https://www.aclweb.org/anthology/D19-5409
+    \endverb
+    \list{location}{1}{%
+      {Hong Kong, China}%
+    }
+    \field{month}{11}
+    \field{year}{2019}
+  \endentry
+
+  \entry{lin-2004-rouge}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=LCY}{%
+         family={Lin},
+         familyi={L\bibinitperiod},
+         given={Chin-Yew},
+         giveni={C\bibinithyphendelim Y\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Association for Computational Linguistics}%
+    }
+    \strng{namehash}{LCY1}
+    \strng{fullhash}{LCY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2004}
+    \field{labeldatesource}{}
+    \field{booktitle}{Text Summarization Branches Out}
+    \field{pages}{74\bibrangedash 81}
+    \field{title}{{ROUGE}: A Package for Automatic Evaluation of Summaries}
+    \verb{url}
+    \verb https://aclanthology.org/W04-1013
+    \endverb
+    \list{location}{1}{%
+      {Barcelona, Spain}%
+    }
+    \field{month}{07}
+    \field{year}{2004}
+  \endentry
+
+  \entry{aghajanyan2020intrinsic}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=AA}{%
+         family={Aghajanyan},
+         familyi={A\bibinitperiod},
+         given={Armen},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=ZL}{%
+         family={Zettlemoyer},
+         familyi={Z\bibinitperiod},
+         given={Luke},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=GS}{%
+         family={Gupta},
+         familyi={G\bibinitperiod},
+         given={Sonal},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AAZLGS1}
+    \strng{fullhash}{AAZLGS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \verb{eprint}
+    \verb 2012.13255
+    \endverb
+    \field{title}{Intrinsic Dimensionality Explains the Effectiveness of
+  Language Model Fine-Tuning}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.LG}
+    \field{year}{2020}
+  \endentry
+\enddatalist
 \endinput
