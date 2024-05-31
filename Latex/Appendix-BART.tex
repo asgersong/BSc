@@ -1,0 +1,148 @@
+\chapter{Architecture of BART}
+    \label{appendix:BART}
+    One can inspect the model architecture by using the \texttt{transformers} library by Hugging Face.
+    \section*{BART-Base}
+    \begin{listing}[H]
+        \begin{minted}{python}
+from transformers import AutoModelForSeq2SeqLM
+model_checkpoint = "facebook/bart-base"
+model = AutoModelForSeq2SeqLM.from_pretrained(model_checkpoint)
+        \end{minted}
+        \caption{Loading pre-trained BART-base model from the Hugging Face model repository}
+        \label{lst:bart_base_fetch}
+    \end{listing}
+    This code snippet fetches the configuration, tokenizer, and weights of the BART model from the Hugging Face model repository. The model can be inspected by printing the model object, which will output the model architecture as shown in Listing \ref{lst:bart_base_architecture}.
+    \newpage
+    \begin{listing}[H]
+                \begin{minted}[fontsize=\footnotesize]{python}
+BartForConditionalGeneration(
+  (model): BartModel(
+    (shared): Embedding(50265, 768, padding_idx=1)
+    (encoder): BartEncoder(
+      (embed_tokens): BartScaledWordEmbedding(50265, 768, padding_idx=1)
+      (embed_positions): BartLearnedPositionalEmbedding(1026, 768)
+      (layers): ModuleList(
+        (0-5): 6 x BartEncoderLayer(
+          (self_attn): BartSdpaAttention(
+            (k_proj): Linear(in_features=768, out_features=768, bias=True)
+            (v_proj): Linear(in_features=768, out_features=768, bias=True)
+            (q_proj): Linear(in_features=768, out_features=768, bias=True)
+            (out_proj): Linear(in_features=768, out_features=768, bias=True)
+          )
+          (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (activation_fn): GELUActivation()
+          (fc1): Linear(in_features=768, out_features=3072, bias=True)
+          (fc2): Linear(in_features=3072, out_features=768, bias=True)
+          (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+      (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    )
+    (decoder): BartDecoder(
+      (embed_tokens): BartScaledWordEmbedding(50265, 768, padding_idx=1)
+      (embed_positions): BartLearnedPositionalEmbedding(1026, 768)
+      (layers): ModuleList(
+        (0-5): 6 x BartDecoderLayer(
+          (self_attn): BartSdpaAttention(
+            (k_proj): Linear(in_features=768, out_features=768, bias=True)
+            (v_proj): Linear(in_features=768, out_features=768, bias=True)
+            (q_proj): Linear(in_features=768, out_features=768, bias=True)
+            (out_proj): Linear(in_features=768, out_features=768, bias=True)
+          )
+          (activation_fn): GELUActivation()
+          (self_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (encoder_attn): BartSdpaAttention(
+            (k_proj): Linear(in_features=768, out_features=768, bias=True)
+            (v_proj): Linear(in_features=768, out_features=768, bias=True)
+            (q_proj): Linear(in_features=768, out_features=768, bias=True)
+            (out_proj): Linear(in_features=768, out_features=768, bias=True)
+          )
+          (encoder_attn_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+          (fc1): Linear(in_features=768, out_features=3072, bias=True)
+          (fc2): Linear(in_features=3072, out_features=768, bias=True)
+          (final_layer_norm): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+      (layernorm_embedding): LayerNorm((768,), eps=1e-05, elementwise_affine=True)
+    )
+  )
+  (lm_head): Linear(in_features=768, out_features=50265, bias=False)
+)
+                \end{minted}
+                \caption{BART-base model architecture}
+                \label{lst:bart_base_architecture}
+            \end{listing}
+The model has a total of \(139\) million parameters.
+
+\section*{BART-Large}
+Similarly, for the BART-large model:
+\begin{listing}[H]
+    \begin{minted}{python}
+from transformers import AutoModelForSeq2SeqLM
+model_checkpoint = "facebook/bart-large"
+model = AutoModelForSeq2SeqLM.from_pretrained(model_checkpoint)
+    \end{minted}
+    \caption{Loading pre-trained BART-large model from the Hugging Face model repository}
+    \label{lst:bart_large_fetch}
+\end{listing}
+    The model architecture is shown in Listing \ref{lst:bart_large_architecture}.
+        \begin{listing}[H]
+                \begin{minted}[fontsize=\footnotesize]{python}
+BartForConditionalGeneration(
+  (model): BartModel(
+    (shared): Embedding(50265, 1024, padding_idx=1)
+    (encoder): BartEncoder(
+      (embed_tokens): BartScaledWordEmbedding(50265, 1024, padding_idx=1)
+      (embed_positions): BartLearnedPositionalEmbedding(1026, 1024)
+      (layers): ModuleList(
+        (0-11): 12 x BartEncoderLayer(
+          (self_attn): BartSdpaAttention(
+            (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          )
+          (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          (activation_fn): GELUActivation()
+          (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+          (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+          (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+      (layernorm_embedding): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    )
+    (decoder): BartDecoder(
+      (embed_tokens): BartScaledWordEmbedding(50265, 1024, padding_idx=1)
+      (embed_positions): BartLearnedPositionalEmbedding(1026, 1024)
+      (layers): ModuleList(
+        (0-11): 12 x BartDecoderLayer(
+          (self_attn): BartSdpaAttention(
+            (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          )
+          (activation_fn): GELUActivation()
+          (self_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          (encoder_attn): BartSdpaAttention(
+            (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+            (out_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          )
+          (encoder_attn_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+          (fc1): Linear(in_features=1024, out_features=4096, bias=True)
+          (fc2): Linear(in_features=4096, out_features=1024, bias=True)
+          (final_layer_norm): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+        )
+      )
+      (layernorm_embedding): LayerNorm((1024,), eps=1e-05, elementwise_affine=True)
+    )
+  )
+  (lm_head): Linear(in_features=1024, out_features=50265, bias=False)
+)
+                \end{minted}
+                \caption{BART-large model architecture}
+                \label{lst:bart_large_architecture}
+            \end{listing}
+    The model has a total of \(406\) million parameters.

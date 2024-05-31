@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{max\PYGZus{}input\PYGZus{}length} \PYG{o}{=} \PYG{l+m+mi}{512}
+\PYG{n}{max\PYGZus{}target\PYGZus{}length} \PYG{o}{=} \PYG{l+m+mi}{128}
+\end{Verbatim}

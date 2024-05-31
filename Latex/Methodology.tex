@@ -1,11 +1,7 @@
 \chapter{Methodology}
 
-\section{Educational Synergy Development}
-
-\section{Software Engineering Application}
-
 \section{LLM Optimization}
-    Optimizing Large Language Models (LLMs) for efficiency and performance without compromising their effectiveness is a critical area of research in the field of artificial intelligence. Various techniques have been developed to address this challenge, each employing unique strategies to reduce computational resources, decrease model size, and maintain, if not improve, the model's performance. This section explores the general methodologies applied in the optimization of LLMs, focusing particularly on model compression techniques. Among these, Low-Rank Adaptation (LoRA) stands out as a significant innovation, offering a balance between model efficiency and task performance.
+    Optimizing Large Language Models (LLMs) for efficiency and performance without compromising their effectiveness is a critical area of research in the field of artificial intelligence. Various techniques have been developed to address this challenge, each employing unique strategies to reduce computational resources, decrease model size, and maintain, if not improve, the model's performance. This section explores the general methodologies applied in the optimization of LLMs, focusing particularly on model compression techniques. Among these, Low-Rank Approximation stands out as a highly effective approach. This technique leverages the mathematical properties of matrices to approximate the original model parameters with fewer components, thereby possibly reducing the model's computations and resource requirements.
 
     \subsection{Optimization Techniques for Large Language Models}
         Optimization strategies for Large Language Models (LLMs) are crucial for improving computational efficiency and model efficacy. These strategies are generally divided into two primary types: model pruning and parameter sharing.
@@ -17,43 +13,110 @@
         Conversely, parameter sharing utilizes the model's existing parameters across various parts of the model or different tasks. This method optimizes the use of the model’s capacity, enabling multifunctional performance without an increase in parameter count.
 
         \subsubsection{Focus on Low-Rank Approximation}
-        This thesis will specifically focus on model pruning techniques, with a particular emphasis on low-rank approximation. This approach approximates large matrices or tensors with ones of a lower rank, reducing the number of parameters and computational demands while preserving the model's critical information processing capabilities.
+        This thesis will specifically focus on model pruning techniques, with a particular emphasis on low-rank approximation. This approach approximates large matrices or tensors with ones of a lower rank, reducing the number of components and computational demands while preserving the model's critical information processing capabilities.
 
-    \subsection{Metrics for Evaluation}
-        Evaluating the effectiveness of optimization techniques like LoRA involves several key metrics:
-        
-        \textbf{Model Size Reduction:} A primary metric is the reduction in the total number of parameters, indicating the efficiency of the compression technique.
-        
-        \textbf{Inference Speed:} The impact on the model's inference latency is critical, especially for applications requiring real-time responses.
-
-        \textbf{Cosine Similarity:} In the context of model tuning and adaptation, cosine similarity can serve as a measure of how well the optimized model maintains the semantic properties of the original. It is especially useful in assessing the quality of embeddings and the alignment between the compressed and original model outputs.
-        
-        \textbf{Performance Retention:} The maintenance of task-specific performance, measured through metrics such as accuracy, F1 score, or ROUGE scores for language tasks, is essential to ensure the utility of the compressed model.
-        
-        \textbf{Computational Efficiency:} The reduction in computational resources required for training and inference reflects the practical benefits of the optimization technique.
-
-        These metrics provide a comprehensive framework for assessing the trade-offs involved in LLM optimization, guiding the development and application of techniques like LoRA in enhancing the practical utility of state-of-the-art language models.
 
 \section{Case Study: Low-Rank Approximation}
-    To illustrate the application of low-rank approximation in compressing LLMs, we consider Facebook's the BART-Base model as a case study. BART is a transformer-based LLM that has been widely used for various natural language processing tasks. By applying low-rank approximation to the attention weight matrices of the BART-base model, we aim to reduce its parameter size while maintaining its performance on a summarization task.
+    To illustrate the application of low-rank approximation in compressing LLMs, we consider Facebook's the BART-Base model (\cite{lewis2019bart}) as a case study. BART is a transformer-based LLM that has been widely used for various natural language processing tasks such as summarization.
 
-    The choice to apply low-rank approximation specifically to the attention matrices stems from their pivotal role in the transformer architecture. These matrices, which help the model assess the relevance of different words within the input data, tend to be large and often encapsulate redundant information (\cite{aghajanyan2020intrinsic}). By reducing the dimensionality of these matrices, we preserve the model's ability to perform complex relational reasoning with less computational overhead, thus maintaining efficacy in summarization tasks while enhancing efficiency.
-    \subsection{Low-Rank Approximation Technique}
-        Low-rank approximation is a matrix factorization technique that decomposes a given matrix into the product of some lower-dimensional matrices. In the context of LLMs, low-rank approximation can be applied to the attention weight matrices to reduce the number of parameters while preserving the model's representational capacity.
+    This thesis focuses on applying low-rank approximation specifically to the attention matrices. This choice stems from their pivotal role in the transformer architecture. These matrices, which help the model assess the relevance of different words within the input data, tend to be large and often encapsulate redundant information (\cite{aghajanyan2020intrinsic}). %By reducing the dimensionality of these matrices, we preserve the model's ability to perform complex relational reasoning with less computational overhead, thus maintaining efficacy in summarization tasks while enhancing efficiency.
 
+    By applying low-rank approximation to the attention weight matrices of the BART-base model, we aim to explore the possibility in reducing computational complexity and storage requirements while preserving its performance on a summarization task.
     \subsection{Implementation Steps}
         The implementation of low-rank approximation for BART involves the following steps:
         
-        \textbf{Singular Value Decomposition (SVD):} The attention weight matrices (Key, Query, Value, and Output) of the model are decomposed using SVD to obtain the low-rank approximation.
-        
-        \textbf{Custom Layer Implementation:} A custom layer is implemented to replace the original attention layers with the low-rank approximation, reducing the model's parameter size.
+        \begin{enumerate}
+            \item \textbf{Singular Value Decomposition (SVD):} The attention weight matrices (Key, Query, Value, and Output) of the model are decomposed using SVD to obtain the low-rank approximation.
+            \[
+            \begin{array}{c}
+                Q \\[0.2cm] % adds 0.5 cm space after this row
+                V \\[0.2cm] % adds 0.5 cm space after this row
+                K \\[0.2cm]
+                O
+            \end{array}
+            \xrightarrow[\text{SVD}]{\hspace*{1cm}}
+            \begin{array}{c}
+                U_q \ \Sigma_q \ V_q^T \\[0.2cm] % adds 0.5 cm space after this row
+                U_v \ \Sigma_v \ V_v^T \\[0.2cm] % adds 0.5 cm space after this row
+                U_k \ \Sigma_k \ V_k^T \\[0.2cm]
+                U_o \ \Sigma_o \ V_o^T
+
+            \end{array}
+            \]
+
+            \item \textbf{Custom Layer Implementation:} A custom layer is implemented to replace the original attention layers with the low-rank approximation.
             \begin{figure}[H]
                 \centering
-                \includegraphics[width=0.4\textwidth]{figs/insert.png}
-                \caption{Attention layers replaced with low-rank approximation}
+                \includegraphics[width=0.7\textwidth]{figs/before-after.png}
+                \caption{Components in attention layers replaced with their custom low-rank approximation}
                 \label{fig:lora_implementation}
             \end{figure}
-        \textbf{Evaluation Metrics:} The compressed model is evaluated based on ROUGE scores (\cite{lin-2004-rouge}), cosine similarity, metrics such as model size reduction, computational efficiency, cosine similarity, and task-specific performance on a summarization task using the Samsum dataset (\cite{gliwa-etal-2019-samsum}).
+        \end{enumerate}
         
-        \textbf{Rank Selection:} The rank of the approximation is chosen based on the observed spectrum decay of the ROUGE-scores, ensuring a balance between speed and task performance retention.
+        
+        
+    \subsection{Evaluation Metrics}
+        The approximated model is evaluated based on:
+        \begin{enumerate}
+        \item ROUGE scores (\cite{lin-2004-rouge}): How well does the approximated model perform in comparison to the original BART-Base model on the summarization task? From which rank does the model start to lose performance?
+        \item Computational efficiency: How does the approximated model compare to the original BART-Base model in terms of computational resources required?
+        \item Cosine similarity: How well does the approximated model maintain the semantic properties of the original model?
+        \item Comparing the summaries generated by the compressed model with the original BART-Base model and the reference summaries using the Samsum dataset (\cite{gliwa-etal-2019-samsum}).
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\textwidth]{figs/dialogue.png}
+            \caption{SamSum Dataset \texttt{test[0]} dialogue and reference summary}
+            \label{fig:SamSum_Example}
+        \end{figure}
+        \end{enumerate}
+
+        \subsection{Appropriate Rank Selection}
+            In Section \ref{sec:reduction_storage}, we established the criterion for selecting an appropriate rank \(k\) to achieve computational efficiency and storage reduction. The criterion is given by:
+            
+            \[
+            k < \frac{\sqrt{4mn + (m+n)^2} - m - n}{2}
+            \]
+            
+            where \(m\) and \(n\) are the dimensions of the original matrix we wish to approximate with a low-rank representation.
+            
+            \textbf{BART-base Model:}\\
+            For the BART-base model, the attention matrices have dimensions \(m = n = 768\). We know this by inspecting the model's architecture (Appendix \ref{appendix:BART}).\\
+            Therefore, the rank \(k\) for the approximation should satisfy:
+            \[
+            k < \frac{\sqrt{4 \times 768 \times 768 + (768 + 768)^2} - 768 - 768}{2} \approx 318
+            \]
+            
+            \label{appropriate_rank}to achieve a reduction in computational complexity and storage requirements.
+            
+            To determine the feasibility of low-rank approximation for the BART-Base model, we will evaluate the approximated model at various ranks and observe the impact on the ROUGE scores. This evaluation will help us understand the trade-offs between rank reduction and model performance.
+            
+
+            \textbf{BART-large Model:}\\
+            Similarly, for the BART-large model, the attention matrices have dimensions \(m = n = 1024\). Therefore, the rank \(k\) for the approximation should satisfy:
+            \[
+            k < \frac{\sqrt{4 \times 1024 \times 1024 + (1024 + 1024)^2} - 1024 - 1024}{2} \approx 424
+            \]
+
+        %\textbf{Rank Selection:} The rank of the approximation is chosen based on the observed spectrum decay of the ROUGE-scores, ensuring a balance between speed and task performance retention.
+
+    % \subsection{Metrics for Evaluation}
+    %     Evaluating the effectiveness of optimization techniques like LoRA involves several key metrics:
+        
+    %     \textbf{Model Size Reduction:} A primary metric is the reduction in the total number of parameters, indicating the efficiency of the compression technique.
+        
+    %     % \textbf{Inference Speed:} The impact on the model's inference latency is critical, especially for applications requiring real-time responses.
+
+    %     \textbf{Cosine Similarity:} In the context of model tuning and adaptation, cosine similarity can serve as a measure of how well the optimized model maintains the semantic properties of the original. It is especially useful in assessing the quality of embeddings and the alignment between the compressed and original model outputs.
+        
+    %     \textbf{Performance Retention:} The maintenance of task-specific performance, measured through metrics such as accuracy, e.g. ROUGE scores for language tasks, is essential to ensure the utility of the compressed model.
+        
+    %     \textbf{Computational Efficiency:} The reduction in computational resources required for training and inference reflects the practical benefits of the optimization technique.
+
+    %     These metrics provide a comprehensive framework for assessing the trade-offs involved in LLM optimization, guiding the development and application of techniques like LoRA in enhancing the practical utility of state-of-the-art language models.
     
+
+%\section{Software Engineering Application}
+
+% \section{Educational Synergy Development}
+%     %begin this section with a brief introduction to the educational component of the project
+%     The educational component of this project aims to provide an insight for software enginnering students interested in artificial intelligence, machine learning, and natural language processing. The project's methodology and implementation offer a unique opportunity for students to engage with research in the field of large language models (LLMs) and explore practical applications of model optimization techniques.

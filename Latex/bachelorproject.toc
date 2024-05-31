@@ -1,66 +1,85 @@
 \babel@toc {english}{}\relax 
-\contentsline {chapter}{\chapternumberline {1}Introduction}{7}{chapter.1}%
-\contentsline {chapter}{\chapternumberline {2}Literature Review}{9}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Overview of Large Language Models}{9}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Previous Studies on LLM Compression and Optimization}{9}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Low-Memory Optimization}{10}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Optimization by prompting}{10}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Low-Rank Adaptation (LoRA)}{11}{subsection.2.2.3}%
-\contentsline {paragraph}{Theoretical Foundation}{11}{subsection.2.2.3}%
-\contentsline {paragraph}{Advantages}{11}{equation.2.2.1}%
-\contentsline {paragraph}{Practical Implementation}{11}{equation.2.2.1}%
-\contentsline {section}{\numberline {2.3}Evaluating Summarization with ROUGE}{12}{section.2.3}%
-\contentsline {paragraph}{ROUGE Metrics}{12}{section.2.3}%
-\contentsline {paragraph}{Application and Relevance}{12}{section.2.3}%
-\contentsline {paragraph}{Significance in LLM Research}{12}{section.2.3}%
-\contentsline {chapter}{\chapternumberline {3}Theoretical Foundations}{13}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Linear Algebra in Deep Learning}{13}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}Vectors, Matrices, and Tensors}{13}{subsection.3.1.1}%
-\contentsline {subsection}{\numberline {3.1.2}Matrix Operations}{13}{subsection.3.1.2}%
-\contentsline {subsubsection}{Flops}{14}{equation.3.1.2}%
-\contentsline {subsection}{\numberline {3.1.3}Singular Value Decomposition}{14}{subsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.1.4}Neural Networks in Deep Learning}{14}{subsection.3.1.4}%
-\contentsline {subsubsection}{Architecture of Neural Networks}{14}{section*.5}%
-\contentsline {subsubsection}{Learning Process}{14}{equation.3.1.4}%
-\contentsline {subsubsection}{Optimization and Regularization}{15}{equation.3.1.5}%
-\contentsline {section}{\numberline {3.2}Understanding LLMs}{15}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}What are LLMs?}{15}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Architecture of LLMs}{15}{subsection.3.2.2}%
-\contentsline {subsubsection}{Encoder}{15}{figure.3.1}%
-\contentsline {subsubsection}{Decoder}{16}{figure.3.1}%
-\contentsline {subsubsection}{Attention}{16}{figure.3.1}%
-\contentsline {subsubsection}{Multi-head attention}{17}{equation.3.2.6}%
-\contentsline {subsubsection}{Why Transformers?}{17}{equation.3.2.8}%
-\contentsline {subsection}{\numberline {3.2.3}Training and Fine-Tuning}{17}{subsection.3.2.3}%
-\contentsline {chapter}{\chapternumberline {4}Methodology}{19}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Educational Synergy Development}{19}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Software Engineering Application}{19}{section.4.2}%
-\contentsline {section}{\numberline {4.3}LLM Optimization}{19}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Optimization Techniques for Large Language Models}{19}{subsection.4.3.1}%
-\contentsline {subsubsection}{Model Pruning}{19}{section*.6}%
-\contentsline {subsubsection}{Parameter Sharing}{19}{section*.6}%
-\contentsline {subsubsection}{Focus on Low-Rank Approximation}{20}{section*.6}%
-\contentsline {subsection}{\numberline {4.3.2}Metrics for Evaluation}{20}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}Case Study: Low-Rank Approximation}{20}{section.4.4}%
-\contentsline {subsection}{\numberline {4.4.1}Low-Rank Approximation Technique}{21}{subsection.4.4.1}%
-\contentsline {subsection}{\numberline {4.4.2}Implementation Steps}{21}{subsection.4.4.2}%
-\contentsline {chapter}{\chapternumberline {5}Implementation}{23}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Curriculum Component Implementation}{23}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Chatbot Development}{23}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Tools and Libraries Used}{23}{subsection.5.2.1}%
-\contentsline {subsection}{\numberline {5.2.2}Integration of LLM}{23}{subsection.5.2.2}%
-\contentsline {chapter}{\chapternumberline {6}Evaluation and Results}{25}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Curriculum Effectiveness}{25}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Chatbot Performance and Usefulness}{25}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Compression and Optimization of LLM}{25}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Methodology Applied}{25}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Results and Analysis}{25}{subsection.6.3.2}%
-\contentsline {chapter}{\chapternumberline {7}Discussion}{27}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Interpretation of Results}{27}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Theoretical and Practical Implications}{27}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Limitations and Challenges}{27}{section.7.3}%
-\contentsline {chapter}{\chapternumberline {8}Conclusion and Future Work}{29}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Summary of Key Findings}{29}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Contributions to the Field}{29}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Recommendations for Future Research}{29}{section.8.3}%
-\contentsline {chapter}{Bibliography}{31}{section*.8}%
+\contentsline {chapter}{\chapternumberline {1}Introduction}{9}{chapter.1}%
+\contentsline {chapter}{\chapternumberline {2}Theoretical Foundations}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Linear Algebra in Deep Learning}{11}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Vectors, Matrices, and Tensors}{11}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Matrix Operations}{11}{subsection.2.1.2}%
+\contentsline {subsubsection}{Flops}{12}{equation.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Singular Value Decomposition}{12}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Low-Rank Approximation}{12}{subsection.2.1.4}%
+\contentsline {subsubsection}{Concept of Low-Rank Approximation}{12}{section*.5}%
+\contentsline {subsubsection}{Reduction in Storage}{13}{section*.5}%
+\contentsline {subsubsection}{Reduction in Computation for Matrix-Vector Multiplications}{13}{section*.5}%
+\contentsline {subsubsection}{Reduction in Computation for Matrix-Matrix Multiplications}{14}{section*.5}%
+\contentsline {subsection}{\numberline {2.1.5}Neural Networks in Deep Learning}{14}{subsection.2.1.5}%
+\contentsline {subsubsection}{Architecture of Neural Networks}{15}{section*.6}%
+\contentsline {subsubsection}{Learning Process}{15}{equation.2.1.4}%
+\contentsline {subsubsection}{Optimization and Regularization}{15}{equation.2.1.5}%
+\contentsline {section}{\numberline {2.2}Understanding LLMs}{15}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}What are LLMs?}{15}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Architecture of LLMs}{16}{subsection.2.2.2}%
+\contentsline {subsubsection}{Encoder}{16}{figure.caption.7}%
+\contentsline {subsubsection}{Decoder}{17}{figure.caption.7}%
+\contentsline {subsubsection}{Attention}{17}{figure.caption.7}%
+\contentsline {subsubsection}{Multi-head Attention}{19}{figure.caption.8}%
+\contentsline {subsubsection}{Why Transformers?}{20}{figure.caption.9}%
+\contentsline {subsection}{\numberline {2.2.3}Training and Fine-Tuning}{20}{subsection.2.2.3}%
+\contentsline {chapter}{\chapternumberline {3}Literature Review}{23}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Overview of Large Language Models}{23}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Previous Studies on LLM Compression and Optimization}{23}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Low-Memory Optimization}{23}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Optimization by Prompting}{24}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Evaluating Summarization with ROUGE}{25}{section.3.3}%
+\contentsline {paragraph}{ROUGE Metrics}{25}{section.3.3}%
+\contentsline {paragraph}{Application and Relevance}{25}{section.3.3}%
+\contentsline {paragraph}{Significance in LLM Research}{25}{section.3.3}%
+\contentsline {chapter}{\chapternumberline {4}Literature Review}{27}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Overview of Large Language Models}{27}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Previous Studies on LLM Compression}{27}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Introduction to BART}{28}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Architecture and Training}{28}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Efficacy and Applications}{29}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Evaluating Summarization with ROUGE}{29}{section.4.4}%
+\contentsline {paragraph}{ROUGE Metrics}{29}{section.4.4}%
+\contentsline {paragraph}{Application and Relevance}{29}{section.4.4}%
+\contentsline {paragraph}{Significance in LLM Research}{29}{section.4.4}%
+\contentsline {chapter}{\chapternumberline {5}Methodology}{31}{chapter.5}%
+\contentsline {section}{\numberline {5.1}LLM Optimization}{31}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Optimization Techniques for Large Language Models}{31}{subsection.5.1.1}%
+\contentsline {subsubsection}{Model Pruning}{31}{section*.11}%
+\contentsline {subsubsection}{Parameter Sharing}{31}{section*.11}%
+\contentsline {subsubsection}{Focus on Low-Rank Approximation}{32}{section*.11}%
+\contentsline {section}{\numberline {5.2}Case Study: Low-Rank Approximation}{32}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Implementation Steps}{32}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Evaluation Metrics}{33}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Appropriate Rank Selection}{34}{subsection.5.2.3}%
+\contentsline {chapter}{\chapternumberline {6}Implementation}{37}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Case Study}{37}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Importing the Model}{37}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Dataset Preprocessing}{37}{subsection.6.1.2}%
+\contentsline {subsubsection}{Importing the Dataset}{37}{section*.14}%
+\contentsline {subsubsection}{Setting Maximum Lengths}{38}{listing.2}%
+\contentsline {subsubsection}{Preprocessing Function}{38}{listing.3}%
+\contentsline {subsubsection}{Applying the Preprocessing Function}{38}{listing.4}%
+\contentsline {subsection}{\numberline {6.1.3}Finetuning the Model}{39}{subsection.6.1.3}%
+\contentsline {subsection}{\numberline {6.1.4}Custom Layer Implementation}{39}{subsection.6.1.4}%
+\contentsline {paragraph}{Initialization}{39}{listing.6}%
+\contentsline {paragraph}{Forward Pass}{40}{listing.6}%
+\contentsline {subsubsection}{Traversing the Model and Applying Low-Rank Approximation}{40}{listing.6}%
+\contentsline {chapter}{\chapternumberline {7}Evaluation and Results}{43}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Case Study}{43}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Results and Analysis}{43}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Conclusion}{44}{subsection.7.1.2}%
+\contentsline {chapter}{\chapternumberline {8}Discussion}{45}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Interpretation of Results}{45}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Theoretical and Practical Implications}{45}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Limitations and Challenges}{45}{section.8.3}%
+\contentsline {chapter}{\chapternumberline {9}Conclusion and Future Work}{47}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Summary of Key Findings}{47}{section.9.1}%
+\contentsline {section}{\numberline {9.2}Contributions to the Field}{47}{section.9.2}%
+\contentsline {section}{\numberline {9.3}Recommendations for Future Research}{47}{section.9.3}%
+\contentsline {chapter}{Bibliography}{49}{section*.18}%
+\contentsline {appendix}{\chapternumberline {A}Educational Synergy in Teaching and Research}{51}{appendix.A}%
+\contentsline {appendix}{\chapternumberline {B}Poster}{55}{appendix.B}%
+\contentsline {appendix}{\chapternumberline {C}Chatbot}{57}{appendix.C}%
+\contentsline {appendix}{\chapternumberline {D}Architecture of BART}{59}{appendix.D}%

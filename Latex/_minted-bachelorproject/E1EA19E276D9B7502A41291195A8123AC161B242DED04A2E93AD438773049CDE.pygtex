@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{preprocess\PYGZus{}function}\PYG{p}{(}\PYG{n}{examples}\PYG{p}{):}
+    \PYG{n}{inputs} \PYG{o}{=} \PYG{p}{[}\PYG{n}{doc} \PYG{k}{for} \PYG{n}{doc} \PYG{o+ow}{in} \PYG{n}{examples}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}dialogue\PYGZdq{}}\PYG{p}{]]}
+    \PYG{n}{model\PYGZus{}inputs} \PYG{o}{=} \PYG{n}{tokenizer}\PYG{p}{(}\PYG{n}{inputs}\PYG{p}{,} \PYG{n}{max\PYGZus{}length}\PYG{o}{=}\PYG{n}{max\PYGZus{}input\PYGZus{}length}\PYG{p}{,} \PYG{n}{truncation}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Setup the tokenizer for targets}
+    \PYG{k}{with} \PYG{n}{tokenizer}\PYG{o}{.}\PYG{n}{as\PYGZus{}target\PYGZus{}tokenizer}\PYG{p}{():}
+        \PYG{n}{labels} \PYG{o}{=} \PYG{n}{tokenizer}\PYG{p}{(}\PYG{n}{examples}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}summary\PYGZdq{}}\PYG{p}{],} \PYG{n}{max\PYGZus{}length}\PYG{o}{=}\PYG{n}{max\PYGZus{}target\PYGZus{}length}\PYG{p}{,} \PYG{n}{truncation}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}
+
+    \PYG{n}{model\PYGZus{}inputs}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}labels\PYGZdq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{labels}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}input\PYGZus{}ids\PYGZdq{}}\PYG{p}{]}
+    \PYG{k}{return} \PYG{n}{model\PYGZus{}inputs}
+\end{Verbatim}

@@ -32,8 +32,103 @@ where $A$ is the weight matrix, $\mathbf{x}$ is the input vector, $\mathbf{b}$ i
     \end{equation}
     where $U$ and $V$ are orthogonal matrices containing the left and right singular vectors, respectively, and $\Sigma$ is a diagonal matrix with singular values. SVD is essential in many machine learning tasks, including noise reduction, data compression, and the analysis of neural network layers.
 
+\subsection{Low-Rank Approximation}
+
+    Low-rank approximation is a powerful technique in linear algebra that provides significant benefits in terms of computational efficiency and storage requirements. This method is particularly useful in the context of deep learning, where large matrices are frequently encountered, and computational resources are often a limiting factor.
+    
+    \subsubsection{Concept of Low-Rank Approximation}
+    
+    Given a matrix $A$ of dimensions $m \times n$, low-rank approximation aims to approximate $A$ by another matrix $A_k$ of lower rank $k$, where $k$ is much smaller than both $m$ and $n$. This approximation leverages the Singular Value Decomposition (SVD) of $A$:
+    
+    \[
+    A \approx A_k = U_k \Sigma_k V_k^T
+    \]
+    
+    Here:
+    \begin{itemize}
+        \item $U_k$ is an $m \times k$ matrix containing the top $k$ left singular vectors.
+        \item $\Sigma_k$ is a $k \times k$ diagonal matrix containing the top $k$ singular values.\footnote{While it is possible to represent $\Sigma_k$ as a $k$-element vector, choosing a $k \times k$ matrix allows for more flexibility in mathematical operations and maintains consistency in the representation of the decomposition, which can simplify implementation and theoretical analysis.}
+        \item $V_k^T$ is a $k \times n$ matrix containing the top $k$ right singular vectors.
+    \end{itemize}
+    
+    This decomposition allows $A_k$ to capture the most significant components of $A$, effectively reducing its rank while preserving its essential characteristics.
+    
+    \subsubsection{Reduction in Storage}\label{sec:reduction_storage}
+    
+    The primary benefit of low-rank approximation is the significant reduction in storage requirements. Instead of storing the original matrix $A$ with $m \times n$ elements, the low-rank approximation stores the three smaller matrices $U_k$, $\Sigma_k$, and $V_k^T$:
+    
+    \begin{itemize}
+        \item $U_k$ with $m \times k$ elements.
+        \item $\Sigma_k$ with $k \times k$ elements.
+        \item $V_k^T$ with $k \times n$ elements.
+    \end{itemize}
+    Thus, making the total number of elements required to store these matrices:
+    \begin{displaymath}
+        m \times k + k \times k + k \times n = k(m + k + n)
+    \end{displaymath}
+    For \(k\) much smaller than \(m\) and \(n\), this results in a substantial reduction in storage.\\
+    For example, consider a matrix \(A\) of size \(1000 \times 1000\). If we approximate \(A\) with rank \(k = 50\) we have:
+    \begin{itemize}
+        \item Original Matrix: \(1000 \times 1000 = 1000000\) elements.
+        \item Low-rank approximation: \(1000 \times 50 + 50 \times 50 + 50 \times 1000 = 102500\) elements.
+    \end{itemize}
+    which is a substantial reduction in storage requirements.\\
+    But if we choose \(k = 500\), the low-rank approximation would require 
+    \begin{displaymath}
+        1000 \times 500 + 500 \times 500 + 500 \times 1000 = 1250000 \text{ elements,}
+    \end{displaymath} which is more than the original matrix \(A\). Thus, the choice of \(k\) is crucial in achieving storage reduction.\\
+    More specifically, we want
+    \begin{gather*}
+        k(m+k+n) = k^2 + k(m+n) < mn \\
+        \Updownarrow \\
+        k^2 + k(m+n) - mn < 0 \\
+        \Updownarrow \\
+        k < \frac{\sqrt{4mn + (m+n)^2} - m - n}{2}
+    \end{gather*}
+    This inequality provides a guideline for selecting an appropriate rank \(k\) to achieve storage reduction.
+    
+    \subsubsection{Reduction in Computation for Matrix-Vector Multiplications}
+    
+    Low-rank approximation can also reduce the computational complexity of various matrix operations. In the case of a matrix-vector multiplication we have:
+    
+    \begin{itemize}
+        \item \textbf{Original Matrix}: Multiplying $A$ (size $m \times n$) with a vector requires $O(mn)$ operations.
+        \item \textbf{Low-Rank Approximation}: Multiplying $A_k = U_k \Sigma_k V_k^T$ with a vector involves three steps:
+        \begin{itemize}
+            \item $V_k^T$ with the vector: $O(kn)$ operations.
+            \item $\Sigma_k$ multiplication: $O(k^2)$ operations.
+            \item $U_k$ multiplication: $O(mk)$ operations.
+        \end{itemize}
+        \item \textbf{Total}: $O(kn) + O(k^2) + O(mk) = O(k(k + m + n))$ operations.
+    \end{itemize}
+    Therefore, the appropriate choice of rank \(k\) to achieve computational efficiency for matrix-vector multiplications is also
+    \begin{displaymath}
+        k < \frac{\sqrt{4mn + (m+n)^2} - m - n}{2}
+    \end{displaymath}
+    
+    \subsubsection{Reduction in Computation for Matrix-Matrix Multiplications}
+    In the case of a matrix-matrix multiplication we have:
+    
+    \begin{itemize}
+        \item \textbf{Original Matrix}: Multiplying $A$ (size $m \times n$) with another matrix of size $n \times p$ requires $O(mnp)$ operations.
+        \item \textbf{Low-Rank Approximation}: Multiplying $A_k = U_k \Sigma_k V_k^T$ with a matrix of size $n \times p$ involves:
+        \begin{itemize}
+            \item $V_k^T$ with the matrix: $O(knp)$ operations.
+            \item $\Sigma_k$ multiplication: $O(k^2 p)$ operations.
+            \item $U_k$ multiplication: $O(mkp)$ operations.
+        \end{itemize}
+        \item \textbf{Total}: $O(knp) + O(k^2p) + O(mkp) = O(k(k + m + n)p)$ operations.
+    \end{itemize}
+    Therefore, the appropriate choice of rank \(k\) to achieve computational efficiency for matrix-matrix multiplications is also
+    \begin{displaymath}
+        k < \frac{\sqrt{4mn + (m+n)^2} - m - n}{2}
+    \end{displaymath}
+    
+    By choosing a sufficiently small $k$, these operations can be performed much more efficiently compared to using the full-rank matrix $A$.\\
+    Thus, making low-rank approximation via SVD a powerful technique that offers significant benefits in terms of storage reduction and computational efficiency. By focusing on the most important components of a matrix, low-rank approximation makes it feasible to handle large datasets and complex computations more effectively, which is crucial in the field of deep learning and beyond.
+    
 \subsection{Neural Networks in Deep Learning}
-   a Neural network consist of interconnected nodes or "neurons" arranged in layers, with each layer designed to perform specific transformations on its inputs to capture and transmit increasingly abstract features to subsequent layers.
+   A Neural network consist of interconnected nodes or "neurons" arranged in layers, with each layer designed to perform specific transformations on its inputs to capture and transmit increasingly abstract features to subsequent layers.
     
     \subsubsection{Architecture of Neural Networks}
     The architecture of a neural network is defined by layers, each comprising a set of neurons connected by weights. These weights are adjusted during the training process to minimize the difference between the actual output of the network and the desired output. A typical feedforward neural network can be mathematically represented as:
@@ -43,7 +138,7 @@ where $A$ is the weight matrix, $\mathbf{x}$ is the input vector, $\mathbf{b}$ i
     where $W^{(l)}$ and $\mathbf{b}^{(l)}$ are the weight matrix and bias vector for the $l$-th layer, $\mathbf{h}^{(l-1)}$ is the output from the previous layer, and $f$ is a non-linear activation function such as ReLU or sigmoid.
     
     \subsubsection{Learning Process}
-    The learning process in neural networks involves adjusting weights and biases to reduce a loss function, commonly through backpropagation. This method efficiently computes gradients using chain rule calculus:
+    The learning process in neural networks involves adjusting weights and biases to reduce a loss function, commonly through backpropagation. This method efficiently computes gradients using calculus' chain rule:
     \begin{equation}
         W^{(l)} \leftarrow W^{(l)} - \eta \frac{\partial \mathcal{L}}{\partial W^{(l)}}
     \end{equation}
@@ -63,12 +158,15 @@ where $A$ is the weight matrix, $\mathbf{x}$ is the input vector, $\mathbf{b}$ i
        
        
         \subsection{Architecture of LLMs}
-        The architecture of most LLMs is based on the Transformer model, introduced by Vaswani et al.\cite{vaswani2023attention}, which relies on self-attention mechanisms to weigh the significance of different words in a sentence. The Transformer architecture is composed of two main components: an encoder and a decoder. The encoder takes the input text and produces a sequence of hidden states, which represent the meaning of the text. The decoder then takes the encoder's hidden states and generates the output text, on word at a time.
+        The architecture of most LLMs is based on the Transformer model, introduced by \cite{vaswani2023attention}, which relies on self-attention mechanisms to weigh the significance of different words in a sentence. The Transformer architecture is composed of two main components: an encoder and a decoder. The encoder takes the input text and produces a sequence of hidden states, which represent the meaning of the text. The decoder then takes the encoder's hidden states and generates the output text, one word at a time.
             \begin{figure}[h!]
                 \centering
                 \includegraphics[width=0.5\textwidth]{figs/transform_model.png}
                 \caption{Transformer model architecture - Taken from “Attention Is All You Need“}
             \end{figure}
+
+            At a high level, the goal of the Transformer is to take an input text and predict the next word in the sequence. The input text is broken into tokens, which are typically words or parts of words. Each token is then represented as a high-dimensional vector, known as its embedding. Initially, these embeddings encode only the individual meaning of the tokens without any contextual information.
+
             \subsubsection{Encoder}
             The encoder consists of a stack of \(N\) identical layers, each containing two sub-layers: a multi-head self-attention mechanism and a feed-forward neural network. Furtherly, a residual connection is employed around each of the two sub-layers, followed by layer normalization. So the output of each sub-layer is \(\text{LayerNorm}(x + \text{SubLayer} (x))\), where \(\text{SubLayer}(x)\) represents the function implemented by the sub-layer.
             
@@ -78,26 +176,98 @@ where $A$ is the weight matrix, $\mathbf{x}$ is the input vector, $\mathbf{b}$ i
                 The decoder, on the other hand, also consists of a stack of \(N\) identical layers, but with an additional third sublayer in each decoder layer, which performs multi-head attention over the encoder's output. This allows the decoder to focus on different parts of the encoder's output for each word in the output sequence. In the first sublayer of the decoder, self-attention is used, but with a constraint (masking) to prevent positions from attending to subsequent positions. This ensures that the predictions for position \(i\) can depend only on the known outputs at positions less than \(i\). The purpose of the decoder is to generate an output sequence one word at a time, using the encoder's output and what it has produced so far as inputs.
 
             \subsubsection{Attention}
-                The attention mechanism is a crucial component of the Transformer model, allowing it to weigh the importance of different words in the input sequence when generating the output. The attention mechanism is defined as follows:
+                The attention mechanism is a cornerstone of the Transformer model. Its primary function is to dynamically adjust the importance of each word in the input sequence based on its context, thereby refining the embeddings of these words to capture richer meanings.
+
+                The attention mechanism allows each token to attend to every other token in the sequence, effectively allowing the model to focus on the most relevant parts of the input when making predictions. This process is mathematically described as follows:
+
                 \begin{equation}
                     \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
                     \label{eq:attention}
                 \end{equation}
-                where $Q$, $K$, and $V$ represent the query, key, and value matrices, respectively, and $d_k$ is the dimension of the key vector. This self-attention mechanism allows the model to focus on relevant parts of the input sequence when performing a task, enabling superior handling of long-range dependencies.
-                
-            \subsubsection{Multi-head attention}
-                Multi-head attention is an extension of the attention mechanism that allows the model to focus on different parts of the input sequence simultaneously. It achieves this by, instead of performing a singel attention function with \(d_{\text{model}}\)-dimensional keys, values and queries, linearly projecting the query, key, and value matrices \(h\) times into multiple subspaces with dimensionality \(d_k\), \(d_k\), and \(d_v\), respectively, before applying the attention function. The output of each of these \(h\) attention heads is then concatenated and linearly projected to produce the final output. This mechanism allows the model to capture different aspects of the input sequence in parallel, enhancing its ability to learn complex patterns in the data.
+
+                Here, \(Q\), \(K\), and \(V\) are the query, key, and value matrices, respectively. These matrices are derived from the input embeddings by multiplying them with learned weight matrices. The dimension \(d_k\) is the size of the key vectors and serves to scale the dot products to prevent them from growing too large.
+
+                To understand how this works, consider a simple example: The phrases
+                \begin{itemize}
+                    \item "After dinner, they enjoyed a sticky \emph{date} pudding."
+                    \item "She circled the \emph{date} of the concert on her calender."
+                    \item "They went on their first \emph{date} to the zoo."
+                \end{itemize}
+                The word "date" has different meanings in each phrase, but its initial embedding would be the same. The attention mechanism helps to refine the meaning of "date" based on its context by allowing the embeddings of surrounding words to influence it.
+
+                \textbf{Steps of the Attention Mechanism}:
+                \begin{enumerate}
+                    \item \textbf{Compute Query, Key, and Value Vectors:} For each embedded token \(\overrightarrow{E_i}\), we compute query (\(\overrightarrow{Q_i}\)), key (\(\overrightarrow{K_i}\)), and value (\(\overrightarrow{V_i}\)) vectors by multiplying the token's embedding with learned matrices \(W^Q\), \(W^K\), and \(W^V\):
+                    \[
+                    \overrightarrow{Q_i} = W^Q\overrightarrow{E_i}, \quad \overrightarrow{K_i} = W^K\overrightarrow{E_i}, \quad \overrightarrow{V_i} = W^V\overrightarrow{E_i}
+                    \]
+
+                    \item \textbf{Compute Attention Scores:} Calculate the dot products of the query vectors with all key vectors to measure how much focus each word should have on every other word, and divide by the square root of the key dimension for numerical stability:
+                    \[
+                    \text{Scores} = \frac{QK^T}{\sqrt{d_k}}
+                    \]
+
+                    \item \textbf{Apply Softmax Activation:} Normalize these scores using the softmax function to obtain attention weights:
+                    \[
+                    \text{Attention Weights} = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)
+                    \]
+
+                    \item \textbf{Compute Weighted Sum of Values:} Multiply the attention weights by the value vectors to get the final output for each token:
+                    \[
+                    \text{Output} = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right) V
+                    \]
+                \end{enumerate}
+                which finally leaves us with Eq. \ref{eq:attention}.
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{figs/Scaled_dot_product.png}
+                    \caption{Illustration of the Attention Mechanism - Taken from "Attention Is All You Need"}
+                    \label{fig:attention_mechanism}
+                \end{figure}
+
+                This mechanism allows the model to dynamically adjust which parts of the input sequence to focus on, thereby capturing the contextual meaning of each word. This whole process is described as a single 'head' of attention, and multiple heads can be used in parallel to capture different aspects of the input sequence.
+
+            \subsubsection{Multi-head Attention}
+                Multi-head attention extends the single-head attention mechanism by allowing the model to attend to different parts of the input sequence simultaneously, capturing a variety of relationships and patterns. Instead of performing a single attention function, multi-head attention projects the queries, keys, and values into multiple subspaces and performs the attention function in each subspace independently.
+
+                This process is mathematically described as follows:
+
                 \begin{align}
                     \text{MultiHead}(Q, K, V) &= \text{Concat}(\text{head}_1, \ldots, \text{head}_h)W^O \\
                     \textbf{where } \text{head}_i &= \text{Attention}(QW_i^Q, KW_i^K, VW_i^V)
                 \end{align}
-                Where \(W_i^Q \in \mathbb{R}^{d_{\text{model}} \times d_k}\), \(W_i^K \in \mathbb{R}^{d_{\text{model}} \times d_k}\), \(W_i^V \in \mathbb{R}^{d_{\text{model}} \times d_v}\), and \(W^O \in \mathbb{R}^{hd_v \times d_{\text{model}}}\) are learned linear projections, and \(d_{\text{model}}\) is the dimension of the model.
 
-            \subsubsection{Why Transformers?}
+                Here the projections are the learned parameter matrices  \(W_i^Q\), \(W_i^K\), and \(W_i^V\) for the \(i\)-th head, and \(W^O\) is the output matrix.
+
+                \textbf{Steps of Multi-head Attention}:
+                \begin{enumerate}
+                    \item \textbf{Linear Projections}: Project the input embeddings into \(h\) different subspaces using learned weight matrices to create multiple sets of queries, keys, and values:
+                    \[
+                    Q_i = QW_i^Q, \quad K_i = KW_i^K, \quad V_i = VW_i^V
+                    \]
+
+                    \item \textbf{Parallel Attention Heads}: Apply the attention mechanism to each set of projections in parallel, producing multiple attention outputs:
+                    \[
+                    \text{head}_i = \text{Attention}(Q_i, K_i, V_i)
+                    \]
+
+                    \item \textbf{Concatenate and Project}: Concatenate the outputs of all attention heads and project them back to the original embedding space using a final learned matrix \(W^O\):
+                    \[
+                    \text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \ldots, \text{head}_h)W^O
+                    \]
+                \end{enumerate}
+                Multi-head attention allows the model to capture different aspects of the input sequence in parallel, which enhances its ability to understand complex patterns and dependencies in the data.
+                \begin{figure}[H]
+                    \centering
+                    \includegraphics[width=0.6\textwidth]{figs/Multi_head_attention.png}
+                    \caption{Illustration of Multi-head Attention - Taken from "Attention Is All You Need"}
+                    \label{fig:multi_head_attention}
+                \end{figure}
+                In summary, the attention and multi-head attention mechanisms enable the Transformer model to focus on relevant parts of the input sequence dynamically, improving its ability to capture context and generate accurate predictions. These mechanisms are crucial to the model's success in various natural language processing tasks.
+                                        
+                
+                \subsubsection{Why Transformers?}
                 The Transformer model has several advantages over traditional RNNs and LSTMs, including the ability to capture long-range dependencies, parallelize computation, and scale to larger datasets. The self-attention mechanism allows the model to focus on relevant parts of the input sequence, enabling it to learn complex patterns in the data. The multi-head attention mechanism further enhances the model's ability to capture different aspects of the input sequence in parallel, improving its performance on a wide range of NLP tasks such as translation, summarization, and image captioning. This is why Transformers have become the architecture of choice for many state-of-the-art NLP models, including GPT and BERT.
-
-        % \subsection{Training and Fine-Tuning}
-        %     The training of LLMs involves two main phases: pre-training and fine-tuning. During pre-training, the model is exposed to a large corpus of text and learns to predict missing words or sentences, acquiring a broad understanding of language. The fine-tuning phase adjusts the pre-trained model to specific tasks by training on smaller, task-specific datasets. This two-phase approach allows LLMs to achieve remarkable performance across a wide range of NLP tasks with minimal task-specific model modifications.
 
             \subsection{Training and Fine-Tuning}
             The foundation of an LLM's understanding and generation of human language lies in its pre-training phase. During this stage, the model is exposed to a large corpus of text data, often encompassing a wide range of topics, genres, and styles. The primary objective of pre-training is to enable the model to learn a generalized representation of language.

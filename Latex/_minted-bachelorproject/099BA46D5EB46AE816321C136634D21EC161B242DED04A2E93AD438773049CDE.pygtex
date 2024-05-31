@@ -1,0 +1,31 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{torch} \PYG{k+kn}{import} \PYG{n}{nn}
+\PYG{k+kn}{from} \PYG{n+nn}{dataclasses} \PYG{k+kn}{import} \PYG{n}{dataclass}
+\PYG{k+kn}{from} \PYG{n+nn}{torch.nn} \PYG{k+kn}{import} \PYG{n}{functional} \PYG{k}{as} \PYG{n}{F}
+
+\PYG{n+nd}{@dataclass}
+\PYG{k}{class} \PYG{n+nc}{LowRankConfig}\PYG{p}{:}
+    \PYG{n}{rank}\PYG{p}{:}\PYG{n+nb}{int}
+    \PYG{n}{target\PYGZus{}modules}\PYG{p}{:} \PYG{n+nb}{list}\PYG{p}{[}\PYG{n+nb}{str}\PYG{p}{]}
+
+\PYG{k}{class} \PYG{n+nc}{LowRankLayer}\PYG{p}{(}\PYG{n}{nn}\PYG{o}{.}\PYG{n}{Module}\PYG{p}{):}
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}given a linear layer find low rank decomposition\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{rank}\PYG{p}{,} \PYG{n}{full\PYGZus{}rank\PYGZus{}layer}\PYG{p}{):}
+        \PYG{n+nb}{super}\PYG{p}{()}\PYG{o}{.}\PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{()}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{rank} \PYG{o}{=} \PYG{n}{rank}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{bias} \PYG{o}{=} \PYG{n}{full\PYGZus{}rank\PYGZus{}layer}\PYG{o}{.}\PYG{n}{bias}
+        \PYG{n}{U}\PYG{p}{,} \PYG{n}{S}\PYG{p}{,} \PYG{n}{Vh} \PYG{o}{=} \PYG{n}{torch}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{svd}\PYG{p}{(}\PYG{n}{full\PYGZus{}rank\PYGZus{}layer}\PYG{o}{.}\PYG{n}{weight}\PYG{p}{,} \PYG{n}{driver} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}gesvd\PYGZsq{}}\PYG{p}{)}
+        \PYG{n}{S\PYGZus{}diag} \PYG{o}{=} \PYG{n}{torch}\PYG{o}{.}\PYG{n}{diag}\PYG{p}{(}\PYG{n}{S}\PYG{p}{)}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{U} \PYG{o}{=} \PYG{n}{U}\PYG{p}{[:,} \PYG{p}{:}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{rank}\PYG{p}{]}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{S} \PYG{o}{=} \PYG{n}{S\PYGZus{}diag}\PYG{p}{[:}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{rank}\PYG{p}{,} \PYG{p}{:}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{rank}\PYG{p}{]}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{Vh} \PYG{o}{=} \PYG{n}{Vh}\PYG{p}{[:}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{rank}\PYG{p}{,} \PYG{p}{:]}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{weight} \PYG{o}{=} \PYG{n}{full\PYGZus{}rank\PYGZus{}layer}\PYG{o}{.}\PYG{n}{weight}
+
+\PYG{+w}{    }\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}forward pass through the low\PYGZhy{}rank layer\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+    \PYG{k}{def} \PYG{n+nf}{forward}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{x}\PYG{p}{):}
+        \PYG{n}{output\PYGZus{}t1} \PYG{o}{=} \PYG{n}{F}\PYG{o}{.}\PYG{n}{linear}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{Vh}\PYG{p}{)}
+        \PYG{n}{output\PYGZus{}t2} \PYG{o}{=} \PYG{n}{F}\PYG{o}{.}\PYG{n}{linear}\PYG{p}{(}\PYG{n}{output\PYGZus{}t1}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{S}\PYG{p}{)}
+        \PYG{n}{output} \PYG{o}{=} \PYG{n}{F}\PYG{o}{.}\PYG{n}{linear}\PYG{p}{(}\PYG{n}{output\PYGZus{}t2}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{U}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{bias}\PYG{p}{)}
+
+        \PYG{k}{return} \PYG{n}{output}
+\end{Verbatim}

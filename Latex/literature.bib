@@ -15,16 +15,14 @@
 
 %-----------------------------------------------------%
 
-@ARTICLE{McCarthy60,
-  KEY           = "McCarthy60",
-  AUTHOR        = "John McCarthy",
-  TITLE         = "Recursive Functions of Symbolic Expressions and Their
-                   Computation by Machine, Part I",
-  JOURNAL       = "Communications of the ACM",
-  YEAR          = "1960",
-  MONTH         = "April",
-  ANNOTE        = "",
-  COMMENT       = ""}
+@misc{vaswani2023attention,
+      title={Attention Is All You Need}, 
+      author={Ashish Vaswani and Noam Shazeer and Niki Parmar and Jakob Uszkoreit and Llion Jones and Aidan N. Gomez and Lukasz Kaiser and Illia Polosukhin},
+      year={2017},
+      eprint={1706.03762},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
 
 @misc{hu2021lora,
       title={LoRA: Low-Rank Adaptation of Large Language Models}, 
@@ -35,11 +33,42 @@
       primaryClass={cs.CL}
 }
 
-@misc{vaswani2023attention,
-      title={Attention Is All You Need}, 
-      author={Ashish Vaswani and Noam Shazeer and Niki Parmar and Jakob Uszkoreit and Llion Jones and Aidan N. Gomez and Lukasz Kaiser and Illia Polosukhin},
-      year={2017},
-      eprint={1706.03762},
+@inproceedings{valipour-etal-2023-dylora,
+    title = "{D}y{L}o{RA}: Parameter-Efficient Tuning of Pre-trained Models using Dynamic Search-Free Low-Rank Adaptation",
+    author = "Valipour, Mojtaba  and
+      Rezagholizadeh, Mehdi  and
+      Kobyzev, Ivan  and
+      Ghodsi, Ali",
+    editor = "Vlachos, Andreas  and
+      Augenstein, Isabelle",
+    booktitle = "Proceedings of the 17th Conference of the European Chapter of the Association for Computational Linguistics",
+    month = may,
+    year = "2023",
+    address = "Dubrovnik, Croatia",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.eacl-main.239",
+    doi = "10.18653/v1/2023.eacl-main.239",
+    pages = "3274--3287",
+    abstract = "With the ever-growing size of pretrained models (PMs), fine-tuning them has become more expensive and resource-hungry. As a remedy, low-rank adapters (LoRA) keep the main pretrained weights of the model frozen and just introduce some learnable truncated SVD modules (so-called LoRA blocks) to the model. While LoRA blocks are parameter-efficient, they suffer from two major problems: first, the size of these blocks is fixed and cannot be modified after training (for example, if we need to change the rank of LoRA blocks, then we need to re-train them from scratch); second, optimizing their rank requires an exhaustive search and effort. In this work, we introduce a dynamic low-rank adaptation (DyLoRA) technique to address these two problems together. Our DyLoRA method trains LoRA blocks for a range of ranks instead of a single rank by sorting the representation learned by the adapter module at different ranks during training. We evaluate our solution on different natural language understanding (GLUE benchmark) and language generation tasks (E2E, DART and WebNLG) using different pretrained models such as RoBERTa and GPT with different sizes. Our results show that we can train dynamic search-free models with DyLoRA at least 4 to 7 times (depending to the task) faster than LoRA without significantly compromising performance. Moreover, our models can perform consistently well on a much larger range of ranks compared to LoRA.",
+}
+@inproceedings{zhang2023adaptive,
+   title={Adaptive Budget Allocation for Parameter-Efficient Fine-Tuning },
+   author={Qingru Zhang and Minshuo Chen and Alexander Bukharin and Pengcheng He and Yu Cheng and Weizhu Chen and Tuo Zhao},
+   booktitle={The Eleventh International Conference on Learning Representations },
+   year={2023},
+   url={https://openreview.net/forum?id=lq62uWRJjiY}
+}
+@misc{chavan2024oneforall,
+title={One-for-All: Generalized Lo{RA} for Parameter-Efficient Fine-tuning},
+author={Arnav Chavan and Zhuang Liu and Deepak Gupta and Eric Xing and Zhiqiang Shen},
+year={2024},
+url={https://openreview.net/forum?id=K7KQkiHanD}
+}
+@misc{xu2023tensorgpt,
+      title={TensorGPT: Efficient Compression of the Embedding Layer in LLMs based on the Tensor-Train Decomposition}, 
+      author={Mingxue Xu and Yao Lei Xu and Danilo P. Mandic},
+      year={2023},
+      eprint={2307.00526},
       archivePrefix={arXiv},
       primaryClass={cs.CL}
 }
@@ -106,4 +135,22 @@
       eprint={2012.13255},
       archivePrefix={arXiv},
       primaryClass={cs.LG}
+}
+
+@misc{lewis2019bart,
+      title={BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension}, 
+      author={Mike Lewis and Yinhan Liu and Naman Goyal and Marjan Ghazvininejad and Abdelrahman Mohamed and Omer Levy and Ves Stoyanov and Luke Zettlemoyer},
+      year={2019},
+      eprint={1910.13461},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+}
+
+@misc{devlin2019bert,
+      title={BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding}, 
+      author={Jacob Devlin and Ming-Wei Chang and Kenton Lee and Kristina Toutanova},
+      year={2019},
+      eprint={1810.04805},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
 }

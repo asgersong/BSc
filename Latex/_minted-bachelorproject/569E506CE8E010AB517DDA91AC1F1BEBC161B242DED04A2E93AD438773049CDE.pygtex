@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{transformers} \PYG{k+kn}{import} \PYG{n}{AutoModelForSeq2SeqLM}
+\PYG{n}{model\PYGZus{}checkpoint} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}facebook/bart\PYGZhy{}large\PYGZdq{}}
+\PYG{n}{model} \PYG{o}{=} \PYG{n}{AutoModelForSeq2SeqLM}\PYG{o}{.}\PYG{n}{from\PYGZus{}pretrained}\PYG{p}{(}\PYG{n}{model\PYGZus{}checkpoint}\PYG{p}{)}
+\end{Verbatim}
