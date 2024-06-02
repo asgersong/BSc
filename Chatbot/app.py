@@ -106,7 +106,7 @@ if 'chat_history' not in st.session_state:
 # Display title and description
 st.title("Study Buddy")
 st.markdown("""
-Welcome to **Study Buddy**, your Hi ultimate exam preparation assistant!
+Welcome to **Study Buddy**, your ultimate exam preparation assistant!
 
 Harnessing the power of Retrieval-Augmented Generation (RAG), Study Buddy combines the latest advancements in AI to enhance your study sessions and boost your productivity. With Study Buddy, you can efficiently tackle complex topics, get quick answers to your questions, and receive personalized guidance to help you excel in your exams.
 
