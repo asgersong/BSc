@@ -26,67 +26,67 @@
 \contentsline {subsection}{\numberline {2.2.3}Training and Fine-Tuning}{20}{subsection.2.2.3}%
 \contentsline {chapter}{\chapternumberline {3}Literature Review}{23}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Overview of Large Language Models}{23}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Previous Studies on LLM Compression and Optimization}{23}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Low-Memory Optimization}{23}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Optimization by Prompting}{24}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Evaluating Summarization with ROUGE}{25}{section.3.3}%
-\contentsline {paragraph}{ROUGE Metrics}{25}{section.3.3}%
-\contentsline {paragraph}{Application and Relevance}{25}{section.3.3}%
-\contentsline {paragraph}{Significance in LLM Research}{25}{section.3.3}%
-\contentsline {chapter}{\chapternumberline {4}Literature Review}{27}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Overview of Large Language Models}{27}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Previous Studies on LLM Compression}{27}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Introduction to BART}{28}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Architecture and Training}{28}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Efficacy and Applications}{29}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}Evaluating Summarization with ROUGE}{29}{section.4.4}%
-\contentsline {paragraph}{ROUGE Metrics}{29}{section.4.4}%
-\contentsline {paragraph}{Application and Relevance}{29}{section.4.4}%
-\contentsline {paragraph}{Significance in LLM Research}{29}{section.4.4}%
-\contentsline {chapter}{\chapternumberline {5}Methodology}{31}{chapter.5}%
-\contentsline {section}{\numberline {5.1}RAG Chatbot: Study Buddy}{31}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Motivation}{31}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Development and Environment Tools}{31}{subsection.5.1.2}%
-\contentsline {subsection}{\numberline {5.1.3}Implementation Steps}{32}{subsection.5.1.3}%
-\contentsline {section}{\numberline {5.2}LLM Optimization}{33}{section.5.2}%
-\contentsline {subsection}{\numberline {5.2.1}Optimization Techniques for Large Language Models}{33}{subsection.5.2.1}%
-\contentsline {subsubsection}{Model Pruning}{33}{section*.12}%
-\contentsline {subsubsection}{Parameter Sharing}{33}{section*.12}%
-\contentsline {subsubsection}{Focus on Low-Rank Approximation}{33}{section*.12}%
-\contentsline {section}{\numberline {5.3}Case Study: Low-Rank Approximation}{33}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Implementation Steps}{34}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Evaluation Metrics}{34}{subsection.5.3.2}%
-\contentsline {subsection}{\numberline {5.3.3}Appropriate Rank Selection}{35}{subsection.5.3.3}%
-\contentsline {chapter}{\chapternumberline {6}Implementation}{37}{chapter.6}%
-\contentsline {section}{\numberline {6.1}RAG Chatbot}{37}{section.6.1}%
-\contentsline {subsection}{\numberline {6.1.1}Chatbot Interface}{37}{subsection.6.1.1}%
-\contentsline {subsection}{\numberline {6.1.2}Generator Component}{38}{subsection.6.1.2}%
-\contentsline {section}{\numberline {6.2}Case Study}{38}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Importing the Model}{38}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}Dataset Preprocessing}{38}{subsection.6.2.2}%
-\contentsline {subsubsection}{Importing the Dataset}{39}{section*.16}%
-\contentsline {subsubsection}{Setting Maximum Lengths}{39}{listing.4}%
-\contentsline {subsubsection}{Preprocessing Function}{39}{listing.5}%
-\contentsline {subsubsection}{Applying the Preprocessing Function}{40}{listing.6}%
-\contentsline {subsection}{\numberline {6.2.3}Finetuning the Model}{40}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}Custom Layer Implementation}{40}{subsection.6.2.4}%
-\contentsline {paragraph}{Initialization}{41}{listing.8}%
-\contentsline {paragraph}{Forward Pass}{41}{listing.8}%
-\contentsline {subsection}{\numberline {6.2.5}Traversing the Model and Applying Low-Rank Approximation}{42}{subsection.6.2.5}%
-\contentsline {chapter}{\chapternumberline {7}Evaluation and Results}{43}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Case Study}{43}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Results and Analysis}{43}{subsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.1.2}Conclusion}{44}{subsection.7.1.2}%
-\contentsline {chapter}{\chapternumberline {8}Discussion}{45}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Interpretation of Results}{45}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Theoretical and Practical Implications}{45}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Limitations and Challenges}{45}{section.8.3}%
-\contentsline {chapter}{\chapternumberline {9}Conclusion and Future Work}{47}{chapter.9}%
-\contentsline {section}{\numberline {9.1}Summary of Key Findings}{47}{section.9.1}%
-\contentsline {section}{\numberline {9.2}Contributions to the Field}{47}{section.9.2}%
-\contentsline {section}{\numberline {9.3}Recommendations for Future Research}{47}{section.9.3}%
-\contentsline {chapter}{Bibliography}{49}{section*.20}%
-\contentsline {appendix}{\chapternumberline {A}Educational Synergy in Teaching and Research}{51}{appendix.A}%
-\contentsline {appendix}{\chapternumberline {B}Poster}{55}{appendix.B}%
-\contentsline {appendix}{\chapternumberline {C}Chatbot}{57}{appendix.C}%
-\contentsline {appendix}{\chapternumberline {D}Architecture of BART}{59}{appendix.D}%
+\contentsline {section}{\numberline {3.2}Previous Studies on LLM Compression}{23}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Introduction to BART}{24}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Architecture and Training}{24}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Efficacy and Applications}{25}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}Evaluating Summarization with ROUGE}{25}{section.3.4}%
+\contentsline {paragraph}{ROUGE Metrics}{25}{section.3.4}%
+\contentsline {paragraph}{Application and Relevance}{25}{section.3.4}%
+\contentsline {paragraph}{Significance in LLM Research}{25}{section.3.4}%
+\contentsline {chapter}{\chapternumberline {4}Methodology}{27}{chapter.4}%
+\contentsline {section}{\numberline {4.1}RAG Chatbot: Study Buddy}{27}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Motivation}{27}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Development and Environment Tools}{27}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}Implementation Steps}{28}{subsection.4.1.3}%
+\contentsline {section}{\numberline {4.2}LLM Optimization}{29}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Optimization Techniques for Large Language Models}{29}{subsection.4.2.1}%
+\contentsline {subsubsection}{Model Pruning}{29}{section*.12}%
+\contentsline {subsubsection}{Parameter Sharing}{29}{section*.12}%
+\contentsline {subsubsection}{Focus on Low-Rank Approximation}{29}{section*.12}%
+\contentsline {section}{\numberline {4.3}Case Study: Low-Rank Approximation}{29}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Implementation Steps}{30}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Evaluation Metrics}{30}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Appropriate Rank Selection}{31}{subsection.4.3.3}%
+\contentsline {chapter}{\chapternumberline {5}Implementation}{33}{chapter.5}%
+\contentsline {section}{\numberline {5.1}RAG Chatbot}{33}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Chatbot Interface}{33}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Generator Component}{34}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}Retriever Component}{35}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}Integration of Generator and Retriever}{36}{subsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.1.5}PDF Uploader}{38}{subsection.5.1.5}%
+\contentsline {subsection}{\numberline {5.1.6}Deployment}{39}{subsection.5.1.6}%
+\contentsline {section}{\numberline {5.2}Case Study}{40}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Importing the Model}{40}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Dataset Preprocessing}{40}{subsection.5.2.2}%
+\contentsline {subsubsection}{Importing the Dataset}{40}{section*.17}%
+\contentsline {subsubsection}{Setting Maximum Lengths}{41}{listing.7}%
+\contentsline {subsubsection}{Preprocessing Function}{41}{listing.8}%
+\contentsline {subsubsection}{Applying the Preprocessing Function}{41}{listing.9}%
+\contentsline {subsection}{\numberline {5.2.3}Finetuning the Model}{42}{subsection.5.2.3}%
+\contentsline {subsection}{\numberline {5.2.4}Custom Layer Implementation}{42}{subsection.5.2.4}%
+\contentsline {paragraph}{Initialization}{42}{listing.11}%
+\contentsline {paragraph}{Forward Pass}{43}{listing.11}%
+\contentsline {subsection}{\numberline {5.2.5}Traversing the Model and Applying Low-Rank Approximation}{43}{subsection.5.2.5}%
+\contentsline {chapter}{\chapternumberline {6}Evaluation and Results}{45}{chapter.6}%
+\contentsline {section}{\numberline {6.1}RAG Chatbot}{45}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Functionality Testing}{45}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Case Study: Impact of Document Insertion on Response Quality}{45}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Impact of Document Insertion on Unrelated Query Response}{48}{subsection.6.1.3}%
+\contentsline {section}{\numberline {6.2}Case Study}{49}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}ROUGE scores}{49}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Comparing Summaries}{50}{subsection.6.2.2}%
+\contentsline {chapter}{\chapternumberline {7}Discussion}{53}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Interpretation of Results}{53}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}RAG Chatbot}{53}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Case Study: Low Rank Approximation}{53}{subsection.7.1.2}%
+\contentsline {section}{\numberline {7.2}Limitations and Challenges}{54}{section.7.2}%
+\contentsline {chapter}{\chapternumberline {8}Conclusion and Future Work}{55}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Summary of Key Findings}{55}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Contributions to the Field}{55}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Recommendations for Future Research}{55}{section.8.3}%
+\contentsline {chapter}{Bibliography}{57}{section*.27}%
+\contentsline {appendix}{\chapternumberline {A}Educational Synergy in Teaching and Research}{59}{appendix.A}%
+\contentsline {appendix}{\chapternumberline {B}Poster}{63}{appendix.B}%
+\contentsline {appendix}{\chapternumberline {C}Interview with Carsten Bergenholtz}{65}{appendix.C}%
+\contentsline {appendix}{\chapternumberline {D}Architecture of BART}{69}{appendix.D}%

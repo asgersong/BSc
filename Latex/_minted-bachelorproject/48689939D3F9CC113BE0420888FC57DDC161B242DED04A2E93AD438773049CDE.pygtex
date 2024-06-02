@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Sidebar for document upload}
+\PYG{k}{with} \PYG{n}{st}\PYG{o}{.}\PYG{n}{sidebar}\PYG{p}{:}
+    \PYG{k}{with} \PYG{n}{st}\PYG{o}{.}\PYG{n}{form}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}upload\PYGZus{}form\PYGZsq{}}\PYG{p}{):}
+        \PYG{n}{uploaded\PYGZus{}file} \PYG{o}{=} \PYG{n}{st}\PYG{o}{.}\PYG{n}{file\PYGZus{}uploader}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Upload a document for enhanced context\PYGZsq{}}\PYG{p}{,} \PYG{n+nb}{type}\PYG{o}{=}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}pdf\PYGZsq{}}\PYG{p}{])}
+        \PYG{n}{submit\PYGZus{}button} \PYG{o}{=} \PYG{n}{st}\PYG{o}{.}\PYG{n}{form\PYGZus{}submit\PYGZus{}button}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Save to AstraDB\PYGZsq{}}\PYG{p}{)}
+        \PYG{k}{if} \PYG{n}{submit\PYGZus{}button}\PYG{p}{:}
+            \PYG{n}{process\PYGZus{}and\PYGZus{}vectorize\PYGZus{}document}\PYG{p}{(}\PYG{n}{uploaded\PYGZus{}file}\PYG{p}{,} \PYG{n}{vector\PYGZus{}store\PYGZus{}instance}\PYG{p}{)}
+\end{Verbatim}

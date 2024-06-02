@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{langchain\PYGZus{}community.vectorstores} \PYG{k+kn}{import} \PYG{n}{AstraDB}
+\PYG{k+kn}{from} \PYG{n+nn}{langchain\PYGZus{}openai} \PYG{k+kn}{import} \PYG{n}{OpenAIEmbeddings}
+
+\PYG{c+c1}{\PYGZsh{} Cache the Astra DB Vector Store for reuse}
+\PYG{n+nd}{@st}\PYG{o}{.}\PYG{n}{cache\PYGZus{}resource}\PYG{p}{(}\PYG{n}{show\PYGZus{}spinner}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}Connecting to AstraDB\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}vector\PYGZus{}store}\PYG{p}{():}
+    \PYG{n}{vector\PYGZus{}store\PYGZus{}instance} \PYG{o}{=} \PYG{n}{AstraDB}\PYG{p}{(}
+        \PYG{n}{embedding}\PYG{o}{=}\PYG{n}{OpenAIEmbeddings}\PYG{p}{(),}
+        \PYG{n}{collection\PYGZus{}name}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}datastax\PYGZdq{}}\PYG{p}{,}
+        \PYG{n}{api\PYGZus{}endpoint}\PYG{o}{=}\PYG{n}{st}\PYG{o}{.}\PYG{n}{secrets}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}ASTRA\PYGZus{}API\PYGZus{}ENDPOINT\PYGZsq{}}\PYG{p}{],}
+        \PYG{n}{token}\PYG{o}{=}\PYG{n}{st}\PYG{o}{.}\PYG{n}{secrets}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}ASTRA\PYGZus{}TOKEN\PYGZsq{}}\PYG{p}{]}
+    \PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{vector\PYGZus{}store\PYGZus{}instance}
+\PYG{n}{vector\PYGZus{}store\PYGZus{}instance} \PYG{o}{=} \PYG{n}{get\PYGZus{}vector\PYGZus{}store}\PYG{p}{()}
+
+\PYG{c+c1}{\PYGZsh{} Cache the Retriever for reuse}
+\PYG{n+nd}{@st}\PYG{o}{.}\PYG{n}{cache\PYGZus{}resource}\PYG{p}{(}\PYG{n}{show\PYGZus{}spinner}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}Initializing retriever\PYGZsq{}}\PYG{p}{)}
+\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}retriever}\PYG{p}{():}
+    \PYG{n}{retriever\PYGZus{}instance} \PYG{o}{=} \PYG{n}{vector\PYGZus{}store\PYGZus{}instance}\PYG{o}{.}\PYG{n}{as\PYGZus{}retriever}\PYG{p}{(}
+        \PYG{n}{search\PYGZus{}kwargs}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}k\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{5}\PYG{p}{\PYGZcb{}}
+    \PYG{p}{)}
+    \PYG{k}{return} \PYG{n}{retriever\PYGZus{}instance}
+\PYG{n}{retriever\PYGZus{}instance} \PYG{o}{=} \PYG{n}{get\PYGZus{}retriever}\PYG{p}{()}
+\end{Verbatim}

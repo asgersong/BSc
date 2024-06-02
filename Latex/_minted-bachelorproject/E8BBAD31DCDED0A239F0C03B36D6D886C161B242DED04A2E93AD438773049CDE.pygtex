@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Function to process and vectorize uploaded documents into Astra DB}
+\PYG{k}{def} \PYG{n+nf}{process\PYGZus{}and\PYGZus{}vectorize\PYGZus{}document}\PYG{p}{(}\PYG{n}{uploaded\PYGZus{}file}\PYG{p}{,} \PYG{n}{vector\PYGZus{}db}\PYG{p}{):}
+    \PYG{k}{if} \PYG{n}{uploaded\PYGZus{}file} \PYG{o+ow}{is} \PYG{o+ow}{not} \PYG{k+kc}{None}\PYG{p}{:}
+
+        \PYG{c+c1}{\PYGZsh{} Create a temporary file to store the uploaded document}
+        \PYG{n}{temp\PYGZus{}dir} \PYG{o}{=} \PYG{n}{tempfile}\PYG{o}{.}\PYG{n}{TemporaryDirectory}\PYG{p}{()}
+        \PYG{n}{temp\PYGZus{}file\PYGZus{}path} \PYG{o}{=} \PYG{n}{os}\PYG{o}{.}\PYG{n}{path}\PYG{o}{.}\PYG{n}{join}\PYG{p}{(}\PYG{n}{temp\PYGZus{}dir}\PYG{o}{.}\PYG{n}{name}\PYG{p}{,} \PYG{n}{uploaded\PYGZus{}file}\PYG{o}{.}\PYG{n}{name}\PYG{p}{)}
+        \PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{n}{temp\PYGZus{}file\PYGZus{}path}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}wb\PYGZsq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{temp\PYGZus{}file}\PYG{p}{:}
+            \PYG{n}{temp\PYGZus{}file}\PYG{o}{.}\PYG{n}{write}\PYG{p}{(}\PYG{n}{uploaded\PYGZus{}file}\PYG{o}{.}\PYG{n}{getvalue}\PYG{p}{())}
+
+        \PYG{c+c1}{\PYGZsh{} Load the PDF file}
+        \PYG{n}{document\PYGZus{}pages} \PYG{o}{=} \PYG{p}{[]}
+        \PYG{n}{pdf\PYGZus{}loader} \PYG{o}{=} \PYG{n}{PyPDFLoader}\PYG{p}{(}\PYG{n}{temp\PYGZus{}file\PYGZus{}path}\PYG{p}{)}
+        \PYG{n}{document\PYGZus{}pages}\PYG{o}{.}\PYG{n}{extend}\PYG{p}{(}\PYG{n}{pdf\PYGZus{}loader}\PYG{o}{.}\PYG{n}{load}\PYG{p}{())}
+
+        \PYG{c+c1}{\PYGZsh{} Initialize text splitter}
+        \PYG{n}{splitter} \PYG{o}{=} \PYG{n}{RecursiveCharacterTextSplitter}\PYG{p}{(}
+            \PYG{n}{chunk\PYGZus{}size}\PYG{o}{=}\PYG{l+m+mi}{1500}\PYG{p}{,}
+            \PYG{n}{chunk\PYGZus{}overlap}\PYG{o}{=}\PYG{l+m+mi}{100}
+        \PYG{p}{)}
+
+        \PYG{c+c1}{\PYGZsh{} Split the document and add it to the vector store}
+        \PYG{n}{split\PYGZus{}pages} \PYG{o}{=} \PYG{n}{splitter}\PYG{o}{.}\PYG{n}{split\PYGZus{}documents}\PYG{p}{(}\PYG{n}{document\PYGZus{}pages}\PYG{p}{)}
+        \PYG{n}{vector\PYGZus{}db}\PYG{o}{.}\PYG{n}{add\PYGZus{}documents}\PYG{p}{(}\PYG{n}{split\PYGZus{}pages}\PYG{p}{)}
+        \PYG{n}{st}\PYG{o}{.}\PYG{n}{info}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+si}{\PYGZob{}}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{split\PYGZus{}pages}\PYG{p}{)}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{ pages have been loaded into the database.\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

@@ -1,7 +1,16 @@
 \chapter{Discussion}
 
 \section{Interpretation of Results}
+    \subsection{RAG Chatbot}
+        The Study Buddy RAG chatbot successfully demonstrated the potential of combining retrieval-augmented generation (RAG) models with large language models (LLMs) to enhance the learning experience for students. The integration of the retriever and generator components, along with the ability to upload and reference specific documents, significantly improved the chatbot's response quality and relevance. However, the specialization of the chatbot's responses due to the document upload feature can restrict its ability to handle unrelated queries effectively. 
+        This trade-off highlights a critical aspect of Study Buddy's current implementation. 
+        While it succeeds in providing detailed responses within the scope of the uploaded documents, its performance on broader, unrelated topics may diminish as it leans heavily on the specific context provided by those documents. Furthermore, The quality of the data retrieved by a RAG implementation is directly dependent on the quality of the data it has access to. If the information in the underlying source systems—such as databases, online file storage, or other data repositories—is outdated, incomplete, or biased, the RAG implementation cannot identify or correct these flaws. 
+        Consequently, it will retrieve and pass along this flawed information to the language model responsible for generating the final output.
 
-\section{Theoretical and Practical Implications}
+    \subsection{Case Study: Low Rank Approximation}
+        Recall from Section \ref{appropriate_rank} that we needed to low-rank approximate the self-attention matrices with at most rank \(r = 318\) and rank \(r = 424\) for BART-base and BART-large respectively to achieve a significant reduction in computational complexity and storage requirements. However, the results show that the summarization quality declines significantly before this threshold.
+        The low-rank approximation of the BART-Base model does not present a viable approach to compressing large language models for summarization tasks. Although the technique can achieve significant reductions in computational complexity and storage requirements, the summarization quality declines significantly before reaching a practically useful rank. These findings highlight the limitations of low-rank approximations for preserving the performance of large language models in summarization tasks.
+
+        In summary, while low-rank approximation effectively reduces the computational burden and storage requirements of the BART-Base model, the associated decline in summarization quality limits its practical applicability. This work underscores the need for alternative approaches to optimize and deploy large language models in resource-constrained environments without compromising performance.
 
 \section{Limitations and Challenges}
