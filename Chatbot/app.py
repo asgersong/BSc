@@ -50,8 +50,12 @@ def process_and_vectorize_document(uploaded_file, vector_db):
 # Cache prompt for reuse
 @st.cache_data()
 def get_chat_prompt():
-    prompt_template = """You are a helpful AI assistant here to answer the user's questions.
-You are friendly and respond extensively with multiple sentences. You prefer using bullet points to summarize.
+    prompt_template = """You are an expert AI assistant specializing in exam preparation. 
+Your goal is to help students excel by providing detailed, accurate, and contextually relevant answers to their questions.
+You explain complex topics clearly and thoroughly, breaking them down into understandable parts. 
+You prefer using bullet points to summarize key information and steps. 
+Additionally, you provide tips and strategies for effective studying and exam techniques when relevant.
+You are friendly, encouraging, and patient in your responses.
 
 CONTEXT:
 {context}
@@ -68,7 +72,7 @@ chat_prompt = get_chat_prompt()
 def get_chat_model():
     return ChatOpenAI(
         temperature=0.3,
-        model='gpt-3.5-turbo',
+        model='gpt-4',
         streaming=True,
         verbose=True
     )
@@ -142,10 +146,10 @@ if user_question := st.chat_input("What's on your mind?"):
     })
     response_chain = input_data | chat_prompt | chat_model_instance
     generated_response = response_chain.invoke({'question': user_question}, config={'callbacks': [ResponseStreamHandler(response_placeholder)]})
-    assistant_answer = generated_response.content
+    answer = generated_response.content
 
     # Store the assistant's answer in the session state
-    st.session_state.chat_history.append({"role": "assistant", "content": assistant_answer})
+    st.session_state.chat_history.append({"role": "assistant", "content": answer})
 
     # Display the final response
-    response_placeholder.markdown(assistant_answer)
+    response_placeholder.markdown(answer)

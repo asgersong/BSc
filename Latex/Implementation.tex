@@ -1,6 +1,57 @@
 \chapter{Implementation}
+\section{RAG Chatbot}
+    \subsection{Chatbot Interface}
+        The chatbot interface was developed using the \texttt{Streamlit} library, which provides a simple and interactive way to create web applications. The interface allows users to interact with the RAG chatbot by entering a question in the input field and receiving the corresponding answer from the model. The chatbot interface was designed to be user-friendly and intuitive, enabling users to easily communicate with the chatbot and obtain relevant information.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\textwidth]{figs/interface.png}
+            \caption{RAG Chatbot Interface}
+            \label{fig:chatbot_interface}
+        \end{figure}
+            
+            The chatbot interface displays a title, description and input field for user queries using the \texttt{st.title}, \texttt{st.markdown} and \texttt{st.chat\_input} functions respectively. The title introduces the chatbot as "Study Buddy," while the description provides an overview of the chatbot's capabilities and features. By using the \texttt{Streamlit} library, the chatbot interface can be created by just a few lines of code.
+
+    \subsection{Generator Component}
+        The generator component of Study Buddy was implemented using the \texttt{Langchain} library, which provides ready-to-use methods to call OpenAI's GPT-4 model. Streamlit reruns the code in the \texttt{app.py}-file everytime a user interacts with the chatbot. The following code snippets show how the generator calls the GPT-4 model and generates responses to user queries.
+        \begin{listing}[H]
+\begin{minted}[fontsize=\footnotesize]{python}
+from langchain_openai import ChatOpenAI
+# Cache OpenAI Chat Model for reuse
+@st.cache_resource()
+def get_chat_model():
+    return ChatOpenAI(
+        temperature=0.3,
+        model='gpt-4',
+        streaming=True,
+        verbose=True
+    )
+chat_model_instance = get_chat_model()
+\end{minted}
+            \caption{Caching the OpenAI Chat Model}
+            \label{listing:Cache_Chat_Model}
+            \end{listing}
+            
+            \begin{listing}[H]
+\begin{minted}[fontsize=\footnotesize]{python}
+# Generate response using the OpenAI Chat Model
+input_data = RunnableMap({
+        'context': lambda x: retriever_instance.get_relevant_documents(x['question']), # Retrieve relevant documents
+        'question': lambda x: x['question']
+    })
+response_chain = input_data | chat_prompt | chat_model_instance
+generated_response = response_chain.invoke({'question': user_question}, config={'callbacks': [ResponseStreamHandler(response_placeholder)]})
+assistant_answer = generated_response.content
+
+# Display the final response
+response_placeholder.markdown(assistant_answer)
+\end{minted}
+            \caption{Generating Responses using the OpenAI Chat Model}
+            \label{listing:Generate_Responses}
+            \end{listing}
+            
+
+
 \section{Case Study}
-    %This case study focuses on applying a low-rank approximation technique, specifically LoRA, to compress a BART-base model for dialogue summarization tasks. The following subsections detail the implementation specifics, the evaluation metrics used to gauge the model's performance, and the methodology for selecting the optimal rank for the low-rank layers.
 
     \subsection{Importing the Model}
         The BART-base model was imported from the Hugging Face platform using the \texttt{transformers} library.
@@ -15,7 +66,7 @@ model = AutoModelForSeq2SeqLM.from_pretrained(model_checkpoint)
     
         \subsection{Dataset Preprocessing}
 
-The SamSum dataset was imported and preprocessed to facilitate the training and evaluation of the BART-base model. The dataset consists of dialogues extracted from the Ubuntu Dialog Corpus, along with human-generated summaries. The preprocessing steps included tokenization, truncation, and padding to ensure uniform input sizes for the model.
+The SamSum dataset was imported and preprocessed to facilitate the training and evaluation of the BART-base model. The dataset comprises conversations crafted and documented by linguists proficient in English, which were subsequently annotated with summaries. The preprocessing steps included tokenization, truncation, and padding to ensure uniform input sizes for the model.
 
 \subsubsection{Importing the Dataset}
 
@@ -162,7 +213,7 @@ class LowRankLayer(nn.Module):
             
             This approach maintains the key structural properties of the original layer. By focusing on the most significant singular values and vectors, the low-rank approximation retains the most important features of the weight matrices, thus aiming to preserve the performance of the model to a large extent.
 
-    \subsubsection{Traversing the Model and Applying Low-Rank Approximation}
+    \subsection{Traversing the Model and Applying Low-Rank Approximation}
         The BART-base model was traversed to identify the attention layers that could be replaced with the low-rank approximation. The model's architecture was examined to determine the layers that could benefit from the low-rank decomposition.
         \begin{listing}[H]
 \begin{minted}[fontsize=\footnotesize]{python}

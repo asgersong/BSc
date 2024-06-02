@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  30 MAY 2024 21:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.5.2)  2 JUN 2024 09:23
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1468,7 +1468,7 @@ Package biblatex Info: Reference segment=0 on input line 5.
 \openout2 = `frontpage.aux'.
 
  (./frontpage.tex
-<./figs/alt-logo-t-003d85-en.pdf, id=305, 519.42053pt x 48.37021pt>
+<./figs/alt-logo-t-003d85-en.pdf, id=333, 519.42053pt x 48.37021pt>
 File: ./figs/alt-logo-t-003d85-en.pdf Graphic file (type pdf)
 <use ./figs/alt-logo-t-003d85-en.pdf>
 Package pdftex.def Info: ./figs/alt-logo-t-003d85-en.pdf  used on input line 2.
@@ -1570,19 +1570,19 @@ Package hyperref Warning: The anchor of a bookmark and its parent's must not
 (hyperref)                be the same. Added a new anchor on input line 133.
 
 [14]
-<figs/transform_model.png, id=489, 323.2075pt x 459.7175pt>
+<figs/transform_model.png, id=524, 323.2075pt x 459.7175pt>
 File: figs/transform_model.png Graphic file (type png)
 <use figs/transform_model.png>
 Package pdftex.def Info: figs/transform_model.png  used on input line 164.
 (pdftex.def)             Requested size: 213.0pt x 302.96555pt.
  [15] [16 <./figs/transform_model.png>] [17]
-<figs/Scaled_dot_product.png, id=508, 408.52625pt x 328.22626pt>
+<figs/Scaled_dot_product.png, id=543, 408.52625pt x 328.22626pt>
 File: figs/Scaled_dot_product.png Graphic file (type png)
 <use figs/Scaled_dot_product.png>
 Package pdftex.def Info: figs/Scaled_dot_product.png  used on input line 223.
 (pdftex.def)             Requested size: 255.6026pt x 205.36127pt.
  [18 <./figs/Scaled_dot_product.png>]
-<figs/Multi_head_attention.png, id=518, 329.23pt x 222.8325pt>
+<figs/Multi_head_attention.png, id=553, 329.23pt x 222.8325pt>
 File: figs/Multi_head_attention.png Graphic file (type png)
 <use figs/Multi_head_attention.png>
 Package pdftex.def Info: figs/Multi_head_attention.png  used on input line 262.
@@ -1608,7 +1608,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 79--82
  []
 
 [27]
-<figs/BART_architecture.png, id=585, 385.44pt x 142.5325pt>
+<figs/BART_architecture.png, id=621, 385.44pt x 142.5325pt>
 File: figs/BART_architecture.png Graphic file (type png)
 <use figs/BART_architecture.png>
 Package pdftex.def Info: figs/BART_architecture.png  used on input line 101.
@@ -1621,95 +1621,116 @@ Package pdftex.def Info: figs/BART_architecture.png  used on input line 101.
 
 
 
-]
+] [31]
+<figs/Chatbot_process.png, id=652, 3529.185pt x 2292.565pt>
+File: figs/Chatbot_process.png Graphic file (type png)
+<use figs/Chatbot_process.png>
+Package pdftex.def Info: figs/Chatbot_process.png  used on input line 37.
+(pdftex.def)             Requested size: 340.8013pt x 221.36407pt.
+ [32 <./figs/Chatbot_process.png>]
 
 Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 9.
+(hyperref)                be the same. Added a new anchor on input line 53.
 
-[31]
-<figs/before-after.png, id=615, 1677.26625pt x 846.16125pt>
+[33]
+<figs/before-after.png, id=671, 1677.26625pt x 846.16125pt>
 File: figs/before-after.png Graphic file (type png)
 <use figs/before-after.png>
-Package pdftex.def Info: figs/before-after.png  used on input line 50.
+Package pdftex.def Info: figs/before-after.png  used on input line 94.
 (pdftex.def)             Requested size: 298.1987pt x 150.4303pt.
- [32]
-<figs/dialogue.png, id=625, 1449.415pt x 1690.315pt>
+ [34 <./figs/before-after.png>]
+<figs/dialogue.png, id=683, 1449.415pt x 1690.315pt>
 File: figs/dialogue.png Graphic file (type png)
 <use figs/dialogue.png>
-Package pdftex.def Info: figs/dialogue.png  used on input line 67.
+Package pdftex.def Info: figs/dialogue.png  used on input line 111.
 (pdftex.def)             Requested size: 255.6026pt x 298.07925pt.
- [33 <./figs/before-after.png>] [34 <./figs/dialogue.png>]) [35]
+ [35 <./figs/dialogue.png>]) [36]
 \openout2 = `Implementation.aux'.
 
- (./Implementation.tex [36
-
-
-
-
-]
+ (./Implementation.tex
+<figs/interface.png, id=703, 1323.94624pt x 785.93625pt>
+File: figs/interface.png Graphic file (type png)
+<use figs/interface.png>
+Package pdftex.def Info: figs/interface.png  used on input line 7.
+(pdftex.def)             Requested size: 340.8013pt x 202.2999pt.
 \openout6 = `bachelorproject.pyg'.
 
- (./_minted-bachelorproject/default.pygstyle) (./_minted-bachelorproject/A5145DA0CCB2352B54BCDBBD9EF3A747C161B242DED04A2E93AD438773049CDE.pygtex)
-Package hyperref Info: bookmark level for unknown listing defaults to 0 on input line 12.
-
-
-Package hyperref Warning: The anchor of a bookmark and its parent's must not
-(hyperref)                be the same. Added a new anchor on input line 20.
-
-\openout6 = `bachelorproject.pyg'.
-
-(./_minted-bachelorproject/AFA41A52C1A3E2148F2EBB38A865B98FC161B242DED04A2E93AD438773049CDE.pygtex
+ (./_minted-bachelorproject/default.pygstyle) (./_minted-bachelorproject/AD9866CB3E8F93E232386CB66421CEBCC161B242DED04A2E93AD438773049CDE.pygtex
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `T1/lmtt/b/n' tried instead on input line 2.
-)
-\openout6 = `bachelorproject.pyg'.
-
- (./_minted-bachelorproject/94CAA0F32A2367841C298C54993A1071C161B242DED04A2E93AD438773049CDE.pygtex) [37]
-\openout6 = `bachelorproject.pyg'.
-
- (./_minted-bachelorproject/E1EA19E276D9B7502A41291195A8123AC161B242DED04A2E93AD438773049CDE.pygtex)
-\openout6 = `bachelorproject.pyg'.
-
- (./_minted-bachelorproject/F33B22D5796F123ABB67DE36B4482ADAC161B242DED04A2E93AD438773049CDE.pygtex) [38]
-\openout6 = `bachelorproject.pyg'.
-
- (./_minted-bachelorproject/84CCAF0FEF0DFF71CBC2CE5F0533B1C4C161B242DED04A2E93AD438773049CDE.pygtex
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 8.
  (/usr/local/texlive/2022/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)) [39]
+))
+Package hyperref Info: bookmark level for unknown listing defaults to 0 on input line 30.
+
+Overfull \hbox (4.82773pt too wide) in paragraph at lines 15--32
+\T1/lmr/m/n/12 li-brary, which pro-vides ready-to-use meth-ods to call Ope-nAI's GPT-4 model. Stream-
+ []
+
+[37
+
+
+
+
+ <./figs/interface.png>]
 \openout6 = `bachelorproject.pyg'.
 
- (./_minted-bachelorproject/279C585FF16AD30AF12187413EE8BA1EC161B242DED04A2E93AD438773049CDE.pygtex) [40]) [41]
+ (./_minted-bachelorproject/D6F9472D6DD5C0D2B3BB51F6B2CE1C73C161B242DED04A2E93AD438773049CDE.pygtex)
+\openout6 = `bachelorproject.pyg'.
+
+ (./_minted-bachelorproject/A5145DA0CCB2352B54BCDBBD9EF3A747C161B242DED04A2E93AD438773049CDE.pygtex) [38]
+
+Package hyperref Warning: The anchor of a bookmark and its parent's must not
+(hyperref)                be the same. Added a new anchor on input line 71.
+
+\openout6 = `bachelorproject.pyg'.
+
+(./_minted-bachelorproject/AFA41A52C1A3E2148F2EBB38A865B98FC161B242DED04A2E93AD438773049CDE.pygtex)
+\openout6 = `bachelorproject.pyg'.
+
+ (./_minted-bachelorproject/94CAA0F32A2367841C298C54993A1071C161B242DED04A2E93AD438773049CDE.pygtex)
+\openout6 = `bachelorproject.pyg'.
+
+ (./_minted-bachelorproject/E1EA19E276D9B7502A41291195A8123AC161B242DED04A2E93AD438773049CDE.pygtex) [39]
+\openout6 = `bachelorproject.pyg'.
+
+ (./_minted-bachelorproject/F33B22D5796F123ABB67DE36B4482ADAC161B242DED04A2E93AD438773049CDE.pygtex)
+\openout6 = `bachelorproject.pyg'.
+
+ (./_minted-bachelorproject/84CCAF0FEF0DFF71CBC2CE5F0533B1C4C161B242DED04A2E93AD438773049CDE.pygtex) [40] [41]
+\openout6 = `bachelorproject.pyg'.
+
+ (./_minted-bachelorproject/279C585FF16AD30AF12187413EE8BA1EC161B242DED04A2E93AD438773049CDE.pygtex)) [42]
 \openout2 = `EvaluationAndResults.aux'.
 
- (./EvaluationAndResults.tex [42
-
-
-
-
-]
-<figs/05:05/Rouge1.png, id=687, 617.9085pt x 339.669pt>
+ (./EvaluationAndResults.tex
+<figs/05:05/Rouge1.png, id=743, 617.9085pt x 339.669pt>
 File: figs/05:05/Rouge1.png Graphic file (type png)
 <use figs/05:05/Rouge1.png>
 Package pdftex.def Info: figs/05:05/Rouge1.png  used on input line 66.
 (pdftex.def)             Requested size: 191.6987pt x 105.37404pt.
-<figs/05:05/Rouge2.png, id=688, 617.9085pt x 339.669pt>
+<figs/05:05/Rouge2.png, id=744, 617.9085pt x 339.669pt>
 File: figs/05:05/Rouge2.png Graphic file (type png)
 <use figs/05:05/Rouge2.png>
 Package pdftex.def Info: figs/05:05/Rouge2.png  used on input line 73.
 (pdftex.def)             Requested size: 191.6987pt x 105.37404pt.
-<figs/05:05/RougeL.png, id=689, 617.9085pt x 339.669pt>
+<figs/05:05/RougeL.png, id=745, 617.9085pt x 339.669pt>
 File: figs/05:05/RougeL.png Graphic file (type png)
 <use figs/05:05/RougeL.png>
 Package pdftex.def Info: figs/05:05/RougeL.png  used on input line 80.
 (pdftex.def)             Requested size: 191.6987pt x 105.37404pt.
-<figs/05:05/RougeLSum.png, id=690, 617.9085pt x 339.669pt>
+<figs/05:05/RougeLSum.png, id=746, 617.9085pt x 339.669pt>
 File: figs/05:05/RougeLSum.png Graphic file (type png)
 <use figs/05:05/RougeLSum.png>
 Package pdftex.def Info: figs/05:05/RougeLSum.png  used on input line 87.
 (pdftex.def)             Requested size: 191.6987pt x 105.37404pt.
- [43 <./figs/05:05/Rouge1.png> <./figs/05:05/Rouge2.png> <./figs/05:05/RougeL.png> <./figs/05:05/RougeLSum.png>]) [44]
+ [43
+
+
+
+
+ <./figs/05:05/Rouge1.png> <./figs/05:05/Rouge2.png> <./figs/05:05/RougeL.png> <./figs/05:05/RougeLSum.png>]) [44]
 \openout2 = `Discussion.aux'.
 
  (./Discussion.tex) [45
@@ -1729,7 +1750,12 @@ Package pdftex.def Info: figs/05:05/RougeLSum.png  used on input line 87.
 
 
 
-] [49] [50]
+]
+Overfull \hbox (5.27951pt too wide) in paragraph at lines 31--31
+[][]\T1/lmr/m/n/12 Lewis, Patrick et al. (2020). \T1/lmr/m/it/12 Retrieval-Augmented Gen-er-a-tion for Knowledge-Intensive
+ []
+
+[49] [50]
 \openout2 = `Appendix-Education.aux'.
 
  (./Appendix-Education.tex [51
@@ -1741,7 +1767,7 @@ Overfull \hbox (0.60101pt too wide) in paragraph at lines 17--18
  []
 
 [52]
-<figs/IMG_5113.png, id=772, 2443.1275pt x 3257.16875pt>
+<figs/IMG_5113.png, id=829, 2443.1275pt x 3257.16875pt>
 File: figs/IMG_5113.png Graphic file (type png)
 <use figs/IMG_5113.png>
 Package pdftex.def Info: figs/IMG_5113.png  used on input line 40.
@@ -1752,7 +1778,7 @@ Package pdftex.def Info: figs/IMG_5113.png  used on input line 40.
  (./Appendix-Poster.tex
 
 pdfTeX warning: pdflatex (file ../Poster_CLAI_Workshop.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../Poster_CLAI_Workshop.pdf, id=783, 2393.19093pt x 3383.13937pt>
+<../Poster_CLAI_Workshop.pdf, id=840, 2393.19093pt x 3383.13937pt>
 File: ../Poster_CLAI_Workshop.pdf Graphic file (type pdf)
 <use ../Poster_CLAI_Workshop.pdf>
 Package pdftex.def Info: ../Poster_CLAI_Workshop.pdf  used on input line 4.
@@ -1770,7 +1796,7 @@ pdfTeX warning: pdflatex (file ../Poster_CLAI_Workshop.pdf): PDF inclusion: foun
 
 
 pdfTeX warning: pdflatex (file ../Poster_CLAI_Workshop.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<../Poster_CLAI_Workshop.pdf, id=786, page=1, 2393.19093pt x 3383.13937pt>
+<../Poster_CLAI_Workshop.pdf, id=843, page=1, 2393.19093pt x 3383.13937pt>
 File: ../Poster_CLAI_Workshop.pdf Graphic file (type pdf)
 <use ../Poster_CLAI_Workshop.pdf, page 1>
 Package pdftex.def Info: ../Poster_CLAI_Workshop.pdf , page1 used on input line 4.
@@ -1811,7 +1837,7 @@ Package pdftex.def Info: ../Poster_CLAI_Workshop.pdf , page1 used on input line 
 
 
 ]
-<figs/appcomponents.png, id=880, 913.4125pt x 431.6125pt>
+<figs/appcomponents.png, id=936, 913.4125pt x 431.6125pt>
 File: figs/appcomponents.png Graphic file (type png)
 <use figs/appcomponents.png>
 Package pdftex.def Info: figs/appcomponents.png  used on input line 57.
@@ -1851,7 +1877,7 @@ LaTeX Warning: There were undefined references.
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `bachelorproject.out' has not changed.
-(rerunfilecheck)             Checksum: 11554BB67546163E007B66CAA135B093;13906.
+(rerunfilecheck)             Checksum: 927B97F35F1AB9B3727CA1C3C1017AD0;15028.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                bachelorproject
@@ -1864,18 +1890,18 @@ Package logreq Info: Writing requests to 'bachelorproject.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 42354 strings out of 478268
- 798027 string characters out of 5846348
- 1559305 words of memory out of 5000000
- 59550 multiletter control sequences out of 15000+600000
+ 42419 strings out of 478268
+ 800159 string characters out of 5846348
+ 1560095 words of memory out of 5000000
+ 59588 multiletter control sequences out of 15000+600000
  577388 words of font info for 101 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  108i,18n,108p,1917b,2214s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmmi8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmsy8.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on bachelorproject.pdf (64 pages, 17057000 bytes).
+Output written on bachelorproject.pdf (64 pages, 17391628 bytes).
 PDF statistics:
- 1057 PDF objects out of 1200 (max. 8388607)
- 858 compressed objects within 9 object streams
- 193 named destinations out of 1000 (max. 500000)
- 706 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1117 PDF objects out of 1200 (max. 8388607)
+ 913 compressed objects within 10 object streams
+ 212 named destinations out of 1000 (max. 500000)
+ 772 words of extra memory for PDF output out of 10000 (max. 10000000)
 

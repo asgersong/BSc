@@ -3,36 +3,45 @@
 \@writefile{lof}{\addvspace {10pt}}
 \@writefile{lot}{\addvspace {10pt}}
 \@writefile{toc}{\contentsline {chapter}{\chapternumberline {6}Implementation}{37}{chapter.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Case Study}{37}{section.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.1}Importing the Model}{37}{subsection.6.1.1}\protected@file@percent }
-\@writefile{lol}{\contentsline {listing}{\numberline {1}{\ignorespaces Importing the BART-base model\relax }}{37}{listing.1}\protected@file@percent }
-\newlabel{listing:Importing_BART}{{\M@TitleReference {1}{Importing the BART-base model\relax }}{37}{Importing the BART-base model\relax }{listing.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.2}Dataset Preprocessing}{37}{subsection.6.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Importing the Dataset}{37}{section*.14}\protected@file@percent }
-\@writefile{lol}{\contentsline {listing}{\numberline {2}{\ignorespaces Loading the SamSum dataset\relax }}{37}{listing.2}\protected@file@percent }
-\newlabel{listing:Loading_SamSum}{{\M@TitleReference {2}{Loading the SamSum dataset\relax }}{37}{Loading the SamSum dataset\relax }{listing.2}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Setting Maximum Lengths}{38}{listing.2}\protected@file@percent }
-\@writefile{lol}{\contentsline {listing}{\numberline {3}{\ignorespaces Setting maximum lengths for inputs and targets\relax }}{38}{listing.3}\protected@file@percent }
-\newlabel{listing:Max_Lengths}{{\M@TitleReference {3}{Setting maximum lengths for inputs and targets\relax }}{38}{Setting maximum lengths for inputs and targets\relax }{listing.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Preprocessing Function}{38}{listing.3}\protected@file@percent }
-\@writefile{lol}{\contentsline {listing}{\numberline {4}{\ignorespaces Defining the preprocessing function\relax }}{38}{listing.4}\protected@file@percent }
-\newlabel{listing:Preprocess_Function}{{\M@TitleReference {4}{Defining the preprocessing function\relax }}{38}{Defining the preprocessing function\relax }{listing.4}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Applying the Preprocessing Function}{38}{listing.4}\protected@file@percent }
-\@writefile{lol}{\contentsline {listing}{\numberline {5}{\ignorespaces Applying the preprocessing function to the dataset\relax }}{38}{listing.5}\protected@file@percent }
-\newlabel{listing:Tokenized_Datasets}{{\M@TitleReference {5}{Applying the preprocessing function to the dataset\relax }}{38}{Applying the preprocessing function to the dataset\relax }{listing.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.3}Finetuning the Model}{39}{subsection.6.1.3}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Training and validation results across epochs.\relax }}{39}{table.caption.15}\protected@file@percent }
-\newlabel{tab:training_results}{{\M@TitleReference {6.1}{Training and validation results across epochs.\relax }}{39}{Training and validation results across epochs.\relax }{table.caption.15}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.4}Custom Layer Implementation}{39}{subsection.6.1.4}\protected@file@percent }
-\@writefile{lol}{\contentsline {listing}{\numberline {6}{\ignorespaces Custom Low-Rank Layer Implementation\relax }}{39}{listing.6}\protected@file@percent }
-\newlabel{listing:LowRankLayer_Implementation}{{\M@TitleReference {6}{Custom Low-Rank Layer Implementation\relax }}{39}{Custom Low-Rank Layer Implementation\relax }{listing.6}{}}
-\@writefile{toc}{\contentsline {paragraph}{Initialization}{39}{listing.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {paragraph}{Forward Pass}{40}{listing.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{Traversing the Model and Applying Low-Rank Approximation}{40}{listing.6}\protected@file@percent }
-\@writefile{lol}{\contentsline {listing}{\numberline {7}{\ignorespaces Traversing the BART-base model for low-rank approximation\relax }}{41}{listing.7}\protected@file@percent }
-\newlabel{listing:LoRA_Transform}{{\M@TitleReference {7}{Traversing the BART-base model for low-rank approximation\relax }}{41}{Traversing the BART-base model for low-rank approximation\relax }{listing.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}RAG Chatbot}{37}{section.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.1}Chatbot Interface}{37}{subsection.6.1.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6.1}{\ignorespaces RAG Chatbot Interface\relax }}{37}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:chatbot_interface}{{\M@TitleReference {6.1}{RAG Chatbot Interface\relax }}{37}{RAG Chatbot Interface\relax }{figure.caption.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1.2}Generator Component}{38}{subsection.6.1.2}\protected@file@percent }
+\@writefile{lol}{\contentsline {listing}{\numberline {1}{\ignorespaces Caching the OpenAI Chat Model\relax }}{38}{listing.1}\protected@file@percent }
+\newlabel{listing:Cache_Chat_Model}{{\M@TitleReference {1}{Caching the OpenAI Chat Model\relax }}{38}{Caching the OpenAI Chat Model\relax }{listing.1}{}}
+\@writefile{lol}{\contentsline {listing}{\numberline {2}{\ignorespaces Generating Responses using the OpenAI Chat Model\relax }}{38}{listing.2}\protected@file@percent }
+\newlabel{listing:Generate_Responses}{{\M@TitleReference {2}{Generating Responses using the OpenAI Chat Model\relax }}{38}{Generating Responses using the OpenAI Chat Model\relax }{listing.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Case Study}{38}{section.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}Importing the Model}{38}{subsection.6.2.1}\protected@file@percent }
+\@writefile{lol}{\contentsline {listing}{\numberline {3}{\ignorespaces Importing the BART-base model\relax }}{38}{listing.3}\protected@file@percent }
+\newlabel{listing:Importing_BART}{{\M@TitleReference {3}{Importing the BART-base model\relax }}{38}{Importing the BART-base model\relax }{listing.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Dataset Preprocessing}{38}{subsection.6.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Importing the Dataset}{39}{section*.16}\protected@file@percent }
+\@writefile{lol}{\contentsline {listing}{\numberline {4}{\ignorespaces Loading the SamSum dataset\relax }}{39}{listing.4}\protected@file@percent }
+\newlabel{listing:Loading_SamSum}{{\M@TitleReference {4}{Loading the SamSum dataset\relax }}{39}{Loading the SamSum dataset\relax }{listing.4}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Setting Maximum Lengths}{39}{listing.4}\protected@file@percent }
+\@writefile{lol}{\contentsline {listing}{\numberline {5}{\ignorespaces Setting maximum lengths for inputs and targets\relax }}{39}{listing.5}\protected@file@percent }
+\newlabel{listing:Max_Lengths}{{\M@TitleReference {5}{Setting maximum lengths for inputs and targets\relax }}{39}{Setting maximum lengths for inputs and targets\relax }{listing.5}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Preprocessing Function}{39}{listing.5}\protected@file@percent }
+\@writefile{lol}{\contentsline {listing}{\numberline {6}{\ignorespaces Defining the preprocessing function\relax }}{39}{listing.6}\protected@file@percent }
+\newlabel{listing:Preprocess_Function}{{\M@TitleReference {6}{Defining the preprocessing function\relax }}{39}{Defining the preprocessing function\relax }{listing.6}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Applying the Preprocessing Function}{40}{listing.6}\protected@file@percent }
+\@writefile{lol}{\contentsline {listing}{\numberline {7}{\ignorespaces Applying the preprocessing function to the dataset\relax }}{40}{listing.7}\protected@file@percent }
+\newlabel{listing:Tokenized_Datasets}{{\M@TitleReference {7}{Applying the preprocessing function to the dataset\relax }}{40}{Applying the preprocessing function to the dataset\relax }{listing.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.3}Finetuning the Model}{40}{subsection.6.2.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6.1}{\ignorespaces Training and validation results across epochs.\relax }}{40}{table.caption.17}\protected@file@percent }
+\newlabel{tab:training_results}{{\M@TitleReference {6.1}{Training and validation results across epochs.\relax }}{40}{Training and validation results across epochs.\relax }{table.caption.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.4}Custom Layer Implementation}{40}{subsection.6.2.4}\protected@file@percent }
+\@writefile{lol}{\contentsline {listing}{\numberline {8}{\ignorespaces Custom Low-Rank Layer Implementation\relax }}{41}{listing.8}\protected@file@percent }
+\newlabel{listing:LowRankLayer_Implementation}{{\M@TitleReference {8}{Custom Low-Rank Layer Implementation\relax }}{41}{Custom Low-Rank Layer Implementation\relax }{listing.8}{}}
+\@writefile{toc}{\contentsline {paragraph}{Initialization}{41}{listing.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Forward Pass}{41}{listing.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.5}Traversing the Model and Applying Low-Rank Approximation}{42}{subsection.6.2.5}\protected@file@percent }
+\@writefile{lol}{\contentsline {listing}{\numberline {9}{\ignorespaces Traversing the BART-base model for low-rank approximation\relax }}{42}{listing.9}\protected@file@percent }
+\newlabel{listing:LoRA_Transform}{{\M@TitleReference {9}{Traversing the BART-base model for low-rank approximation\relax }}{42}{Traversing the BART-base model for low-rank approximation\relax }{listing.9}{}}
 \@setckpt{Implementation}{
-\setcounter{page}{42}
+\setcounter{page}{43}
 \setcounter{equation}{0}
 \setcounter{enumi}{4}
 \setcounter{enumii}{0}
@@ -45,8 +54,8 @@
 \setcounter{book}{0}
 \setcounter{part}{0}
 \setcounter{chapter}{6}
-\setcounter{section}{1}
-\setcounter{subsection}{4}
+\setcounter{section}{2}
+\setcounter{subsection}{5}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
@@ -79,10 +88,10 @@
 \setcounter{cmsm@mctr}{0}
 \setcounter{bsm@mctr}{0}
 \setcounter{workm@mctr}{0}
-\setcounter{sheetsequence}{44}
+\setcounter{sheetsequence}{45}
 \setcounter{lastsheet}{64}
 \setcounter{lastpage}{62}
-\setcounter{figure}{0}
+\setcounter{figure}{1}
 \setcounter{lofdepth}{1}
 \setcounter{table}{1}
 \setcounter{lotdepth}{1}
@@ -98,11 +107,11 @@
 \setcounter{fxwarningcount}{0}
 \setcounter{fxerrorcount}{0}
 \setcounter{fxfatalcount}{0}
-\setcounter{Item}{13}
+\setcounter{Item}{19}
 \setcounter{Hfootnote}{1}
 \setcounter{memhycontfloat}{0}
 \setcounter{Hpagenote}{0}
-\setcounter{bookmark@seq@number}{59}
+\setcounter{bookmark@seq@number}{66}
 \setcounter{vrcnt}{0}
 \setcounter{section@level}{0}
 \setcounter{tabx@nest}{0}
@@ -114,7 +123,7 @@
 \setcounter{citetotal}{0}
 \setcounter{multicitecount}{0}
 \setcounter{multicitetotal}{0}
-\setcounter{instcount}{20}
+\setcounter{instcount}{21}
 \setcounter{maxnames}{3}
 \setcounter{minnames}{1}
 \setcounter{maxitems}{3}
@@ -138,7 +147,7 @@
 \setcounter{parenlevel}{0}
 \setcounter{blx@maxsection}{0}
 \setcounter{blx@maxsegment@0}{0}
-\setcounter{blx@sectionciteorder@0}{18}
+\setcounter{blx@sectionciteorder@0}{19}
 \setcounter{mincomprange}{10}
 \setcounter{maxcomprange}{100000}
 \setcounter{mincompwidth}{1}
@@ -224,14 +233,14 @@
 \setcounter{lstnumber}{1}
 \setcounter{FancyVerbLine}{30}
 \setcounter{linenumber}{1}
-\setcounter{LN@truepage}{43}
+\setcounter{LN@truepage}{44}
 \setcounter{FV@TrueTabGroupLevel}{0}
 \setcounter{FV@TrueTabCounter}{0}
 \setcounter{FV@HighlightLinesStart}{0}
 \setcounter{FV@HighlightLinesStop}{0}
 \setcounter{FancyVerbLineBreakLast}{0}
 \setcounter{minted@FancyVerbLineTemp}{19}
-\setcounter{minted@pygmentizecounter}{7}
-\setcounter{listing}{7}
+\setcounter{minted@pygmentizecounter}{9}
+\setcounter{listing}{9}
 \setcounter{lstlisting}{0}
 }

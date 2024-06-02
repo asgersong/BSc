@@ -547,6 +547,99 @@
     \field{year}{2023}
   \endentry
 
+  \entry{lewis2020RAG}{misc}{}
+    \name{author}{12}{}{%
+      {{hash=LP}{%
+         family={Lewis},
+         familyi={L\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=PE}{%
+         family={Perez},
+         familyi={P\bibinitperiod},
+         given={Ethan},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={Piktus},
+         familyi={P\bibinitperiod},
+         given={Aleksandra},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=PF}{%
+         family={Petroni},
+         familyi={P\bibinitperiod},
+         given={Fabio},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=KV}{%
+         family={Karpukhin},
+         familyi={K\bibinitperiod},
+         given={Vladimir},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=GN}{%
+         family={Goyal},
+         familyi={G\bibinitperiod},
+         given={Naman},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=KH}{%
+         family={Küttler},
+         familyi={K\bibinitperiod},
+         given={Heinrich},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=LM}{%
+         family={Lewis},
+         familyi={L\bibinitperiod},
+         given={Mike},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=tYW}{%
+         prefix={tau},
+         prefixi={t\bibinitperiod},
+         family={Yih},
+         familyi={Y\bibinitperiod},
+         given={Wen},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=RT}{%
+         family={Rocktäschel},
+         familyi={R\bibinitperiod},
+         given={Tim},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=RS}{%
+         family={Riedel},
+         familyi={R\bibinitperiod},
+         given={Sebastian},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=KD}{%
+         family={Kiela},
+         familyi={K\bibinitperiod},
+         given={Douwe},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LP+1}
+    \strng{fullhash}{LPPEPAPFKVGNKHLMYWtRTRSKD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2020}
+    \field{labeldatesource}{}
+    \verb{eprint}
+    \verb 2005.11401
+    \endverb
+    \field{title}{Retrieval-Augmented Generation for Knowledge-Intensive NLP
+  Tasks}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2020}
+  \endentry
+
   \entry{gliwa-etal-2019-samsum}{inproceedings}{}
     \name{author}{4}{}{%
       {{hash=GB}{%

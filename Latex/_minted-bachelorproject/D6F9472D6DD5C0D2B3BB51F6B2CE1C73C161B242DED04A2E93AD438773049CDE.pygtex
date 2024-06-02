@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Generate response using the OpenAI Chat Model}
+\PYG{n}{input\PYGZus{}data} \PYG{o}{=} \PYG{n}{RunnableMap}\PYG{p}{(\PYGZob{}}
+        \PYG{l+s+s1}{\PYGZsq{}context\PYGZsq{}}\PYG{p}{:} \PYG{k}{lambda} \PYG{n}{x}\PYG{p}{:} \PYG{n}{retriever\PYGZus{}instance}\PYG{o}{.}\PYG{n}{get\PYGZus{}relevant\PYGZus{}documents}\PYG{p}{(}\PYG{n}{x}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}question\PYGZsq{}}\PYG{p}{]),} \PYG{c+c1}{\PYGZsh{} Retrieve relevant documents}
+        \PYG{l+s+s1}{\PYGZsq{}question\PYGZsq{}}\PYG{p}{:} \PYG{k}{lambda} \PYG{n}{x}\PYG{p}{:} \PYG{n}{x}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}question\PYGZsq{}}\PYG{p}{]}
+    \PYG{p}{\PYGZcb{})}
+\PYG{n}{response\PYGZus{}chain} \PYG{o}{=} \PYG{n}{input\PYGZus{}data} \PYG{o}{|} \PYG{n}{chat\PYGZus{}prompt} \PYG{o}{|} \PYG{n}{chat\PYGZus{}model\PYGZus{}instance}
+\PYG{n}{generated\PYGZus{}response} \PYG{o}{=} \PYG{n}{response\PYGZus{}chain}\PYG{o}{.}\PYG{n}{invoke}\PYG{p}{(\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}question\PYGZsq{}}\PYG{p}{:} \PYG{n}{user\PYGZus{}question}\PYG{p}{\PYGZcb{},} \PYG{n}{config}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}callbacks\PYGZsq{}}\PYG{p}{:} \PYG{p}{[}\PYG{n}{ResponseStreamHandler}\PYG{p}{(}\PYG{n}{response\PYGZus{}placeholder}\PYG{p}{)]\PYGZcb{})}
+\PYG{n}{assistant\PYGZus{}answer} \PYG{o}{=} \PYG{n}{generated\PYGZus{}response}\PYG{o}{.}\PYG{n}{content}
+
+\PYG{c+c1}{\PYGZsh{} Display the final response}
+\PYG{n}{response\PYGZus{}placeholder}\PYG{o}{.}\PYG{n}{markdown}\PYG{p}{(}\PYG{n}{assistant\PYGZus{}answer}\PYG{p}{)}
+\end{Verbatim}
