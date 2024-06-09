@@ -1,5 +1,7 @@
-\chapter{Implementation}
+\chapter{Implementation}\label{chap:implementation}
+This chapter details the implementation of the Retrieval-Augmented Generation (RAG) Chatbot and the low-rank approximation technique applied to the BART model. The implementation process encompasses the development of the chatbot interface, the integration of generator and retriever components, the setup for handling user-uploaded documents, and the deployment of the chatbot. Additionally, the chapter covers the importation and preprocessing of the SamSum dataset, fine-tuning the BART model, implementing custom low-rank layers, and traversing the model to apply low-rank approximations. Each step is meticulously documented with code snippets and explanations to provide a comprehensive understanding of the implementation.
 \section{RAG Chatbot}
+The development of the RAG Chatbot, named "Study Buddy," aims to address the limitations of current chatbot solutions in educational contexts. Leveraging the Retrieval-Augmented Generation (RAG) model, this chatbot integrates advanced retrieval mechanisms with generative capabilities to provide students with context-specific and detailed responses. This section details the implementation process, including the creation of the user interface, the integration of the generator and retriever components, the setup for handling user-uploaded documents, and the deployment strategy. Through these steps, the Study Buddy chatbot is designed to enhance students' learning experiences by delivering accurate and relevant information efficiently.
     \subsection{Chatbot Interface}
         The chatbot interface was developed using the \texttt{Streamlit} library, which provides a simple and interactive way to create web applications. The interface allows users to interact with the RAG chatbot by entering a question in the input field and receiving the corresponding answer from the model. The chatbot interface was designed to be user-friendly and intuitive, enabling users to easily communicate with the chatbot and obtain relevant information.
         \begin{figure}[H]
@@ -33,7 +35,7 @@ chat_model_instance = get_chat_model()
 \label{listing:Cache_Chat_Model}
 \end{listing}
 
-The above code snippet details the implementation of the generator component for the Study Buddy chatbot, leveraging the \texttt{Langchain} library to interface with OpenAI's GPT-4 model. The generator component is responsible for producing the responses to user queries.
+The code snippet in listing \ref{listing:Cache_Chat_Model} details the implementation of the generator component for the Study Buddy chatbot, leveraging the \texttt{Langchain} library to interface with OpenAI's GPT-4 model. The generator component is responsible for producing the responses to user queries.
 
 \textbf{Key Elements of the Code:}
 \begin{itemize}
@@ -51,7 +53,7 @@ The above code snippet details the implementation of the generator component for
     \item \textbf{Model Parameters:} The temperature parameter is set to 0.3, which strikes a balance between generating creative responses and maintaining consistency. The \texttt{streaming=True} parameter enables the model to stream responses in real-time, providing a more interactive and immediate user experience. The \texttt{verbose=True} parameter allows for detailed logging, which is useful for monitoring the chatbot's operations and debugging issues.
 \end{enumerate}
 
-This setup ensures that the generator component efficiently produces detailed and contextually relevant responses, enhancing the chatbot's effectiveness as an exam preparation assistant.
+This setup ensures that the generator component efficiently interacts with the GPT-4 model to generate responses to user queries. The caching mechanism optimizes performance by reusing the model instance across multiple interactions.
 
         
 \subsection{Retriever Component}
@@ -87,11 +89,12 @@ retriever_instance = get_retriever()
 \label{listing:Cache_Retriever}
 \end{listing}
 
-The above code snippet demonstrates the implementation of the retriever component for the Study Buddy chatbot. The \texttt{Langchain} library is utilized to connect to the Astra DB Vector Store, which is a database optimized for vector searches. The retriever component is responsible for identifying and retrieving the most relevant documents based on the user's query.
+The code snippet in listing \ref{listing:Cache_Retriever} demonstrates the implementation of the retriever component for the Study Buddy chatbot. The \texttt{Langchain} library is utilized to connect to the Astra DB Vector Store, which is a database optimized for vector searches. The retriever component is responsible for identifying and retrieving the most relevant documents based on the user's query.
 
 \textbf{Key Elements of the Code:}
 \begin{itemize}
-    \item \texttt{AstraDB}: This class from the \texttt{langchain\_community.vectorstores} module is used to create an instance of the vector store. It requires an embedding model, collection name, API endpoint, and token for authentication.
+    \item \texttt{AstraDB}: This class from the \texttt{langchain\_community.vectorstores} module is used to create an instance of the vector store.\footnote{The vector store was configured in the DataStax Astra DB cloud service to use cosine similarity for semantic searches.}
+    It requires an embedding model, collection name, API endpoint, and a token for authentication.
     \item \texttt{OpenAIEmbeddings}: This class from the \texttt{langchain\_openai} module provides the embedding model used to convert text into numerical vectors that the vector store can handle.
     \item \texttt{@st.cache\_resource}: This Streamlit decorator caches the resources, ensuring that the vector store and retriever instances are reused efficiently across different runs of the application. This caching mechanism helps to optimize performance by avoiding redundant connections and initializations.
     \item \texttt{get\_vector\_store()}: This function initializes and returns an instance of the vector store by connecting to Astra DB using the provided API endpoint and token.
@@ -123,7 +126,7 @@ response_chain = input_data | chat_prompt | chat_model_instance
 \label{listing:Integration_Generator_Retriever}
 \end{listing}
 
-The above code snippet illustrates the integration of the generator and retriever components for the Study Buddy chatbot. This integration ensures that user queries are processed using both components to provide contextually accurate and comprehensive responses.
+The code snippet in listing \ref{listing:Integration_Generator_Retriever} illustrates the integration of the generator and retriever components for the Study Buddy chatbot. This integration ensures that user queries are processed using both components to provide contextually accurate and comprehensive responses.
 
 \textbf{Key Elements of the Code:}
 \begin{itemize}
@@ -158,7 +161,7 @@ with st.sidebar:
 \caption{PDF Uploader Interface}
 \label{listing:PDF_Uploader}
 \end{listing}
-The above code snippet creates an interface within the Streamlit sidebar for uploading PDF documents. This interface allows users to upload course materials, lecture notes, or other relevant documents, which are then processed and stored in the Astra DB Vector Store.
+The code snippet in listing \ref{listing:PDF_Uploader} creates an interface within the Streamlit sidebar for uploading PDF documents. This interface allows users to upload course materials, lecture notes, or other relevant documents, which are then processed and stored in the Astra DB Vector Store.
 
 \begin{listing}[H]
 \begin{minted}[fontsize=\footnotesize]{python}
@@ -192,7 +195,7 @@ def process_and_vectorize_document(uploaded_file, vector_db):
 \label{listing:Process_Vectorize_Documents}
 \end{listing}
 
-The above code snippet defines a function that processes and vectorizes uploaded PDF documents, storing them in the Astra DB Vector Store. This function is crucial for enabling the chatbot to retrieve and reference user-uploaded materials when generating responses.
+The code snippet in \ref{listing:Process_Vectorize_Documents} defines a function that processes and vectorizes uploaded PDF documents, storing them in the Astra DB Vector Store. This function is crucial for enabling the chatbot to retrieve and reference user-uploaded materials when generating responses.
 
 \textbf{Key Elements of the Code:}
 \begin{itemize}
@@ -219,12 +222,46 @@ This comprehensive approach ensures that the uploaded documents are effectively 
 The Study Buddy chatbot was deployed using the Streamlit sharing platform, which provides a simple and efficient way to host and share Streamlit applications. The deployment process involved uploading the application code to the Streamlit sharing platform and configuring the necessary settings to make the chatbot publicly accessible.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{figs/insert.png}
-    \caption{Study Buddy Chatbot Deployment}
+    \includegraphics[width=0.8\textwidth]{figs/deployment.png}
+    \caption{Deployment diagram of the Study Buddy RAG chatbot.}
     \label{fig:deployment}
 \end{figure}
+The deployment diagram illustrated in Figure \ref{fig:deployment} shows the architecture of the Retrieval-Augmented Generation (RAG) chatbot named \textit{Study Buddy}. This chatbot is designed to assist students in their studies by providing detailed and contextually relevant answers to their questions.
 
-\section{Case Study}
+\subsubsection*{Components}
+
+\begin{itemize}
+    \item \textbf{User Device:}
+    \begin{itemize}
+        \item \textit{User Browser:} The interface through which users interact with the Study Buddy chatbot. Users enter their queries and receive responses via a web browser.
+    \end{itemize}
+    \item \textbf{Web Server:}
+    \begin{itemize}
+        \item \textit{Streamlit Application:} The front-end of the chatbot, developed using Streamlit. This component handles user interactions, displays the chat interface, and processes user inputs.
+        \item \textit{Langchain Library:} Integrated within the Streamlit application, this library manages interactions with the OpenAI API and Astra DB. It facilitates the retrieval of relevant documents and the generation of responses.
+    \end{itemize}
+    \item \textbf{Astra DB Server:}
+    \begin{itemize}
+        \item \textit{Astra DB Vector Store:} A highly optimized vector database provided by DataStax, used to store and manage the contextual data required by the chatbot for generating precise and relevant answers.
+    \end{itemize}
+    \item \textbf{OpenAI API:}
+    \begin{itemize}
+        \item \textit{OpenAI GPT-4 Model:} The backend service provided by OpenAI, which generates human-like responses based on the input queries and contextual information retrieved from the Astra DB.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Connections}
+
+\begin{itemize}
+    \item \textbf{User Device to Web Server:} The user's browser communicates with the Streamlit application over HTTP/HTTPS protocols. This connection allows the user to send queries and receive responses.
+    \item \textbf{Web Server to Astra DB Server:} The Streamlit application makes API calls to the Astra DB Vector Store to retrieve relevant documents based on the user's query.
+    \item \textbf{Web Server to OpenAI API:} The Streamlit application also makes API calls to the OpenAI GPT-4 Model to generate detailed and contextually enriched responses.
+\end{itemize}
+
+This deployment architecture ensures that the chatbot can efficiently handle user queries by leveraging advanced natural language processing capabilities and a robust database for contextual data retrieval. The integration of these components enables \textit{Study Buddy} to provide accurate and helpful study assistance to users.
+
+\section{Case Study: Low-Rank Approximation of BART model}
+This section explores the application of low-rank approximation techniques to the BART model, focusing on both the base and large versions. By reducing the dimensionality of the attention weight matrices, the goal is to decrease computational complexity and storage requirements while maintaining performance in summarization tasks. The implementation process includes importing and preprocessing the SamSum dataset, fine-tuning the BART model, creating custom low-rank layers, and traversing the model to apply these approximations. Evaluation metrics, such as ROUGE scores and computational efficiency, are used to assess the effectiveness of this approach. This case study provides in the effectiveness of low-rank approximation of the BART model for dialogue summarization tasks.
 
     \subsection{Importing the Model}
         The BART-base model was imported from the Hugging Face platform using the \texttt{transformers} library.
@@ -243,7 +280,7 @@ The SamSum dataset was imported and preprocessed to facilitate the training and 
 
 \subsubsection{Importing the Dataset}
 
-First, we imported the necessary libraries and loaded the SamSum dataset using the \texttt{datasets} library:
+First, the necessary libraries was imported and then the SamSum dataset was loaded using the \texttt{datasets} library:
 
 \begin{listing}[H]
 \begin{minted}[fontsize=\footnotesize]{python}
@@ -274,7 +311,7 @@ Here, \texttt{max\_input\_length} is set to 512 tokens and \texttt{max\_target\_
 
 \subsubsection{Preprocessing Function}
 
-Next, we defined a preprocessing function to tokenize the inputs and targets. This function truncates and pads the sequences to the specified maximum lengths:
+Next, a preprocessing function is defined to tokenize the inputs and targets. This function truncates and pads the sequences to the specified maximum lengths:
 
 \begin{listing}[H]
 \begin{minted}[fontsize=\footnotesize]{python}
@@ -314,25 +351,48 @@ tokenized_datasets = raw_datasets.map(preprocess_function, batched=True)
 
 The \texttt{map} method applies the \texttt{preprocess\_function} to each example in the dataset, ensuring that all dialogues and summaries are properly tokenized, truncated, and padded. This results in a tokenized dataset ready for training and evaluation with the BART-base model.
 
-    \subsection{Finetuning the Model}
-        The model was then fine-tuned on the SamSum dataset for dialogue summarization tasks.
-        \begin{table}[h!]
-            \centering
-            \resizebox{\textwidth}{!}{%
-                \begin{tabular}{cccccccc}
-                    \toprule
-                    \textbf{Epoch} & \textbf{Training Loss} & \textbf{Validation Loss} & \textbf{Rouge1} & \textbf{Rouge2} & \textbf{Rougel} & \textbf{Rougelsum} & \textbf{Gen Len} \\
-                    \midrule
-                    0 & 1.81 & 1.54 & 47.39 & 24.45 & 40.03 & 43.77 & 18.21 \\
-                    2 & 1.48 & 1.49 & 47.98 & 24.7740 & 40.66 & 44.21 & 18.06 \\
-                    \bottomrule
-                \end{tabular}%
-            }
-            \caption{Training and validation results across epochs.}
-            \label{tab:training_results}
-        \end{table}
+    \subsection{Fine-Tuning the Model}
+        To establish a baseline for dialogue summarization tasks the model was then fine-tuned on the SamSum dataset using an L4 GPU provided by Google Colab Pro.
+        This was done by defining the training arguments, setting up the trainer, and training the model on the tokenized dataset.
+        \begin{listing}[H]
+\begin{minted}[fontsize=\footnotesize]{python}
+batch_size = 4
+args = Seq2SeqTrainingArguments(
+    "test-dialogue-summarization",
+    evaluation_strategy = "epoch",
+    learning_rate=2e-5,
+    per_device_train_batch_size=batch_size,
+    per_device_eval_batch_size=batch_size,
+    gradient_accumulation_steps=2,
+    weight_decay=0.01,
+    save_total_limit=2,
+    num_train_epochs=10,
+    predict_with_generate=True,
+    fp16=True
+)
+
+data_collator = DataCollatorForSeq2Seq(tokenizer, model=model)
+
+trainer = Seq2SeqTrainer(
+    model,
+    args,
+    train_dataset=tokenized_datasets["train"],
+    eval_dataset=tokenized_datasets["validation"],
+    data_collator=data_collator,
+    tokenizer=tokenizer,
+    compute_metrics=compute_metrics
+)
+
+trainer.train()
+            \end{minted}
+            \caption{Fine-tuning the BART-base model}
+            \label{listing:Fine-tuning_BART}
+        \end{listing}
+        The same approach was used to fine-tune the BART-large model. This model was fine-tuned on the same dataset using the same training arguments and setup, with the only difference being the number of epochs due to the larger model size.
+
+
     \subsection{Custom Layer Implementation}
-        A custom low-rank layer was implemented to replace the \(Q, K, V\) and output matrices typically found in the attention mechanisms of transformers. This implementation utilizes the Singular Value Decomposition (SVD) from the PyTorch library to decompose and subsequently truncate the weight matrices, preserving only the \(k\) most significant components.
+        A custom low-rank layer was implemented to replace the \(Q, K, V\) and output matrices typically found in the attention mechanisms of transformers. This implementation utilizes the SVD from the PyTorch library to decompose and subsequently truncate the weight matrices, preserving only the \(k\) most significant components.
         \begin{listing}[H]
 \begin{minted}[fontsize=\footnotesize]{python}
 class LowRankLayer(nn.Module):
@@ -427,9 +487,46 @@ def loRA_Transform(model, config):
             
             The \texttt{loRA\_Transform} function traverses the BART-base model and replaces the target layers with low-rank layers. The function iterates over the model's modules and identifies the layers that match the target layer names specified in the configuration. For each target layer found, a low-rank layer is created using the \texttt{LowRankLayer} class and replaces the original layer in the model.
 
-% \section{Curriculum Component Implementation}
+\subsection{Evaluation}
+The compressed BART models were evaluated using the ROUGE metrics to assess their performance in generating summaries. The evaluation involved iterating over different ranks, applying the low-rank approximation, and computing the ROUGE scores for each compressed model by evaluating the summaries generated on the test dataset from the SamSum dataset.
+    \begin{listing}
+\begin{minted}[fontsize=\footnotesize]{python}
+"""
+Evaluate compressed BART and save metrics
+"""
+for rank in range(start_rank, end_rank - 1, -step_size):
+    gc.collect()  # Garbage collect Python objects
+    torch.cuda.empty_cache()  # Clear CUDA cache
 
-% \section{Chatbot Development}
-%     \subsection{Tools and Libraries Used}
+    compressed_model = copy.deepcopy(model).to(device)
+    config = LowRankConfig(rank=rank, target_modules=["out_proj", "q_proj", "v_proj", "k_proj"])
+    loRA_Transform(compressed_model, config)
 
-%     \subsection{Integration of LLM}
+    # Move the model to GPU if available for evaluation
+    if torch.cuda.is_available():
+        compressed_model.to('cuda')
+
+    # Define a trainer for evaluation
+    trainer = Seq2SeqTrainer(
+        model=compressed_model,
+        args=args,
+        train_dataset=tokenized_datasets["train"],
+        eval_dataset=tokenized_datasets["test"],
+        data_collator=data_collator,
+        tokenizer=tokenizer,
+        compute_metrics=compute_metrics
+    )
+
+    # Perform evaluation
+    eval_results = trainer.evaluate()
+
+    # Store metrics for the new experiment
+    for key in metrics_keys:
+        if key in eval_results:
+            metrics[key].append(eval_results[key])
+        else:
+            metrics[key].append(None)  # Append None if the key doesn't exist in results
+\end{minted}
+    \caption{Evaluating the low-rank approximated BART models}
+    \label{listing:ROUGE_Evaluation}
+    \end{listing}

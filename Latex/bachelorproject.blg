@@ -12,7 +12,6 @@ A level-1 auxiliary file: EvaluationAndResults.aux
 A level-1 auxiliary file: Discussion.aux
 A level-1 auxiliary file: Conclusion.aux
 A level-1 auxiliary file: Appendix-Education.aux
-A level-1 auxiliary file: Appendix-Poster.aux
 A level-1 auxiliary file: Appendix-Interview.aux
 A level-1 auxiliary file: Appendix-BART.aux
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
@@ -35,44 +34,44 @@ Database file #2: ./literature.bib
 Biblatex version: 3.17
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 16 entries,
+You've used 21 entries,
             6399 wiz_defined-function locations,
-            1302 strings with 14209 characters,
-and the built_in function-call counts, 201983 in all, are:
-= -- 18336
-> -- 1988
-< -- 448
-+ -- 7489
-- -- 784
-* -- 13669
-:= -- 26259
+            1325 strings with 15117 characters,
+and the built_in function-call counts, 259054 in all, are:
+= -- 23446
+> -- 2580
+< -- 586
++ -- 9238
+- -- 1007
+* -- 17830
+:= -- 33216
 add.period$ -- 0
-call.type$ -- 16
-change.case$ -- 296
-chr.to.int$ -- 60
-cite$ -- 30
-duplicate$ -- 23005
-empty$ -- 15940
-format.name$ -- 1484
-if$ -- 38508
+call.type$ -- 21
+change.case$ -- 378
+chr.to.int$ -- 67
+cite$ -- 40
+duplicate$ -- 28695
+empty$ -- 20818
+format.name$ -- 1894
+if$ -- 49815
 int.to.chr$ -- 0
-int.to.str$ -- 37
+int.to.str$ -- 48
 missing$ -- 0
-newline$ -- 843
-num.names$ -- 760
-pop$ -- 6545
+newline$ -- 1044
+num.names$ -- 994
+pop$ -- 8540
 preamble$ -- 1
-purify$ -- 487
+purify$ -- 617
 quote$ -- 0
-skip$ -- 3065
+skip$ -- 4009
 stack$ -- 0
-substring$ -- 33695
-swap$ -- 3030
-text.length$ -- 378
+substring$ -- 43831
+swap$ -- 3854
+text.length$ -- 492
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 532
+type$ -- 698
 warning$ -- 0
-while$ -- 3469
+while$ -- 4270
 width$ -- 0
-write$ -- 828
+write$ -- 1024

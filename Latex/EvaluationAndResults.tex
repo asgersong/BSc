@@ -1,13 +1,14 @@
-\chapter{Evaluation and Results}
+\chapter{Results}\label{chap:evaluation_and_results}
+This chapter presents the outcomes of the two primary areas of investigation in this thesis: the development of the Study Buddy RAG chatbot prototype, and the assesment of the implementation of low-rank approximation on the BART model. This chapter is structured to provide a comprehensive overview of the findings, highlighting the impact of document insertion on the chatbot's performance and the effectiveness of low-rank approximation in optimizing the BART model.
+
+The first section focuses on the Study Buddy RAG chatbot prototype, detailing the internal functionality tests and case studies that assess the impact of inserting relevant documents on the chatbot's response quality. The evaluation emphasizes the improvements in accuracy, relevance, and response quality that result from enhancing the chatbot with additional context.
+
+The second section addresses the low-rank approximation of the BART model. It examines the fine-tuning process, presents ROUGE scores to evaluate summarization performance, and discusses the computational efficiency gains achieved through low-rank approximation. Additionally, the section includes a comparison of generated summaries at various approximation ranks to illustrate the trade-offs between model compression and performance retention.
 
 \section{RAG Chatbot}
-The primary goal of developing the Study Buddy RAG chatbot was to gain hands-on experience with large language models (LLMs) and their application in real-world language processing tasks. %The evaluation metrics used to assess the chatbot focused on its internal performance and functionality rather than user testing:
+The primary goal of developing the Study Buddy RAG chatbot prototype was to gain hands-on experience with working with LLMs and their application in real-world language processing tasks. %The evaluation metrics used to assess the chatbot focused on its internal performance and functionality rather than user testing:
 
-% \begin{itemize}
-%     \item \textbf{Functionality:} Ensures that all components (retriever, generator, and PDF uploader) work seamlessly together.
-%     \item \textbf{Response Time:} Assesses the time taken by the chatbot to generate responses, ensuring quick and efficient interaction.
-% \end{itemize}
-The evaluation of the Study Buddy chatbot involved querying the chatbot both before and after inserting relevant documents. The aim was to observe how the inclusion of additional context impacts the chatbot's performance in terms of accuracy, relevance, and response quality. This internal testing was done to verify that the chatbot was ready for potential future testing by users.
+The evaluation of the Study Buddy chatbot involved querying the chatbot both before and after inserting relevant documents. The aim was to observe how the inclusion of additional context impacts the chatbot's performance in terms of accuracy, relevance, and response quality. This internal testing was done to verify that the chatbot was ready for potential future scalability and subsequent testing by multiple users.
 
 \subsection{Functionality Testing}
 The functionality of the chatbot was tested by ensuring that all components (retriever, generator, and PDF uploader) worked seamlessly together. This involved verifying the following:
@@ -18,8 +19,9 @@ The functionality of the chatbot was tested by ensuring that all components (ret
     \item \textbf{Generator Component:} Generating coherent and contextually relevant responses using the GPT-4 model.
     \item \textbf{Integration:} Ensuring that the retriever and generator components integrate smoothly to provide comprehensive responses.
 \end{itemize}
+The Study Buddy chatbot successfully passed all functionality tests, demonstrating that the components worked together seamlessly to provide accurate and contextually relevant responses to user queries when relevant documents were inserted. Section \ref{document_insertion} provides examples of how the chatbot was tested before and after inserting relevant documents.
 
-\subsection{Case Study: Impact of Document Insertion on Response Quality}
+\subsection{Case Study: Impact of Document Insertion on Response Quality}\label{document_insertion}
 A series of specific queries were made to the Study Buddy chatbot before and after inserting a set of relevant documents. The goal was to observe changes in the quality of responses. The queries were related to complex topics that required detailed and specific information.
 
 \textbf{Example Query 1:}
@@ -42,7 +44,7 @@ The first query was related to the topic of "orthogonal matrices" and involved a
     In this case we see that the professor who created the slides was referenced in the response, which was not present in the response before the document insertion. Furthermore, the response is almost identical in both structure and wording to one of the slides in the uploaded document.
 \end{itemize}
 
-\textbf{Example Query 2:}
+\textbf{Example Query 2:}\label{uncommon_topic}
 The second query was related to an uncommon topic, e.g. a project I did earlier in my studies, and involved asking the chatbot to explain the purpose of the system developed during the project. This query was chosen to test the chatbot's ability to provide information on topics that OpenAI's GPT-4 model is not familiar with.
 \begin{itemize}
     \item \textbf{Before Document Insertion:} A response was produced but lacked detailed information and context about the project. 
@@ -61,7 +63,7 @@ The second query was related to an uncommon topic, e.g. a project I did earlier 
     \end{figure}
 \end{itemize}
 
-\subsection{Impact of Document Insertion on Unrelated Query Response}
+\subsection{Case Study: Impact of Document Insertion on Unrelated Query Response} \label{unrelated_query}
 \begin{itemize}
     \item \textbf{Document Insertion of a Single Document:} After inserting only a document on "orthogonal matrices," a query was made on a different topic, e.g. "eigenvectors". The chatbot was not able to provide a relevant response, indicating that the document insertion did impact the chatbot's ability to respond to unrelated queries.
     \begin{figure}[H]
@@ -82,10 +84,54 @@ The second query was related to an uncommon topic, e.g. a project I did earlier 
 \end{itemize}
 %---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-\section{Case Study}
-The evaluation of compressing the BART-base and BART-large model using low-rank approximation reveals the following insights:
+\section{Case Study: Low Rank Approximation of BART Model}
+The evaluation of fine-tuning and then compressing the BART-base and BART-large model using low-rank approximation reveals the following:
 
-\subsection{ROUGE scores} The low-rank approximation technique achieves comparable ROUGE scores until rank \(r = 510\), after which the scores begin to decline. This indicates that the model's performance is preserved up to a certain rank, beyond which the approximation starts to impact the summarization quality. The following figures illustrate the ROUGE scores for various ranks:
+\subsection{Fine-tuning the BART Model}
+The fine-tuning of the BART model on the SamSum dataset provided the following results:
+\begin{table}[h!]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{cccccccc}
+        \toprule
+        \textbf{Epoch} & \textbf{Training Loss} & \textbf{Validation Loss} & \textbf{Rouge1} & \textbf{Rouge2} & \textbf{Rougel} & \textbf{Rougelsum} & \textbf{Gen Len} \\
+        \midrule
+        0 & 1.815700 & 1.543361 & 47.514900 & 24.586800 & 40.399100 & 43.972500 & 18.091700 \\
+        2 & 1.458700 & \textbf{1.489950} & 48.360500 & 25.598600 & 41.272800 & 44.942500 & 17.880200 \\
+        4 & 1.266000 & 1.495493 & 48.338000 & 25.252300 & 41.116400 & 44.727300 & 18.094100 \\
+        6 & 1.123200 & 1.523768 & 48.887200 & 25.618700 & 41.335700 & \textbf{45.155400} & 18.206600 \\
+        8 & 1.041000 & 1.528558 & \textbf{49.063600} & \textbf{25.955900} & \textbf{41.537300} & 45.311800 & \textbf{18.343500} \\
+        9 & \textbf{1.019900} & 1.539690 & 48.923000 & 25.675400 & 41.485100 & 45.143400 & 18.327600 \\
+        \bottomrule
+    \end{tabular}
+    }
+    \caption{Training and Validation Metrics of Fine-Tuning BART-base across Epochs}
+    \label{tab:metrics_bart_base}
+\end{table}
+    The fine-tuning of BART-base with 10 epochs took approximately 1 hour. It can be observed from Table \ref{tab:metrics_bart_base} that the BART-base model achieved the best training loss, ROUGE-1, ROUGE-2, and ROUGE-L scores at epoch 8. The generated length of the summaries also peaked at epoch 8, indicating that the model performed best at this stage. The ROUGE-2 score, however, was highest at epoch 9, suggesting that the model peaked in bigram overlap at this point. The training loss decreased consistently across epochs, indicating that the model was learning from the training data.
+
+\begin{table}[H]
+    \centering
+    \resizebox{\textwidth}{!}{%
+
+    \begin{tabular}{cccccccc}
+    \toprule
+    \textbf{Epoch} & \textbf{Training Loss} & \textbf{Validation Loss} & \textbf{Rouge1} & \textbf{Rouge2} & \textbf{Rougel} & \textbf{Rougelsum} & \textbf{Gen Len} \\
+    \midrule
+    0 & 1.022900 & 1.489733 & 48.960100 & 26.305700 & 41.343800 & 44.952700 & \textbf{19.270200} \\
+    2 & 1.010700 & \textbf{1.386865} & \textbf{50.152900} & \textbf{27.821400} & \textbf{43.000900} & \textbf{46.561300} & 18.358200 \\
+    4 & \textbf{0.812600} & 1.429855 & 50.003400 & 26.972100 & 42.172400 & 45.977900 & 18.588000 \\
+    %5 & 0.821300 & 1.438000 & 49.993300 & 27.073300 & 42.191300 & 46.003100 & 18.467800 \\
+    \bottomrule
+    \end{tabular}
+    }
+    \caption{Training and Validation Metrics of Fine-Tuning BART-large across Epochs}
+    \label{tab:metrics_bart_large}
+    \end{table}
+
+    The fine-tuning of BART-large with 5 epochs took approximately 1 hour and 50 minuters. Table \ref{tab:metrics_bart_large} shows that the BART-large model achieved the best validation loss, ROUGE-1, ROUGE-2, ROUGE-L, and ROUGE-Lsum scores at epoch 2 indicating that the model performed best at this stage. The training loss decreased consistently across epochs, also indicating that the model was learning from the training data.
+
+\subsection{ROUGE scores} The low-rank approximations upholds comparable ROUGE scores until a certain rank, after which the scores begin to decline. This indicates that the model's performance is preserved up to a certain rank, beyond which the approximation starts to impact the summarization quality. The following figures illustrate the ROUGE scores for various ranks:
 
 \begin{figure}[H]
     \centering
@@ -120,9 +166,45 @@ The evaluation of compressing the BART-base and BART-large model using low-rank 
     \label{fig:main}
 \end{figure}
 
-As depicted in Figure \ref{fig:main}, the ROUGE-1, ROUGE-2, ROUGE-L, and ROUGE-Lsum scores maintain a high level of performance up to a rank of \(r = 510\). However, it is important to note that for the BART-large model, there is a slight decline in performance even when the model is low-rank approximated at full rank. Beyond the rank of \(r = 510\), a noticeable degradation in scores is observed, indicating the limitations of the low-rank approximation in preserving the model's quality.
+As depicted in Figure \ref{fig:main}, the ROUGE-1, ROUGE-2, ROUGE-L, and ROUGE-Lsum scores for BART-base maintain similar level of performance, compared to its original fine-tuned model, up to a rank of around \(r = 510\). However, it is important to note that for the BART-large model, there is an immediate decline in performance even when the model is low-rank approximated near full rank. Beyond that, similarly for BART-large, after the rank of around \(r = 510\), a rapid degradation in scores is observed, indicating the limitations of the low-rank approximation in preserving the model's quality.
+
+\subsection{Computational Efficiency}
+The low-rank approximation of the BART model succeeds in reducing the computational complexity and storage requirements of the model. The following figures illustrate the computational efficiency of the low-rank approximations:
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/flops_vector.png}
+        \caption{Vector-Matrix Multiplication FLOPs.}
+        \label{fig:subfigure1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figs/flops_matrix.png}
+        \caption{Matrix-Matrix Multiplication FLOPs.}
+        \label{fig:subfigure2}
+    \end{subfigure}
+    \caption{FLOPs required for a vector-matrix multiplication and matrix-matrix multiplication of a single self-attention weight matrix in BART.}
+    \label{fig:mainfigure}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figs/elements.png}
+    \caption{Number of elements in the weight matrices of BART-base and BART-large depending on rank.}
+    \label{fig:parameters}
+\end{figure}
+Figure \ref{fig:mainfigure}  show that the low-rank approximation can significantly reduce the number of FLOPs required for vector-matrix and matrix-matrix multiplications, indicating a substantial improvement in computational efficiency after a certain threshhold of \(r = 318\) and \(r = 424\) for BART-base and BART-large, respectively. The number of elements in the weight matrices of BART-base and BART-large also decreases with the reduction in rank after the same threshhold, further demonstrating the efficiency gains achieved through low-rank approximation as depicted in figure \ref{fig:parameters}.
 
 \subsection{Comparing Summaries}
+
+The analysis of summaries produced by the BART-base model at various ranks demonstrates how low-rank approximation affects the quality of generated summaries. \\
+The following example illustrates summaries generated at different ranks: \\
+At full rank (\(r_{\text{out}} = 768, r_{v} = 767, r_{k} = r_{q} = 766\)), both with and without the application of \texttt{LoRA\_Transform}, the summary is as follows:
+\begin{quote}
+\textit{Hannah is looking for Betty's number. Amanda can't find it. Larry called her last time they were at the park together.}
+\end{quote}
+While this summary differs from the reference summary (see Figure \ref{fig:SamSum_Example}), it still captures the essence of the dialogue. For simplicity let us call this the \emph{original phrasing} as we wish to compare the summaries to this as we reduce the rank.\\
 
 The quality of the generated summaries demonstrates a noticeable decline as the rank of the low-rank approximation decreases. Initially, at higher ranks close to full rank, the summaries remain somewhat coherent and consistent, closely matching the original summary at full rank. However, as the rank decreases to \(r = 510\), the summaries start to lose details and exhibit increased errors and inconsistencies.
 
@@ -143,7 +225,7 @@ The original phrasing returns from rank 715 through 655:
     \textit{Hannah is looking for Betty's number. Amanda can't find it. Larry called her last time they were at the park together.}
 \end{quote}
 
-By rank 650 through 490, a critical detail is lost at times, but the original phrasing returns.
+By rank 650 through 490, the summary shifts between losing a critical detail at times and the original phrasing:
 \begin{quote}
     \textit{Hannah is looking for Betty's number. Larry called her last time they were at the park together.}
 \end{quote}
@@ -180,5 +262,5 @@ At the lowest ranks, the summaries become almost nonsensical:
     Rank 150: \textit{Amanda and Amanda are going to the park.}
 \end{quote}
 
-These observations further indicates that the low-rank approximation method can maintain summarization quality up to a certain rank, beyond which the coherence and accuracy of the summaries degrade significantly. This highlights the trade-off between computational efficiency and model performance in the context of low-rank approximation.
+These observations further indicates that the low-rank approximation method can maintain summarization quality up to a certain rank, beyond which the coherence and accuracy of the summaries degrade significantly. This highlights the trade-off between computational efficiency and model performance in the context of low-rank approximation of the BART model.
 

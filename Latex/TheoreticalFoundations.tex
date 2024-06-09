@@ -1,4 +1,13 @@
-\chapter{Theoretical Foundations}
+\chapter{Theoretical Foundations}\label{chap:theoretical_foundations}
+This chapter delves into the mathematical and theoretical underpinnings essential for understanding the development and application of large language models (LLMs). The discussion begins with an exploration of linear algebra, which forms the cornerstone of deep learning and is instrumental in defining the operations and transformations within neural networks. It further elucidates how vectors, matrices, and tensors serve as fundamental building blocks in representing data and parameters in neural networks. 
+
+Subsequently, the chapter examines the role of matrix operations, emphasizing the importance of matrix multiplication in transforming data across layers of a neural network. It also covers Singular Value Decomposition (SVD), a powerful technique for decomposing matrices, which is crucial for various machine learning tasks such as data compression and noise reduction.
+
+The concept of low-rank approximation is introduced, highlighting its significance in reducing computational complexity and storage requirements, particularly in the context of deep learning where large matrices are prevalent. This section provides detailed insights into how low-rank approximation achieves efficiency gains without significantly compromising the quality of neural network outputs.
+
+Additionally, the chapter discusses neural networks, focusing on their architecture, learning processes, optimization, and regularization techniques. It explains how neural networks are designed to capture and transmit abstract features through layers of interconnected nodes, and how they are trained to perform specific tasks through optimization algorithms and regularization methods.
+
+Lastly, the chapter provides an understanding of cosine similarity, a metric used to measure the similarity between vectors, and its relevance in text analysis and NLP applications. The chapter culminates with an overview of large language models, detailing their architecture based on the Transformer model, the attention mechanisms that enable them to capture context, and the training and fine-tuning processes that enhance their performance on various NLP tasks.
 
 \section{Linear Algebra in Deep Learning}
 Linear algebra forms the cornerstone of deep learning, providing the necessary mathematical framework to model and understand complex relationships within data. It is instrumental in defining the operations and transformations that occur within deep neural networks, including those underlying LLMs.
@@ -21,8 +30,8 @@ where $A$ is the weight matrix, $\mathbf{x}$ is the input vector, $\mathbf{b}$ i
     \end{equation}
     where $C \in \mathbb{R}^{m \times p}$ is the resulting matrix. Matrix multiplication is a key operation in neural networks, enabling the transformation of input data through multiple layers of weights and biases.
     
-    \subsubsection{Flops}
-    Floating-point operations (FLOPs) are a measure of the computational complexity of matrix operations. The number of FLOPs required for matrix multiplication is proportional to the product of the dimensions of the matrices involved. For example, the number of FLOPs for multiplying two matrices $A \in \mathbb{R}^{m \times n}$ and $B \in \mathbb{R}^{n \times p}$ is $2mnp$.
+    \subsubsection{Floating-Point Operations}
+    Floating-point operations (FLOPs) are a measure of the computational complexity of matrix operations. The number of FLOPs required for matrix multiplication is proportional to the product of the dimensions of the matrices involved. For example, the number of FLOPs for multiplying two matrices $A \in \mathbb{R}^{m \times n}$ and $B \in \mathbb{R}^{n \times p}$ is $2mnp$ (\cite{swann2022numerisk}). Furtherly, the number of FLOPs required for a matrix-vector multiplication of matrix $A \in \mathbb{R}^{m \times n}$ and vector $\mathbf{x} \in \mathbb{R}^n$ is $2mn$ (\cite{swann2022numerisk}).
 
 \subsection{Singular Value Decomposition}
     Singular Value Decomposition (SVD) is a powerful technique for decomposing a matrix into singular vectors and singular values, providing insight into the structure of the data. For any matrix $A \in \mathbb{R}^{m \times n}$, SVD is given by:
@@ -34,11 +43,11 @@ where $A$ is the weight matrix, $\mathbf{x}$ is the input vector, $\mathbf{b}$ i
 
 \subsection{Low-Rank Approximation}
 
-    Low-rank approximation is a powerful technique in linear algebra that provides significant benefits in terms of computational efficiency and storage requirements. This method is particularly useful in the context of deep learning, where large matrices are frequently encountered, and computational resources are often a limiting factor.
+    Low-rank approximation is an effective technique in linear algebra that can provide significant benefits in terms of computational efficiency and storage requirements. This method is particularly useful in the context of deep learning, where large matrices are frequently encountered, and computational resources are often a limiting factor.
     
     \subsubsection{Concept of Low-Rank Approximation}
     
-    Given a matrix $A$ of dimensions $m \times n$, low-rank approximation aims to approximate $A$ by another matrix $A_k$ of lower rank $k$, where $k$ is much smaller than both $m$ and $n$. This approximation leverages the Singular Value Decomposition (SVD) of $A$:
+    Given a matrix $A$ of dimensions $m \times n$, low-rank approximation aims to approximate $A$ by another matrix $A_k$ of lower rank $k$, where $k$ is much smaller than both $m$ and $n$. A version of this approximation leverages the Singular Value Decomposition (SVD) of $A$:
     
     \[
     A \approx A_k = U_k \Sigma_k V_k^T
@@ -92,39 +101,41 @@ where $A$ is the weight matrix, $\mathbf{x}$ is the input vector, $\mathbf{b}$ i
     Low-rank approximation can also reduce the computational complexity of various matrix operations. In the case of a matrix-vector multiplication we have:
     
     \begin{itemize}
-        \item \textbf{Original Matrix}: Multiplying $A$ (size $m \times n$) with a vector requires $O(mn)$ operations.
+        \item \textbf{Original Matrix}: Multiplying $A$ (size $m \times n$) with a vector (size $n$) requires $2mn$ FLOPs.
         \item \textbf{Low-Rank Approximation}: Multiplying $A_k = U_k \Sigma_k V_k^T$ with a vector involves three steps:
         \begin{itemize}
-            \item $V_k^T$ with the vector: $O(kn)$ operations.
-            \item $\Sigma_k$ multiplication: $O(k^2)$ operations.
-            \item $U_k$ multiplication: $O(mk)$ operations.
+            \item $V_k^T$ with the vector: $2kn$ FLOPs,
+            \item $\Sigma_k$ multiplication: $2k^2$ FLOPs.
+            \item $U_k$ multiplication: $2mk$ FLOPs.
         \end{itemize}
-        \item \textbf{Total}: $O(kn) + O(k^2) + O(mk) = O(k(k + m + n))$ operations.
+        \item \textbf{Total}: $2kn + 2k^2 + 2mk = 2k(k + m + n)$ FLOPs.
     \end{itemize}
-    Therefore, the appropriate choice of rank \(k\) to achieve computational efficiency for matrix-vector multiplications is also
-    \begin{displaymath}
+    Therefore, the appropriate choice of rank \(k\) to achieve computational efficiency for matrix-vector multiplications is
+    \begin{gather*}
+        2kn + 2k^2 + 2mk = 2k(k + m + n) < 2mn \\
+        \Updownarrow \\
         k < \frac{\sqrt{4mn + (m+n)^2} - m - n}{2}
-    \end{displaymath}
+    \end{gather*}
     
     \subsubsection{Reduction in Computation for Matrix-Matrix Multiplications}
     In the case of a matrix-matrix multiplication we have:
     
     \begin{itemize}
-        \item \textbf{Original Matrix}: Multiplying $A$ (size $m \times n$) with another matrix of size $n \times p$ requires $O(mnp)$ operations.
+        \item \textbf{Original Matrix}: Multiplying $A$ (size $m \times n$) with another matrix of size $n \times p$ requires $2mnp$ FLOPs.
         \item \textbf{Low-Rank Approximation}: Multiplying $A_k = U_k \Sigma_k V_k^T$ with a matrix of size $n \times p$ involves:
         \begin{itemize}
-            \item $V_k^T$ with the matrix: $O(knp)$ operations.
-            \item $\Sigma_k$ multiplication: $O(k^2 p)$ operations.
-            \item $U_k$ multiplication: $O(mkp)$ operations.
+            \item $V_k^T$ with the matrix: $2knp$ FLOPs.
+            \item $\Sigma_k$ multiplication: $2k^2p$ FLOPs.
+            \item $U_k$ multiplication: $2mkp$ FLOPs.
         \end{itemize}
-        \item \textbf{Total}: $O(knp) + O(k^2p) + O(mkp) = O(k(k + m + n)p)$ operations.
+        \item \textbf{Total}: $2knp + 2k^2p + 2mkp = 2k(k + m + n)p$ FLOPs.
     \end{itemize}
     Therefore, the appropriate choice of rank \(k\) to achieve computational efficiency for matrix-matrix multiplications is also
     \begin{displaymath}
         k < \frac{\sqrt{4mn + (m+n)^2} - m - n}{2}
     \end{displaymath}
     
-    By choosing a sufficiently small $k$, these operations can be performed much more efficiently compared to using the full-rank matrix $A$.\\
+    By choosing a sufficiently small $k$, the amount of FLOPs can be reduced compared to when using the full-rank matrix $A$.\\
     Thus, making low-rank approximation via SVD a powerful technique that offers significant benefits in terms of storage reduction and computational efficiency. By focusing on the most important components of a matrix, low-rank approximation makes it feasible to handle large datasets and complex computations more effectively, which is crucial in the field of deep learning and beyond.
     
 \subsection{Neural Networks in Deep Learning}
@@ -147,13 +158,23 @@ where $A$ is the weight matrix, $\mathbf{x}$ is the input vector, $\mathbf{b}$ i
     \subsubsection{Optimization and Regularization}
     Optimization algorithms like Stochastic Gradient Descent (SGD), Adam, and RMSprop are crucial for weight updates. Regularization techniques such as dropout and weight decay help prevent overfitting, ensuring the network generalizes well to new data.
     
+\subsection{Cosine Similarity}
+The cosine similarity between two vectors $\mathbf{a}$ and $\mathbf{b}$ is defined as:
+\[
+S_c(\mathbf{a}, \mathbf{b}) = \frac{\mathbf{a} \cdot \mathbf{b}}{\|\mathbf{a}\| \|\mathbf{b}\|}
+\]
+where $\mathbf{a} \cdot \mathbf{b}$ is the dot product of $\mathbf{a}$ and $\mathbf{b}$, and $\|\mathbf{a}\|$ and $\|\mathbf{b}\|$ are the magnitudes (or norms) of vectors $\mathbf{a}$ and $\mathbf{b}$, respectively.
+
+Cosine similarity is a metric used to measure the cosine of the angle between two non-zero vectors in an inner product space. It is particularly useful in the context of text analysis and NLP, where it quantifies the similarity between two vectors of an inner product space that represents the words or documents.
+
+By applying cosine similarity, models can effectively capture the similarity in high-dimensional data, making it a valuable tool in various machine learning and deep learning applications.
 
 
 \section{Understanding LLMs}
-    Large Language Models (LLMs) such as GPT (Generative Pre-trained Transformer) and BERT (Bidirectional Encoder Representations from Transformers) have revolutionized the field of natural language processing (NLP) by leveraging deep neural networks to understand and generate human-like text unlocking a whole host of new applications.
+    LLMs such as GPT (Generative Pre-trained Transformer) and BERT (Bidirectional Encoder Representations from Transformers) have revolutionized the field of NLP by leveraging deep neural networks to understand and generate human-like text unlocking a whole host of new applications.
 
 
-    \subsection{What are LLMs?}
+    \subsection{The Concept of LLMs?}
         LLMs are deep neural networks trained on vast amounts of text data. They learn to predict the next word in a sentence, understand context, generate text, and perform various NLP tasks with minimal task-specific adjustments. The strength of LLMs lies in their ability to capture intricate patterns in language through extensive pre-training.
        
        
@@ -162,7 +183,7 @@ where $A$ is the weight matrix, $\mathbf{x}$ is the input vector, $\mathbf{b}$ i
             \begin{figure}[h!]
                 \centering
                 \includegraphics[width=0.5\textwidth]{figs/transform_model.png}
-                \caption{Transformer model architecture - Taken from “Attention Is All You Need“}
+                \caption{Transformer model architecture - Taken from “Attention Is All You Need“ by \cite{vaswani2023attention}.}
             \end{figure}
 
             At a high level, the goal of the Transformer is to take an input text and predict the next word in the sequence. The input text is broken into tokens, which are typically words or parts of words. Each token is then represented as a high-dimensional vector, known as its embedding. Initially, these embeddings encode only the individual meaning of the tokens without any contextual information.
@@ -221,13 +242,13 @@ where $A$ is the weight matrix, $\mathbf{x}$ is the input vector, $\mathbf{b}$ i
                 \begin{figure}[H]
                     \centering
                     \includegraphics[width=0.6\textwidth]{figs/Scaled_dot_product.png}
-                    \caption{Illustration of the Attention Mechanism - Taken from "Attention Is All You Need"}
+                    \caption{Illustration of the Attention Mechanism - Taken from "Attention Is All You Need" by \cite{vaswani2023attention}.}
                     \label{fig:attention_mechanism}
                 \end{figure}
 
-                This mechanism allows the model to dynamically adjust which parts of the input sequence to focus on, thereby capturing the contextual meaning of each word. This whole process is described as a single 'head' of attention, and multiple heads can be used in parallel to capture different aspects of the input sequence.
+                This mechanism allows the model to dynamically adjust which parts of the input sequence to focus on, thereby capturing the contextual meaning of each word. This whole process is described as a single 'head' of attention, and multiple heads can be used in parallel to capture different aspects of the input sequence, as elaborated in section \ref{Multi-head Attention}.
 
-            \subsubsection{Multi-head Attention}
+            \subsubsection{Multi-head Attention}\label{Multi-head Attention}
                 Multi-head attention extends the single-head attention mechanism by allowing the model to attend to different parts of the input sequence simultaneously, capturing a variety of relationships and patterns. Instead of performing a single attention function, multi-head attention projects the queries, keys, and values into multiple subspaces and performs the attention function in each subspace independently.
 
                 This process is mathematically described as follows:
@@ -260,14 +281,14 @@ where $A$ is the weight matrix, $\mathbf{x}$ is the input vector, $\mathbf{b}$ i
                 \begin{figure}[H]
                     \centering
                     \includegraphics[width=0.6\textwidth]{figs/Multi_head_attention.png}
-                    \caption{Illustration of Multi-head Attention - Taken from "Attention Is All You Need"}
+                    \caption{Illustration of Multi-head Attention - Taken from "Attention Is All You Need" by \cite{vaswani2023attention}.}
                     \label{fig:multi_head_attention}
                 \end{figure}
-                In summary, the attention and multi-head attention mechanisms enable the Transformer model to focus on relevant parts of the input sequence dynamically, improving its ability to capture context and generate accurate predictions. These mechanisms are crucial to the model's success in various natural language processing tasks.
+                In summary, the attention and multi-head attention mechanisms enable the Transformer model to focus on relevant parts of the input sequence dynamically, improving its ability to capture context and generate accurate predictions. These mechanisms are crucial to the model's success in various NLP tasks.
                                         
                 
                 \subsubsection{Why Transformers?}
-                The Transformer model has several advantages over traditional RNNs and LSTMs, including the ability to capture long-range dependencies, parallelize computation, and scale to larger datasets. The self-attention mechanism allows the model to focus on relevant parts of the input sequence, enabling it to learn complex patterns in the data. The multi-head attention mechanism further enhances the model's ability to capture different aspects of the input sequence in parallel, improving its performance on a wide range of NLP tasks such as translation, summarization, and image captioning. This is why Transformers have become the architecture of choice for many state-of-the-art NLP models, including GPT and BERT.
+                The Transformer model has several advantages over traditional Recurrent Neural Networks (RNNs) and Long Short-Term Memory (LSTMs), including the ability to capture long-range dependencies, parallelize computation, and scale to larger datasets. The self-attention mechanism allows the model to focus on relevant parts of the input sequence, enabling it to learn complex patterns in the data. The multi-head attention mechanism further enhances the model's ability to capture different aspects of the input sequence in parallel, improving its performance on a wide range of NLP tasks such as translation, summarization, and image captioning. This is why Transformers have become the architecture of choice for many state-of-the-art NLP models, including GPT and BERT.
 
             \subsection{Training and Fine-Tuning}
             The foundation of an LLM's understanding and generation of human language lies in its pre-training phase. During this stage, the model is exposed to a large corpus of text data, often encompassing a wide range of topics, genres, and styles. The primary objective of pre-training is to enable the model to learn a generalized representation of language.

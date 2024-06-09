@@ -1,0 +1,30 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{batch\PYGZus{}size} \PYG{o}{=} \PYG{l+m+mi}{4}
+\PYG{n}{args} \PYG{o}{=} \PYG{n}{Seq2SeqTrainingArguments}\PYG{p}{(}
+    \PYG{l+s+s2}{\PYGZdq{}test\PYGZhy{}dialogue\PYGZhy{}summarization\PYGZdq{}}\PYG{p}{,}
+    \PYG{n}{evaluation\PYGZus{}strategy} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}epoch\PYGZdq{}}\PYG{p}{,}
+    \PYG{n}{learning\PYGZus{}rate}\PYG{o}{=}\PYG{l+m+mf}{2e\PYGZhy{}5}\PYG{p}{,}
+    \PYG{n}{per\PYGZus{}device\PYGZus{}train\PYGZus{}batch\PYGZus{}size}\PYG{o}{=}\PYG{n}{batch\PYGZus{}size}\PYG{p}{,}
+    \PYG{n}{per\PYGZus{}device\PYGZus{}eval\PYGZus{}batch\PYGZus{}size}\PYG{o}{=}\PYG{n}{batch\PYGZus{}size}\PYG{p}{,}
+    \PYG{n}{gradient\PYGZus{}accumulation\PYGZus{}steps}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{,}
+    \PYG{n}{weight\PYGZus{}decay}\PYG{o}{=}\PYG{l+m+mf}{0.01}\PYG{p}{,}
+    \PYG{n}{save\PYGZus{}total\PYGZus{}limit}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{,}
+    \PYG{n}{num\PYGZus{}train\PYGZus{}epochs}\PYG{o}{=}\PYG{l+m+mi}{10}\PYG{p}{,}
+    \PYG{n}{predict\PYGZus{}with\PYGZus{}generate}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,}
+    \PYG{n}{fp16}\PYG{o}{=}\PYG{k+kc}{True}
+\PYG{p}{)}
+
+\PYG{n}{data\PYGZus{}collator} \PYG{o}{=} \PYG{n}{DataCollatorForSeq2Seq}\PYG{p}{(}\PYG{n}{tokenizer}\PYG{p}{,} \PYG{n}{model}\PYG{o}{=}\PYG{n}{model}\PYG{p}{)}
+
+\PYG{n}{trainer} \PYG{o}{=} \PYG{n}{Seq2SeqTrainer}\PYG{p}{(}
+    \PYG{n}{model}\PYG{p}{,}
+    \PYG{n}{args}\PYG{p}{,}
+    \PYG{n}{train\PYGZus{}dataset}\PYG{o}{=}\PYG{n}{tokenized\PYGZus{}datasets}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}train\PYGZdq{}}\PYG{p}{],}
+    \PYG{n}{eval\PYGZus{}dataset}\PYG{o}{=}\PYG{n}{tokenized\PYGZus{}datasets}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}validation\PYGZdq{}}\PYG{p}{],}
+    \PYG{n}{data\PYGZus{}collator}\PYG{o}{=}\PYG{n}{data\PYGZus{}collator}\PYG{p}{,}
+    \PYG{n}{tokenizer}\PYG{o}{=}\PYG{n}{tokenizer}\PYG{p}{,}
+    \PYG{n}{compute\PYGZus{}metrics}\PYG{o}{=}\PYG{n}{compute\PYGZus{}metrics}
+\PYG{p}{)}
+
+\PYG{n}{trainer}\PYG{o}{.}\PYG{n}{train}\PYG{p}{()}
+\end{Verbatim}

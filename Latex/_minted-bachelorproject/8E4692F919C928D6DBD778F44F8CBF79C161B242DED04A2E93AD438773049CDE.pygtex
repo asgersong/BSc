@@ -1,0 +1,37 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{l+s+sd}{Evaluate compressed BART and save metrics}
+\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+\PYG{k}{for} \PYG{n}{rank} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{start\PYGZus{}rank}\PYG{p}{,} \PYG{n}{end\PYGZus{}rank} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{step\PYGZus{}size}\PYG{p}{):}
+    \PYG{n}{gc}\PYG{o}{.}\PYG{n}{collect}\PYG{p}{()}  \PYG{c+c1}{\PYGZsh{} Garbage collect Python objects}
+    \PYG{n}{torch}\PYG{o}{.}\PYG{n}{cuda}\PYG{o}{.}\PYG{n}{empty\PYGZus{}cache}\PYG{p}{()}  \PYG{c+c1}{\PYGZsh{} Clear CUDA cache}
+
+    \PYG{n}{compressed\PYGZus{}model} \PYG{o}{=} \PYG{n}{copy}\PYG{o}{.}\PYG{n}{deepcopy}\PYG{p}{(}\PYG{n}{model}\PYG{p}{)}\PYG{o}{.}\PYG{n}{to}\PYG{p}{(}\PYG{n}{device}\PYG{p}{)}
+    \PYG{n}{config} \PYG{o}{=} \PYG{n}{LowRankConfig}\PYG{p}{(}\PYG{n}{rank}\PYG{o}{=}\PYG{n}{rank}\PYG{p}{,} \PYG{n}{target\PYGZus{}modules}\PYG{o}{=}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}out\PYGZus{}proj\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}q\PYGZus{}proj\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}v\PYGZus{}proj\PYGZdq{}}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}k\PYGZus{}proj\PYGZdq{}}\PYG{p}{])}
+    \PYG{n}{loRA\PYGZus{}Transform}\PYG{p}{(}\PYG{n}{compressed\PYGZus{}model}\PYG{p}{,} \PYG{n}{config}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Move the model to GPU if available for evaluation}
+    \PYG{k}{if} \PYG{n}{torch}\PYG{o}{.}\PYG{n}{cuda}\PYG{o}{.}\PYG{n}{is\PYGZus{}available}\PYG{p}{():}
+        \PYG{n}{compressed\PYGZus{}model}\PYG{o}{.}\PYG{n}{to}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}cuda\PYGZsq{}}\PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Define a trainer for evaluation}
+    \PYG{n}{trainer} \PYG{o}{=} \PYG{n}{Seq2SeqTrainer}\PYG{p}{(}
+        \PYG{n}{model}\PYG{o}{=}\PYG{n}{compressed\PYGZus{}model}\PYG{p}{,}
+        \PYG{n}{args}\PYG{o}{=}\PYG{n}{args}\PYG{p}{,}
+        \PYG{n}{train\PYGZus{}dataset}\PYG{o}{=}\PYG{n}{tokenized\PYGZus{}datasets}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}train\PYGZdq{}}\PYG{p}{],}
+        \PYG{n}{eval\PYGZus{}dataset}\PYG{o}{=}\PYG{n}{tokenized\PYGZus{}datasets}\PYG{p}{[}\PYG{l+s+s2}{\PYGZdq{}test\PYGZdq{}}\PYG{p}{],}
+        \PYG{n}{data\PYGZus{}collator}\PYG{o}{=}\PYG{n}{data\PYGZus{}collator}\PYG{p}{,}
+        \PYG{n}{tokenizer}\PYG{o}{=}\PYG{n}{tokenizer}\PYG{p}{,}
+        \PYG{n}{compute\PYGZus{}metrics}\PYG{o}{=}\PYG{n}{compute\PYGZus{}metrics}
+    \PYG{p}{)}
+
+    \PYG{c+c1}{\PYGZsh{} Perform evaluation}
+    \PYG{n}{eval\PYGZus{}results} \PYG{o}{=} \PYG{n}{trainer}\PYG{o}{.}\PYG{n}{evaluate}\PYG{p}{()}
+
+    \PYG{c+c1}{\PYGZsh{} Store metrics for the new experiment}
+    \PYG{k}{for} \PYG{n}{key} \PYG{o+ow}{in} \PYG{n}{metrics\PYGZus{}keys}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n}{key} \PYG{o+ow}{in} \PYG{n}{eval\PYGZus{}results}\PYG{p}{:}
+            \PYG{n}{metrics}\PYG{p}{[}\PYG{n}{key}\PYG{p}{]}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{eval\PYGZus{}results}\PYG{p}{[}\PYG{n}{key}\PYG{p}{])}
+        \PYG{k}{else}\PYG{p}{:}
+            \PYG{n}{metrics}\PYG{p}{[}\PYG{n}{key}\PYG{p}{]}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{k+kc}{None}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} Append None if the key doesn\PYGZsq{}t exist in results}
+\end{Verbatim}

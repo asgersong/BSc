@@ -83,6 +83,78 @@
     \field{year}{2017}
   \endentry
 
+  \entry{naveed2024comprehensive}{misc}{}
+    \name{author}{9}{}{%
+      {{hash=NH}{%
+         family={Naveed},
+         familyi={N\bibinitperiod},
+         given={Humza},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=KAU}{%
+         family={Khan},
+         familyi={K\bibinitperiod},
+         given={Asad\bibnamedelima Ullah},
+         giveni={A\bibinitperiod\bibinitdelim U\bibinitperiod},
+      }}%
+      {{hash=QS}{%
+         family={Qiu},
+         familyi={Q\bibinitperiod},
+         given={Shi},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=SM}{%
+         family={Saqib},
+         familyi={S\bibinitperiod},
+         given={Muhammad},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=AS}{%
+         family={Anwar},
+         familyi={A\bibinitperiod},
+         given={Saeed},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=UM}{%
+         family={Usman},
+         familyi={U\bibinitperiod},
+         given={Muhammad},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=AN}{%
+         family={Akhtar},
+         familyi={A\bibinitperiod},
+         given={Naveed},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=BN}{%
+         family={Barnes},
+         familyi={B\bibinitperiod},
+         given={Nick},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Mian},
+         familyi={M\bibinitperiod},
+         given={Ajmal},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{NH+1}
+    \strng{fullhash}{NHKAUQSSMASUMANBNMA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{labeldatesource}{}
+    \verb{eprint}
+    \verb 2307.06435
+    \endverb
+    \field{title}{A Comprehensive Overview of Large Language Models}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2024}
+  \endentry
+
   \entry{hu2021lora}{misc}{}
     \name{author}{8}{}{%
       {{hash=HEJ}{%
@@ -384,6 +456,73 @@
     \field{year}{2023}
   \endentry
 
+  \entry{lewis2019bart}{misc}{}
+    \name{author}{8}{}{%
+      {{hash=LM}{%
+         family={Lewis},
+         familyi={L\bibinitperiod},
+         given={Mike},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=LY}{%
+         family={Liu},
+         familyi={L\bibinitperiod},
+         given={Yinhan},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GN}{%
+         family={Goyal},
+         familyi={G\bibinitperiod},
+         given={Naman},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=GM}{%
+         family={Ghazvininejad},
+         familyi={G\bibinitperiod},
+         given={Marjan},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Mohamed},
+         familyi={M\bibinitperiod},
+         given={Abdelrahman},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=LO}{%
+         family={Levy},
+         familyi={L\bibinitperiod},
+         given={Omer},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=SV}{%
+         family={Stoyanov},
+         familyi={S\bibinitperiod},
+         given={Ves},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=ZL}{%
+         family={Zettlemoyer},
+         familyi={Z\bibinitperiod},
+         given={Luke},
+         giveni={L\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LM+1}
+    \strng{fullhash}{LMLYGNGMMALOSVZL1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2019}
+    \field{labeldatesource}{}
+    \verb{eprint}
+    \verb 1910.13461
+    \endverb
+    \field{title}{BART: Denoising Sequence-to-Sequence Pre-training for Natural
+  Language Generation, Translation, and Comprehension}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{year}{2019}
+  \endentry
+
   \entry{lv2023parameter}{misc}{}
     \name{author}{6}{}{%
       {{hash=LK}{%
@@ -496,6 +635,42 @@
     \field{title}{Large Language Models as Optimizers}
     \field{eprinttype}{arXiv}
     \field{eprintclass}{cs.LG}
+    \field{year}{2023}
+  \endentry
+
+  \entry{hanifi2023chatgpt}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=HK}{%
+         family={Hanifi},
+         familyi={H\bibinitperiod},
+         given={Khadija},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=CO}{%
+         family={Cetin},
+         familyi={C\bibinitperiod},
+         given={Orcun},
+         giveni={O\bibinitperiod},
+      }}%
+      {{hash=YC}{%
+         family={Yilmaz},
+         familyi={Y\bibinitperiod},
+         given={Cemal},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HKCOYC1}
+    \strng{fullhash}{HKCOYC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2023}
+    \field{labeldatesource}{}
+    \verb{doi}
+    \verb 10.1109/QRS60937.2023.00028
+    \endverb
+    \field{pages}{196\bibrangedash 205}
+    \field{title}{On ChatGPT: Perspectives from Software Engineering Students}
+    \field{month}{10}
     \field{year}{2023}
   \endentry
 
@@ -762,71 +937,51 @@
     \field{year}{2020}
   \endentry
 
-  \entry{lewis2019bart}{misc}{}
-    \name{author}{8}{}{%
-      {{hash=LM}{%
-         family={Lewis},
-         familyi={L\bibinitperiod},
-         given={Mike},
-         giveni={M\bibinitperiod},
+  \entry{PGL}{report}{}
+    \name{author}{5}{}{%
+      {{hash=TAK}{%
+         family={Thomsen},
+         familyi={T\bibinitperiod},
+         given={Andreas\bibnamedelima Kaag},
+         giveni={A\bibinitperiod\bibinitdelim K\bibinitperiod},
       }}%
-      {{hash=LY}{%
-         family={Liu},
-         familyi={L\bibinitperiod},
-         given={Yinhan},
-         giveni={Y\bibinitperiod},
+      {{hash=PASH}{%
+         family={Poulsen},
+         familyi={P\bibinitperiod},
+         given={Asger Song\bibnamedelima Høøck},
+         giveni={A\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim
+  H\bibinitperiod},
       }}%
-      {{hash=GN}{%
-         family={Goyal},
-         familyi={G\bibinitperiod},
-         given={Naman},
-         giveni={N\bibinitperiod},
+      {{hash=RBS}{%
+         family={Rasmussen},
+         familyi={R\bibinitperiod},
+         given={Buster\bibnamedelima Salomon},
+         giveni={B\bibinitperiod\bibinitdelim S\bibinitperiod},
       }}%
-      {{hash=GM}{%
-         family={Ghazvininejad},
-         familyi={G\bibinitperiod},
-         given={Marjan},
-         giveni={M\bibinitperiod},
+      {{hash=CJB}{%
+         family={Christensen},
+         familyi={C\bibinitperiod},
+         given={Jeppe\bibnamedelima Bangshaab},
+         giveni={J\bibinitperiod\bibinitdelim B\bibinitperiod},
       }}%
-      {{hash=MA}{%
-         family={Mohamed},
+      {{hash=MNVS}{%
+         family={Madsen},
          familyi={M\bibinitperiod},
-         given={Abdelrahman},
-         giveni={A\bibinitperiod},
-      }}%
-      {{hash=LO}{%
-         family={Levy},
-         familyi={L\bibinitperiod},
-         given={Omer},
-         giveni={O\bibinitperiod},
-      }}%
-      {{hash=SV}{%
-         family={Stoyanov},
-         familyi={S\bibinitperiod},
-         given={Ves},
-         giveni={V\bibinitperiod},
-      }}%
-      {{hash=ZL}{%
-         family={Zettlemoyer},
-         familyi={Z\bibinitperiod},
-         given={Luke},
-         giveni={L\bibinitperiod},
+         given={Niels Viggo\bibnamedelima Stark},
+         giveni={N\bibinitperiod\bibinitdelim V\bibinitperiod\bibinitdelim
+  S\bibinitperiod},
       }}%
     }
-    \strng{namehash}{LM+1}
-    \strng{fullhash}{LMLYGNGMMALOSVZL1}
+    \strng{namehash}{TAK+1}
+    \strng{fullhash}{TAKPASHRBSCJBMNVS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{labelyear}{2019}
+    \field{labelyear}{2022}
     \field{labeldatesource}{}
-    \verb{eprint}
-    \verb 1910.13461
-    \endverb
-    \field{title}{BART: Denoising Sequence-to-Sequence Pre-training for Natural
-  Language Generation, Translation, and Comprehension}
-    \field{eprinttype}{arXiv}
-    \field{eprintclass}{cs.CL}
-    \field{year}{2019}
+    \field{title}{Pigeon Guiding Light: Final Report}
+    \field{type}{Computer Engineering Semester Project II Report}
+    \field{year}{2022}
+    \warn{\item Invalid format of field 'month'}
   \endentry
 
   \entry{devlin2019bert}{misc}{}
@@ -870,6 +1025,55 @@
     \field{eprinttype}{arXiv}
     \field{eprintclass}{cs.CL}
     \field{year}{2019}
+  \endentry
+
+  \entry{microsoft}{misc}{}
+    \name{author}{2}{}{%
+      {{hash=SH}{%
+         family={Steen},
+         familyi={S\bibinitperiod},
+         given={Heidi},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=WD}{%
+         family={Wahin},
+         familyi={W\bibinitperiod},
+         given={Dan},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SHWD1}
+    \strng{fullhash}{SHWD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2024}
+    \field{labeldatesource}{}
+  \field{note}{\url{https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview}
+  [Accessed: 2024-05-22]}
+    \field{title}{Retrieval Augmented Generation (RAG) in Azure AI Search}
+    \field{year}{2024}
+  \endentry
+
+  \entry{swann2022numerisk}{book}{}
+    \name{author}{1}{}{%
+      {{hash=SA}{%
+         family={Swann},
+         familyi={S\bibinitperiod},
+         given={Andrew},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SA1}
+    \strng{fullhash}{SA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{labelyear}{2022}
+    \field{labeldatesource}{}
+    \field{title}{Numerisk Line{\ae}r Algebra}
+    \list{institution}{1}{%
+      {Institut for Matematik, Aarhus Universitet}%
+    }
+    \field{year}{2022}
   \endentry
 \enddatalist
 \endinput

@@ -1,16 +1,74 @@
-\chapter{Discussion}
+\chapter{Discussion}\label{chap:discussion}
+
+This chapter presents a detailed discussion of the results obtained from the experiments conducted in this thesis. The primary focus is on the performance and potential applications of a Retrieval-Augmented Generation (RAG) Chatbot and the effects of applying low-rank approximation techniques to the BART model. The discussion is organized into several sections, beginning with the interpretation of results, followed by an analysis of the limitations encountered during the research, and concluding with suggestions for future work. By critically evaluating the outcomes, this chapter aims to provide a comprehensive understanding of the contributions and implications of the research findings.
 
 \section{Interpretation of Results}
-    \subsection{RAG Chatbot}
-        The Study Buddy RAG chatbot successfully demonstrated the potential of combining retrieval-augmented generation (RAG) models with large language models (LLMs) to enhance the learning experience for students. The integration of the retriever and generator components, along with the ability to upload and reference specific documents, significantly improved the chatbot's response quality and relevance. However, the specialization of the chatbot's responses due to the document upload feature can restrict its ability to handle unrelated queries effectively. 
-        This trade-off highlights a critical aspect of Study Buddy's current implementation. 
-        While it succeeds in providing detailed responses within the scope of the uploaded documents, its performance on broader, unrelated topics may diminish as it leans heavily on the specific context provided by those documents. Furthermore, The quality of the data retrieved by a RAG implementation is directly dependent on the quality of the data it has access to. If the information in the underlying source systems—such as databases, online file storage, or other data repositories—is outdated, incomplete, or biased, the RAG implementation cannot identify or correct these flaws. 
-        Consequently, it will retrieve and pass along this flawed information to the language model responsible for generating the final output.
 
-    \subsection{Case Study: Low Rank Approximation}
-        Recall from Section \ref{appropriate_rank} that we needed to low-rank approximate the self-attention matrices with at most rank \(r = 318\) and rank \(r = 424\) for BART-base and BART-large respectively to achieve a significant reduction in computational complexity and storage requirements. However, the results show that the summarization quality declines significantly before this threshold.
-        The low-rank approximation of the BART-Base model does not present a viable approach to compressing large language models for summarization tasks. Although the technique can achieve significant reductions in computational complexity and storage requirements, the summarization quality declines significantly before reaching a practically useful rank. These findings highlight the limitations of low-rank approximations for preserving the performance of large language models in summarization tasks.
+The results obtained from the experiments conducted in this thesis offer substantial insights into the potential applications of a Retrieval-Augmented Generation (RAG) Chatbot and the low-rank approximation technique applied to the BART model. This section elaborates on the implications of these findings.
 
-        In summary, while low-rank approximation effectively reduces the computational burden and storage requirements of the BART-Base model, the associated decline in summarization quality limits its practical applicability. This work underscores the need for alternative approaches to optimize and deploy large language models in resource-constrained environments without compromising performance.
+\subsection{RAG Chatbot}
 
-\section{Limitations and Challenges}
+The prototype of the RAG Chatbot, developed as a 'Study Buddy,' demonstrated notable enhancements in response quality, particularly in terms of relevance, following the integration of document retrieval with text generation components. Various scenarios were evaluated to assess the chatbot's functionality and its capacity to handle diverse query types.
+
+\subsubsection{Specific Topic Queries}
+
+The chatbot's responses to specific topic queries, such as questions about orthogonal matrices, exhibited significant improvements in contextually appropriate detail after the incorporation of relevant documents. This indicates that the retriever component effectively supplements the generator with pertinent content, thereby making the responses more informative and contextually appropriate for students seeking to learn about specific topics.
+
+\subsubsection{Unfamiliar Topics}
+
+In instances where the topic was not commonly addressed by standard language models, such as a previous student project \cite{PGL}, the chatbot initially provided inferred responses. However, upon the insertion of specific project documentation, the factual correctness and relevance of the responses improved markedly. This demonstrates the RAG model's capability to adapt to specialized and potentially unfamiliar content through effective document retrieval. This feature is particularly beneficial in educational settings where course-specific material, which is not widely available online and thus not covered by pre-trained language models, can be incorporated to enhance the chatbot's responses.
+
+\subsubsection{Impact on Unrelated Queries}
+
+The insertion of a single document related to a specific topic degraded the chatbot's performance on unrelated queries. Conversely, the presence of multiple relevant documents enhanced the chatbot's ability to provide accurate and relevant responses across various topics covered by the documents. This indicates the robustness and scalability of the RAG architecture in handling diverse queries when equipped with a comprehensive document repository. This also underscores the importance of maintaining a well-curated and diverse document repository to ensure the chatbot's ability to generalize effectively across different topics.
+
+Additionally, if the goal of the chatbot is to provide accurate and relevant responses on a narrow set of topics, the results indicate the chatbot's potential to limit responses to the scope of the inserted documents. This is akin to a domain-specific chatbot, as discussed in Appendix \ref{appendix:Bergenholtz}. Such specialization is particularly useful in educational settings where the chatbot is designed to assist students with course-specific queries.
+
+\subsection{Case Study: Low-Rank Approximation of BART Model}
+
+The application of low-rank approximation to the BART model aimed to assess its effectiveness in reducing computational complexity while maintaining performance. The results were analyzed based on ROUGE score metrics and by comparing the generated summaries of the approximated model with those of the original BART model.
+
+\subsubsection{Fine-Tuning and Evaluation}
+The fine-tuning of the BART models on the SamSum dataset demonstrated that both models could learn from the training data. BART-large outperformed BART-base in terms of ROUGE scores, which was expected due to its larger capacity and more parameters. However, considering that BART-large has more than twice as many parameters as BART-base, and the performance difference was minimal, it suggests that BART-base is a more viable option for summarization tasks when computational resources are limited. Although BART-base was fine-tuned over more epochs than BART-large, the results indicate that the model's performance was not significantly affected by the number of epochs.
+
+\subsubsection{Performance Retention}
+
+The ROUGE scores remained stable until a rank of approximately 510, beyond which a decline was observed. As discussed in Section \ref{appropriate_rank}, to low-rank approximate the self-attention matrices, a maximum rank of $r = 318$ for BART-base and $r = 424$ for BART-large is needed to achieve a reduction in computational complexity and storage requirements. However, the results indicate that summarization quality declines significantly before this threshold. This suggests that while low-rank approximation can reduce the model's computational complexity and storage requirements, it comes at the cost of summarization quality, thereby limiting its practical utility in this context.
+
+\subsubsection{Computational Efficiency}
+
+The reduction in the size of attention matrices leads to a noticeable decrease in computational requirements. The approximated model demonstrated improved efficiency in terms of storage and processing time, making it more suitable for deployment in resource-constrained environments. As an academic exercise exploring a technique taught in linear algebra courses for computer and software engineering students, the low-rank approximation of the BART model provided valuable insights into the trade-offs between computational efficiency and performance in large language models. The results underscore the importance of balancing these factors when optimizing LLMs for real-world applications.
+
+\section{Limitations and Future Work} \label{limitations}
+This section outlines the limitations encountered during the development and evaluation of the RAG Chatbot and the low-rank approximation applied to the BART model. It also proposes directions for future research and development to address these limitations and enhance the performance and applicability of the solutions. The discussion is divided into two main parts: the limitations and future work for the RAG Chatbot, and the limitations and future work for the low-rank approximation of the BART model.
+\subsection{RAG Chatbot}
+This subsection discusses the limitations specific to the RAG Chatbot, focusing on data quality, conversation context, handling unrelated queries, and deployment scalability. Recommendations for future improvements are also provided.
+\subsubsection{Ensuring Data Quality in RAG Implementations}
+The quality of data retrieved by a RAG implementation depends entirely on the data it can access. If the underlying source systems contain outdated, incomplete, or biased information, the RAG implementation cannot detect these flaws. It will merely retrieve and pass this flawed data to the language model, which then generates the final output. Therefore, ensuring that the document repository is comprehensive and up-to-date is crucial for maintaining high performance.
+
+\subsubsection{Maintaining Conversation Context}
+While testing the chatbot, it was observed that it was unable to maintain the context of the conversation across multiple queries. This was due to the lack of a memory component that could store the conversation history and use it to provide more coherent responses. Implementing a memory component or a dialogue manager could enhance the chatbot's conversational abilities and make it more engaging for users. However, this was not the primary focus of the study and thus was not implemented in the current version of the chatbot prototype.
+
+\subsubsection{Unrelated Queries}
+As noted in Section \ref{unrelated_query}, the chatbot's performance on unrelated queries deteriorated after inserting a single document by keeping on topic with the inserted document. This limitation could be viewed as a feature depending on the desired use case of the chatbot. However, if this is the case, a more robust system for rejecting unrelated queries should be implemented. Currently, the prototype does not have a mechanism for detecting and rejecting queries that are outside the scope of the inserted documents. This is a trade-off between specialization and generalization to consider when taking the prototype to the next development phase.
+
+\subsubsection{Deployment Scalability}
+The current implementation of the RAG chatbot prototype is designed for educational purposes for a single user. Although the Study Buddy demonstrated improved performance in a controlled environment, scaling this solution for broader deployment in real-world educational settings presents additional challenges. These include managing large-scale document repositories and ensuring seamless integration with existing educational platforms. Additionally, the ethical implications of deploying AI-driven chatbots in education, such as data privacy (GDPR), must be considered. Future work should focus on addressing these challenges to enhance the scalability and deployability of the RAG chatbot in real-world educational environments.
+
+\subsection{Case Study: Low-Rank Approximation}
+This subsection highlights the limitations of the low-rank approximation applied to the BART model, including summarization quality, comparative studies, dataset and task specificity, and computational resources. Future research directions are suggested to address these issues.
+\subsubsection{Summarization Quality}
+The main drawback of applying the low-rank approximation technique to the BART model is the decline in summarization quality as the rank decreases. Although this approach can significantly reduce computational complexity and storage requirements, the performance drop before reaching a practically useful rank limits its practical applicability. Future research should investigate alternative methods to optimize BART for resource-constrained environments without compromising performance.
+
+\subsubsection{Comparative Studies}
+The evaluation of low-rank approximation was limited to the BART model, and the results may not be generalizable to other large language models (LLMs). Future work should conduct comparative studies across different models to assess the effectiveness of low-rank approximation in optimizing various architectures. This would provide a more comprehensive understanding of the trade-offs between computational efficiency and performance in different LLMs.
+
+\subsubsection{Dataset and Task Specificity}
+The evaluation of low-rank approximation was performed using the SamSum dataset for abstractive summarization. Results may differ when applied to other datasets or tasks, such as question answering or text generation. Future work should explore the effects of low-rank approximation on various datasets and tasks to assess its generalizability and effectiveness across different applications.
+
+\subsubsection{Computational Resources}
+The initial fine-tuning and evaluation of large models like BART demand substantial computational resources, posing a barrier for researchers and practitioners with limited access to high-performance computing facilities. Therefore, it is recommended that future work ensures the availability of adequate computational resources for these tasks.
+
+\section{Conclusion}
+
+This discussion highlights the significant contributions of the RAG chatbot and low-rank approximation in advancing the efficiency and applicability of AI-driven solutions. While challenges remain, the promising results pave the way for further exploration and development in these areas, offering substantial potential for optimizing large language models and enhancing their deployment in resource-constrained environments.

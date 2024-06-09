@@ -1,7 +1,35 @@
-\chapter{Conclusion and Future Work}
+\chapter{Conclusion}
+This thesis set out to bridge the gap between theoretical linear algebra concepts and their practical applications in computer engineering, particularly in the context of LLMs. The research aimed to deepen the understanding of the linear algebraic foundations of LLMs, gain practical experience through the development of a RAG chatbot prototype, and assess the effectiveness of low-rank approximation techniques in reducing the computational complexity and storage requirements of the BART model while maintaining performance on summarization tasks.
 
 \section{Summary of Key Findings}
+This section summarizes the key findings and contributions of this thesis:
+\subsection{Theoretical Exploration}
+The investigation into the mathematical principles underpinning LLMs, and especially the Transformer model architecture, highlighted the critical role of linear algebraic operations such as matrix multiplication. This exploration provided a detailed understanding of how concepts like low-rank approximations by SVD can be utilized to enhance model efficiency.
+
+\subsection{RAG Chatbot Development}
+The development of the RAG chatbot prototype, Study Buddy, showcased the practical application of LLMs in educational settings. The integration of document retrieval with text generation components significantly improved the relevance and accuracy of responses to specific topic queries. This practical implementation demonstrated the potential of RAG models to supplement traditional educational tools by providing contextually appropriate and detailed information.
+
+\subsection{Low-Rank Approximation of BART Model}
+The case study on the low-rank approximation of the BART model underscored the trade-offs between computational efficiency and model performance. While low-rank approximation can significantly reduce computational complexity and storage requirements, it also led to a decline in summarization quality beyond certain rank thresholds. This study highlighted the importance of balancing performance retention with resource optimization in the application of LLMs.
 
 \section{Contributions to the Field}
 
+This thesis makes several contributions to the field of natural language processing and artificial intelligence:
+
+\begin{enumerate}
+    \item \textbf{Integration of Theoretical and Practical Knowledge}: By linking linear algebra concepts with their practical applications in LLMs, this research provides a comprehensive framework for understanding and optimizing these models. This integration is crucial for advancing both educational methodologies and practical implementations in AI.
+    \item \textbf{Development of a Practical Educational Tool}: The "Study Buddy" RAG chatbot serves as a prototype for future educational tools that leverage AI to enhance learning experiences. Its successful implementation demonstrates the feasibility of using advanced AI models in real-world educational settings.
+    \item \textbf{Optimization Techniques for LLMs}: The exploration of low-rank approximation techniques provides valuable insights into optimizing LLMs. The findings contribute to ongoing research aimed at making LLMs more accessible and efficient, especially in resource-constrained environments.
+\end{enumerate}
+
 \section{Recommendations for Future Research}
+
+While this thesis has made significant strides in understanding and applying linear algebra in the context of LLMs, several areas warrant further investigation:
+
+\begin{enumerate}
+    \item \textbf{Extended Comparative Studies}: Future research should conduct comparative studies across various LLM architectures to assess the generalizability of low-rank approximation techniques. This would provide a more comprehensive understanding of the trade-offs involved in optimizing different models.
+    \item \textbf{Broader Dataset and Task Evaluation}: Evaluating the effectiveness of low-rank approximation on diverse datasets and tasks, beyond summarization, would help establish its applicability across different NLP applications. This includes tasks such as question answering, text generation, and translation.
+    \item \textbf{Enhanced Chatbot Functionality}: Further development of the RAG chatbot should focus on enhancing its scalability and integration with existing educational platforms. Additionally, addressing the ethical implications of AI-driven educational tools, such as data privacy and bias, is crucial for their broader deployment.
+\end{enumerate}
+
+In conclusion, this thesis has demonstrated the interconnectedness of theoretical and practical aspects of linear algebra and LLMs. The findings not only advance the understanding of these complex models but also pave the way for future innovations in AI-driven educational tools and optimization strategies for LLMs.
